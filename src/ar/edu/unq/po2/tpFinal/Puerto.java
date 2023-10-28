@@ -26,6 +26,15 @@ public class Puerto {
 		containers.add(container);
 	}
 	
+	/*
+	 * DEBE PODER ENVIAR UNA CARGA DE UN PUERTO A OTRO PUERTO, SIEMPRE Y CUANDO SE PUEDA ENCONTRAR
+	   SU CIRCUITO DE ALGUNA NAVIERA QUE TENGA PUERTOS DE ORIGEN Y DESTINO.
+    */
+	
+	public void enviarCarga(Container container) { // DUDA
+		//??????
+	}
+	
 	//GET Y SET.
 	
 	public String getNombre() {
