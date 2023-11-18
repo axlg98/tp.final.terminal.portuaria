@@ -49,4 +49,13 @@ public class Circuito {
 	public void setTramos(List<Tramo> tramos) {
 		this.tramos = tramos;
 	}
+
+	public Puerto puertoDeDestino() {
+		
+		int ultimoTramo = tramos.size();
+		
+		return tramos.get(ultimoTramo).getPuertoDestino();
+		
+	}
+	
 }
