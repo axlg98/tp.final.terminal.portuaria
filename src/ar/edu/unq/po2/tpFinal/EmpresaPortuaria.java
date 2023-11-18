@@ -21,7 +21,13 @@ public class EmpresaPortuaria extends Empresa{
 	public void agregarBuque(Buque buque) {
 		buques.add(buque);
 	}
-	
+
+	public void agregarCircuito(Circuito circuito) {
+		
+		this.circuitos.add(circuito);
+		
+	}
+
 	//GET Y SET
 	
 	public List<Circuito> getCircuitos() {
