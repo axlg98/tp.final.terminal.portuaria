@@ -7,6 +7,8 @@ public class Puerto {
 	private List<Empresa> empresas; //Lista de Empresa.
 	private List<Chofer> choferesHabilitados;
 	private List<Container> containers;
+	private List<Orden> ordenes;
+//	private List<Consignee> consignee;
 
 
 	public Puerto(String nombre,List<Empresa> emps,List<Chofer> cs,List<Container> crs) {
@@ -30,9 +32,11 @@ public class Puerto {
 	 * DEBE PODER ENVIAR UNA CARGA DE UN PUERTO A OTRO PUERTO, SIEMPRE Y CUANDO SE PUEDA ENCONTRAR
 	   SU CIRCUITO DE ALGUNA NAVIERA QUE TENGA PUERTOS DE ORIGEN Y DESTINO.
     */
-	
-	public void enviarCarga(Container container) { // DUDA
-		//??????
+	//Arreglar esta parte.
+	public void enviarCarga(EmpresaPortuaria emp, Circuito c,Container container) { // DUDA
+		if(emp.contieneCircuito(c)  /*&& (this.mismoDestino(emp, c) && this.mismaLlegada(emp, c))*/) {
+			this.agregarContainer(container);
+		}
 	}
 	
 	//GET Y SET.
@@ -66,6 +70,14 @@ public class Puerto {
 
 	public void setContainers(List<Container> containers) {
 		this.containers = containers;
+	}
+	
+	public List<Orden> getOrdenes(){
+		return ordenes;
+	}
+	
+	public void setOrdenes(List<Orden> ordenes) {
+		this.ordenes = ordenes;
 	}
 	
 }
