@@ -2,10 +2,8 @@ package ar.edu.unq.po2.tpFinal;
 
 public class ContainerDry extends Container {
 
-	public ContainerDry(String descripcion) {
-		
-		super(descripcion);
-		
+	public ContainerDry(int ancho, int largo, int altura, int peso) {
+		super(ancho, largo, altura, peso);
 	}
 	
 	

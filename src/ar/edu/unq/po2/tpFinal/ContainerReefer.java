@@ -4,11 +4,10 @@ public class ContainerReefer extends Container {
 
 	private int consumoPorHora;
 	
-	public ContainerReefer(String descripcion, int consumoPorHora) {
-		super(descripcion);
+	
+	public ContainerReefer(int ancho, int largo, int altura, int peso, int consumoPorHora) {
+		super(ancho, largo, altura, peso);
 		this.consumoPorHora = consumoPorHora;
-		
-		// TODO Auto-generated constructor stub
 	}
 
 	public int getConsumoPorHora() {

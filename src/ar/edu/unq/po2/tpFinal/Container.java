@@ -2,19 +2,54 @@ package ar.edu.unq.po2.tpFinal;
 
 public abstract class Container {
 
-	public Container(String descripcion) {
+	
+	private int ancho;
+	private int largo;
+	private int altura;
+	private int peso;
+	
+	
+	
+	public Container(int ancho, int largo, int altura, int peso) {
 		super();
-		this.descripcion = descripcion;
+		this.ancho = ancho;
+		this.largo = largo;
+		this.altura = altura;
+		this.peso = peso;
 	}
-
-	private String descripcion;
-
-	public String getDescripcion() {
-		return descripcion;
+	
+	public int getAncho() {
+		return ancho;
 	}
-
-	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
+	public void setAncho(int ancho) {
+		this.ancho = ancho;
 	}
+	public int getLargo() {
+		return largo;
+	}
+	public void setLargo(int largo) {
+		this.largo = largo;
+	}
+	public int getAltura() {
+		return altura;
+	}
+	public void setAltura(int altura) {
+		this.altura = altura;
+	}
+	public int getPeso() {
+		return peso;
+	}
+	public void setPeso(int peso) {
+		this.peso = peso;
+	}
+	
+	public int volumenDelContainer() {
+		
+		return this.ancho * this.largo * this.altura;
+		
+	}
+	
+	
+	
 	
 }
