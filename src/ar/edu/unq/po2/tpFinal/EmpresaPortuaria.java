@@ -6,7 +6,7 @@ import java.util.List;
 public class EmpresaPortuaria extends Empresa{
 	private List<Buque> buques;
 	private List<Circuito> circuitos;
-//  private List<Viaje> viajes;
+    private List<Viaje> viajes;
 	
 	public EmpresaPortuaria() {
 		buques = new ArrayList<Buque>();
@@ -17,6 +17,8 @@ public class EmpresaPortuaria extends Empresa{
 	public boolean contieneCircuito(Circuito circuito) {
 		return circuitos.contains(circuito);
 	}
+	
+	//AGREGAR A LA LISTA DE CADA CLASE.
 	
 	public void agregarBuque(Buque buque) {
 		buques.add(buque);
@@ -43,6 +45,14 @@ public class EmpresaPortuaria extends Empresa{
 	}
 	public void setBuques(List<Buque> buques) {
 		this.buques = buques;
+	}
+	
+	public List<Viaje> getViajes() {
+		return viajes;
+	}
+
+	public void setViajes(List<Viaje> viajes) {
+		this.viajes = viajes;
 	}
 	
 }
