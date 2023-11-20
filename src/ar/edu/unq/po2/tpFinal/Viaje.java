@@ -12,15 +12,13 @@ public class Viaje {
 	private Puerto puertoDestino;
 	
 	
-	public Viaje(Buque unBuque, Circuito circuito, LocalDateTime fechaSalida, LocalDateTime fechaLlegada,
-			Puerto puertoOrigen, Puerto puertoDestino) {
+	public Viaje(Buque unBuque, Circuito circuito, LocalDateTime fechayHoraSalida) {
 		super();
 		this.unBuque = unBuque;
 		this.circuito = circuito;
-		this.fechaSalida = fechaSalida;
-		this.fechaLlegada = fechaLlegada;
-		this.puertoOrigen = puertoOrigen;
-		this.puertoDestino = puertoDestino;
+		this.fechaSalida = fechayHoraSalida;
+		this.puertoOrigen = circuito.puertoOrigen();
+		this.puertoDestino = circuito.puertoDeDestino();
 	}
 	
 	

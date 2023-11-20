@@ -1,58 +1,32 @@
 package ar.edu.unq.po2.tpFinal;
 
+import java.util.List;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Iterator;
 
 public class Circuito {
-	private String lugarOrigen;
-	private String lugarDestino;
-	private LocalDateTime fecha;
-	private Integer distancia;
-	private List<Tramo> tramos;
+
+	private int id;
+	private List<Tramo> tramos = new ArrayList<Tramo>();
 	
-	public Circuito(Integer distancia,List<Tramo> tramos,LocalDateTime fecha) {
-//		this.lugarOrigen = origen;
-//		this.lugarDestino = destino;
-		this.fecha = fecha;
-		this.distancia = distancia;
-		this.tramos = new ArrayList<Tramo>();
-	}
-	
-	public Puerto puertoDeDestino() {
-		
-		int ultimoTramo = tramos.size();
-		
-		return tramos.get(ultimoTramo).getPuertoDestino();
-		
-	}
-		
-	//SET Y GET
+	private LocalDateTime fechaYHoraDeSalida;
 
-	public String getLugarOrigen() {
-		return lugarOrigen;
+	public Circuito(int id, List<Tramo> tramos, LocalDateTime fechaYHoraDeSalida) {
+		super();
+		this.id = id;
+		this.tramos = tramos;
+		this.fechaYHoraDeSalida = fechaYHoraDeSalida;
 	}
 
-	public void setLugarOrigen(String lugarOrigen) {
-		this.lugarOrigen = lugarOrigen;
+	public int getId() {
+		return id;
 	}
 
-	public String getLugarDestino() {
-		return lugarDestino;
+	public void setId(int id) {
+		this.id = id;
 	}
 
-	public void setLugarDestino(String lugarDestino) {
-		this.lugarDestino = lugarDestino;
-	}
-
-	public Integer getDistancia() {
-		return distancia;
-	}
-
-	public void setDistancia(Integer distancia) {
-		this.distancia = distancia;
-	}
-	
 	public List<Tramo> getTramos() {
 		return tramos;
 	}
@@ -61,15 +35,91 @@ public class Circuito {
 		this.tramos = tramos;
 	}
 
-	public LocalDateTime getFecha() {
-		return fecha;
+	public LocalDateTime getFechaYHoraDeSalida() {
+		return fechaYHoraDeSalida;
 	}
 
-	public void setFecha(LocalDateTime fecha) {
-		this.fecha = fecha;
+	public void setFechaYHoraDeSalida(LocalDateTime fechaYHoraDeSalida) {
+		this.fechaYHoraDeSalida = fechaYHoraDeSalida;
+	}
+	
+	
+	public Puerto puertoDeDestino() {
+		
+		int ultimoTramo = tramos.size()-1;
+		
+		return tramos.get(ultimoTramo).getPuertoDestino();
+		
+	}
+	
+	public Double duracionDeTodoElCircuito() {
+		
+		Double duracion = 0d;
+		
+		for (Tramo tramo : tramos) {
+			
+			duracion += tramo.getDuracionTramo();
+			
+		}
+		
+		return duracion;
+		
+	}
+	
+	
+	public void agregarTramo(Tramo tramo) {
+		
+		int ultimo = tramos.size()-1;
+		
+		Tramo ultimoTramo = tramos.get(ultimo);
+		
+		if (ultimoTramo.getPuertoDestino() == tramo.getPuertoOrigen()) {
+			
+			tramos.add(tramo);
+			
+		}
+		
+		// caso contrario no hace nada
+	}
+	
+	
+	public int cantidadTramos() {
+		
+		return tramos.size();
+		
+	}
+	
+	
+	public boolean contieneA(Puerto puertoDestino){
+		
+		return this.tramos.stream().anyMatch(t -> t.getPuertoDestino() == puertoDestino);
+		
 	}
 
+	public Puerto puertoOrigen() {
+		// TODO Auto-generated method stub
+		return this.getTramos().get(0).getPuertoOrigen();
+	}
+	
+	
+	public Double getCostoCircuito() {
+		
+		Double costo = 0d;
+		
+		for (Tramo tramo : tramos) {
+			
+			costo += tramo.getCostoTramo();
+			
+		}
+		
+		return costo;
+		
+	}
+	
 	
 	
 	
 }
+
+
+

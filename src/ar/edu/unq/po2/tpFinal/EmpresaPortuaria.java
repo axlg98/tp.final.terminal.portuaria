@@ -1,58 +1,81 @@
 package ar.edu.unq.po2.tpFinal;
 
-import java.util.ArrayList;
+import java.time.LocalDateTime;
 import java.util.List;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
-public class EmpresaPortuaria extends Empresa{
-	private List<Buque> buques;
+public class EmpresaPortuaria {
+
 	private List<Circuito> circuitos;
-    private List<Viaje> viajes;
+	private List<Viaje> viajes;
+	private List<Buque> buques;
 	
-	public EmpresaPortuaria() {
-		buques = new ArrayList<Buque>();
-		circuitos = new ArrayList<Circuito>();
-	}
-	
-	//Verifica si el puerto contiene el Circuito dado.
-	public boolean contieneCircuito(Circuito circuito) {
-		return circuitos.contains(circuito);
-	}
-	
-	//AGREGAR A LA LISTA DE CADA CLASE.
-	
-	public void agregarBuque(Buque buque) {
-		buques.add(buque);
-	}
 
+	
 	public void agregarCircuito(Circuito circuito) {
 		
 		this.circuitos.add(circuito);
 		
 	}
-
-	//GET Y SET
+	
+	public void agregarBuque(Buque buque) {
+		
+		this.buques.add(buque);
+		
+	}
+	
+	public List<Circuito> losCircuitosConDestinoEn(Puerto puerto){
+		
+		return this.getCircuitos().stream().filter(c->c.puertoDeDestino() == puerto).collect(Collectors.toList());
+		
+	}
+	
+	
+	public void generarViaje(Buque buque, Circuito circuito, LocalDateTime fechaYHora) {
+		
+		if (esCircuitoValido(circuito) && esBuqueValido(buque)) {
+			
+			this.viajes.add(new Viaje(buque, circuito, fechaYHora));
+			
+		}
+		
+	}
+	
+	
+	public boolean esCircuitoValido(Circuito circuito) {
+		
+		return this.circuitos.contains(circuito);
+		
+	}
+	
+	public boolean esBuqueValido(Buque buque) {
+		
+		return this.buques.contains(buque);
+		
+	}
+	
+	
 	
 	public List<Circuito> getCircuitos() {
 		return circuitos;
 	}
-
 	public void setCircuitos(List<Circuito> circuitos) {
 		this.circuitos = circuitos;
 	}
-
 	public List<Buque> getBuques() {
 		return buques;
 	}
 	public void setBuques(List<Buque> buques) {
 		this.buques = buques;
 	}
-	
-	public List<Viaje> getViajes() {
-		return viajes;
-	}
 
-	public void setViajes(List<Viaje> viajes) {
-		this.viajes = viajes;
-	}
+	//Verifica si el puerto contiene el Circuito dado.
+		public boolean contieneCircuito(Circuito circuito) {
+			return circuitos.contains(circuito);
+		}
+	
+	
+	
 	
 }

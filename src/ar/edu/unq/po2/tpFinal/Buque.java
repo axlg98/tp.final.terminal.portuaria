@@ -32,12 +32,7 @@ public class Buque {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	public FaseBuque getFase() {
-		return fase;
-	}
-	public void setFase(FaseBuque fase) {
-		this.fase = fase;
-	}
+	
 	public List<Container> getContainers() {
 		return containers;
 	}
@@ -51,21 +46,19 @@ public class Buque {
 		
 	}
 	
+
+	
 	public void avisarPuerto(Puerto puerto) {
 		
 		puerto.darAvisoClientes();
 		
 	}
 	
-	public void posicionActualDelBuque(int x, int y) {
-		
-	}
-	
+
 	public void actualizarEstado() {
-		
+		this.getFase().actualizarEstado(this);
 	}
 	
-	//SET Y GET
 
 	public Point2D getPosicionActual() {
 		return posicionActual;
@@ -93,5 +86,24 @@ public class Buque {
 		return this.unViaje.getPuertoDestino();
 		
 	}
+
+
+
+	public FaseBuque getFase() {
+		return fase;
+	}
+
+
+
+	public void setFase(FaseBuque fase) {
+		this.fase = fase;
+	}
+	
+	public void posicionActualDelBuque(int x, int y){
+		
+		this.posicionActual.setLocation(x, y);
+	}
+	
+	
 	
 }
