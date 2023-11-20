@@ -1,28 +1,119 @@
 package ar.edu.unq.po2.tpFinal;
 
+import java.awt.geom.Point2D;
+import java.time.LocalDateTime;
 import java.util.List;
+import java.util.ArrayList;
 
 public class Puerto {
+	
 	private String nombre; // nombre del puerto en un determinado pais
-	private List<Empresa> empresas; //Lista de Empresa.
-	private List<Chofer> choferesHabilitados;
+	private List<Empresa> empresas;
 	private List<Container> containers;
-	private List<Orden> ordenes;
-//	private List<Consignee> consignee;
-
-
-	public Puerto(String nombre,List<Empresa> emps,List<Chofer> cs,List<Container> crs) {
-		this.setNombre(nombre);
-		this.setEmpresas(emps);
-		this.setChoferesHabilitados(cs);
-		this.setContainers(crs);		
+	private List<Chofer> choferesHabilitados;
+	
+	private List<Consignee> consignees;
+	private List<Observador> observersGenerales;
+	
+	private Point2D ubicacion = new Point2D.Double(0, 0);
+	
+	private List<EmpresaPortuaria> empresasNavieras;
+	
+	private EstrategiaMejorRuta mejorRuta;
+	
+	
+	public Puerto(String nombre) {
+		super();
+		this.nombre = nombre;
+		this.ubicacion = ubicacion;
+		this.empresasNavieras = new ArrayList<EmpresaPortuaria>();
+		this.choferesHabilitados = new ArrayList<Chofer>();
+		this.containers = new ArrayList<Container>();
+		
+	}
+	
+	 
+	
+	public String getNombre() {
+		return nombre;
+	}
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	public List<Empresa> getEmpresas() {
+		return empresas;
+	}
+	public void setEmpresas(List<Empresa> empresas) {
+		this.empresas = empresas;
+	}
+	
+	public List<Container> getContainers() {
+		return containers;
+	}
+	public void setContainers(List<Container> containers) {
+		this.containers = containers;
 	}
 
-	public void almacenarContainer(Camion camion) {
-		if(this.getChoferesHabilitados().contains(camion.getChofer())) {
-			this.agregarContainer(camion.getContainer());
+	public List<Chofer> getChoferesHabilitados() {
+		return choferesHabilitados;
+	}
+	public void setChoferesHabilitados(List<Chofer> choferesHabilitados) {
+		this.choferesHabilitados = choferesHabilitados;
+	}
+	
+	public List<Consignee> getConsignees() {
+		return consignees;
+	}
+	public void setConsignees(List<Consignee> consignees) {
+		this.consignees = consignees;
+	}
+	public List<Observador> getObserversGenerales() {
+		return observersGenerales;
+	}
+	public void setObserversGenerales(List<Observador> observersGenerales) {
+		this.observersGenerales = observersGenerales;
+	}
+	
+	public List<EmpresaPortuaria> getEmpresasNavieras() {
+		return empresasNavieras;
+	}
+	public void setEmpresasNavieras(List<EmpresaPortuaria> empresasNavieras) {
+		this.empresasNavieras = empresasNavieras;
+	}
+	public Point2D getUbicacion() {
+		return ubicacion;
+	}
+	public void setUbicacion(Point2D ubicacion) {
+		this.ubicacion = ubicacion;
+	}
+	
+	public void crearOrdenExportacion(Cliente cliente, Container container, Puerto puertoDestino, LocalDateTime fechaYHoraSalida) {
+
+		OrdenDeExportacion ordenExportacion = new OrdenDeExportacion(container, cliente, puertoDestino, fechaYHoraSalida);
+        cliente.agregarOrden(ordenExportacion);
+    
+        
+    }
+	
+	
+	public void agregarNaviera(EmpresaPortuaria empresaPortuaria) {
+		
+		this.getEmpresasNavieras().add(empresaPortuaria);
+		
+	}
+
+	
+	public void almacenarContainer(Camion unCamion) {
+		
+		if (this.getChoferesHabilitados().contains(unCamion.getChofer())) {
+			
+			this.getContainers().add(unCamion.getContainer());
+			
 		}
+	
+		
 	}
+	
 	
 	public void agregarContainer(Container container) {
 		containers.add(container);
@@ -39,6 +130,24 @@ public class Puerto {
 		}
 	}
 
+	
+	
+	
+	public void notificarATodosLosConsignees(Buque buque) {
+		
+		for (Consignee consignee : consignees) {
+			consignee.notificarBuqueA50Km(buque);
+		}
+	
+	}
+	
+	
+	// Mejor Ruta
+	public Circuito elMejorCircuito(Puerto puertoDestino) {
+		
+		return this.mejorRuta.elMejorCircuito(this, puertoDestino);
+		
+	}
 	public void darAvisoClientes() {
 		// TODO Auto-generated method stub
 		
@@ -46,45 +155,12 @@ public class Puerto {
 		
 	}
 	
-	//GET Y SET.
-	
-	public String getNombre() {
-		return nombre;
-	}
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-
-	public List<Empresa> getEmpresas() {
-		return empresas;
-	}
-
-	public void setEmpresas(List<Empresa> empresas) {
-		this.empresas = empresas;
+	public void ubicacionDelPuerto(int x, int y){
+		
+		this.setUbicacion(new Point2D.Double(x, y));
 	}
 	
-	public List<Chofer> getChoferesHabilitados() {
-		return choferesHabilitados;
-	}
-
-	public void setChoferesHabilitados(List<Chofer> choferesHabilitados) {
-		this.choferesHabilitados = choferesHabilitados;
-	}
 	
-	public List<Container> getContainers() {
-		return containers;
-	}
-
-	public void setContainers(List<Container> containers) {
-		this.containers = containers;
-	}
 	
-	public List<Orden> getOrdenes(){
-		return ordenes;
-	}
-	
-	public void setOrdenes(List<Orden> ordenes) {
-		this.ordenes = ordenes;
-	}
 	
 }
