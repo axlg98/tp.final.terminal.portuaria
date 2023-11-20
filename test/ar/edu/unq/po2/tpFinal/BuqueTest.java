@@ -1,8 +1,9 @@
 package ar.edu.unq.po2.tpFinal;
 
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.mock;
 
+
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
 import java.awt.geom.Point2D;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -13,34 +14,31 @@ import org.junit.jupiter.api.Test;
 
 class BuqueTest {
 
-	private Buque buque1;
-	private Buque buque2;
+	 Buque buque1;
+	 Buque buque2;
 	
-	private Container container1;
-	private Container container2;
-	private Container container3;
-	private Container container4;
-	private Container container5;
+	 Container container1;
+	 Container container2;
+	 Container container3;
+	 Container container4;
+	 Container container5;
 	
-	private Puerto buenosAires;
-	private Puerto barcelona;
+	 Puerto buenosAires;
+	 Puerto barcelona;
 	
-	private Puerto chile;
-	private Puerto mexico;
+	 Puerto chile;
+	 Puerto mexico;
 	
-	private Viaje viaje;
-	private Circuito circuito;
+	 Viaje viaje;
+	 Circuito circuito;
 	
-	private Tramo tramo1;
-	private Tramo tramo2;
+	 Tramo tramo1;
+	 Tramo tramo2;
 
 	
 	
 	@BeforeEach
 	void setUp() {
-		
-		
-		
 		
 		buenosAires = new Puerto("BuenosAires");
 		buenosAires.setUbicacion(new Point2D.Double(16,24));
@@ -107,11 +105,11 @@ class BuqueTest {
 	@Test 
 	void testCantidadDeContainersEnBuque() {
 		
-		buque1.agregarContainer(container1);
-		buque1.agregarContainer(container2);
-		buque1.agregarContainer(container3);
-		buque1.agregarContainer(container4);
-		buque1.agregarContainer(container5);
+		//buque1.agregarContainer(container1);
+		//buque1.agregarContainer(container2);
+		//buque1.agregarContainer(container3);
+		//buque1.agregarContainer(container4);
+		//buque1.agregarContainer(container5);
 		
 		
 		assertEquals(buque1.getContainers().size(), 5);
