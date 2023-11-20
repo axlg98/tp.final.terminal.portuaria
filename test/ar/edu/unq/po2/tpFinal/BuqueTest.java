@@ -1,9 +1,8 @@
 package ar.edu.unq.po2.tpFinal;
 
-
-
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.mock;
+
 import java.awt.geom.Point2D;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -14,31 +13,34 @@ import org.junit.jupiter.api.Test;
 
 class BuqueTest {
 
-	 Buque buque1;
-	 Buque buque2;
+	private Buque buque1;
+	private Buque buque2;
 	
-	 Container container1;
-	 Container container2;
-	 Container container3;
-	 Container container4;
-	 Container container5;
+	private Container container1;
+	private Container container2;
+	private Container container3;
+	private Container container4;
+	private Container container5;
 	
-	 Puerto buenosAires;
-	 Puerto barcelona;
+	private Puerto buenosAires;
+	private Puerto barcelona;
 	
-	 Puerto chile;
-	 Puerto mexico;
+	private Puerto chile;
+	private Puerto mexico;
 	
-	 Viaje viaje;
-	 Circuito circuito;
+	private Viaje viaje;
+	private Circuito circuito;
 	
-	 Tramo tramo1;
-	 Tramo tramo2;
+	private Tramo tramo1;
+	private Tramo tramo2;
 
 	
 	
 	@BeforeEach
 	void setUp() {
+		
+		
+		
 		
 		buenosAires = new Puerto("BuenosAires");
 		buenosAires.setUbicacion(new Point2D.Double(16,24));
@@ -73,10 +75,8 @@ class BuqueTest {
 		
 		buque1 = new Buque("buque1");
 		buque2 = new Buque("buque2");
-														/*ver como hacer max fecha*/
-																//	^ ^
-																//	| |
-		viaje = new Viaje(buque1, circuito, LocalDateTime.now(),LocalDateTime.MAX,chile,mexico);
+
+		viaje = new Viaje(buque1, circuito, LocalDateTime.now());
 		buque1.setPosicionActual(new Point2D.Double(16,24));
 		buque2.posicionActualDelBuque(8, 43);
 		
@@ -105,11 +105,11 @@ class BuqueTest {
 	@Test 
 	void testCantidadDeContainersEnBuque() {
 		
-		//buque1.agregarContainer(container1);
-		//buque1.agregarContainer(container2);
-		//buque1.agregarContainer(container3);
-		//buque1.agregarContainer(container4);
-		//buque1.agregarContainer(container5);
+		buque1.agregarContainer(container1);
+		buque1.agregarContainer(container2);
+		buque1.agregarContainer(container3);
+		buque1.agregarContainer(container4);
+		buque1.agregarContainer(container5);
 		
 		
 		assertEquals(buque1.getContainers().size(), 5);
