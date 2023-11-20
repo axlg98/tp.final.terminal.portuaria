@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class Buque {
  
 	private String nombre;
-	private FaseDeBuque fase;
+	private FaseBuque fase;
 	private Point2D  posicionActual = new Point2D.Double(0, 0);
 	private List<Container> containers;
 	
@@ -20,7 +20,7 @@ public class Buque {
 	public Buque(String nombre) {
 		super();
 		this.nombre = nombre;
-		this.fase = FaseDeBuque.Outbound; // Fase inicial del buque
+		this.fase = new Outbound();
 		this.containers = new ArrayList<Container>();
 	}
 	 
@@ -51,15 +51,9 @@ public class Buque {
 		
 	}
 	
-	public void cambiarDeFase(FaseDeBuque fase) {
+	public void avisarPuerto(Puerto puerto) {
 		
-		if (fase == FaseDeBuque.Inbound) {
-			
-			// dar aviso de cambio de fase
-			this.setFase(fase);
-		}
-		
-		
+		puerto.darAvisoClientes();
 		
 	}
 
@@ -86,8 +80,21 @@ public class Buque {
 		this.unViaje = unViaje;
 	}
 	
-	
-	
+	public Puerto getPuertoDestino() {
+		
+		return this.unViaje.getPuertoDestino();
+		
+	}
+
+	public FaseBuque getFase() {
+		return fase;
+	}
+
+
+
+	public void setFase(FaseBuque fase) {
+		this.fase = fase;
+	}
 	
 	
 }
