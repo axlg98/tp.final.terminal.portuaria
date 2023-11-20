@@ -75,8 +75,10 @@ class BuqueTest {
 		
 		buque1 = new Buque("buque1");
 		buque2 = new Buque("buque2");
-
-		viaje = new Viaje(buque1, circuito, LocalDateTime.now());
+														/*ver como hacer max fecha*/
+																//	^ ^
+																//	| |
+		viaje = new Viaje(buque1, circuito, LocalDateTime.now(),LocalDateTime.MAX,chile,mexico);
 		buque1.setPosicionActual(new Point2D.Double(16,24));
 		buque2.posicionActualDelBuque(8, 43);
 		

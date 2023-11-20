@@ -25,14 +25,84 @@ public class Puerto {
 	public Puerto(String nombre) {
 		super();
 		this.nombre = nombre;
-		this.ubicacion = ubicacion;
 		this.empresasNavieras = new ArrayList<EmpresaPortuaria>();
 		this.choferesHabilitados = new ArrayList<Chofer>();
 		this.containers = new ArrayList<Container>();
 		
 	}
 	
-	 
+	public void crearOrdenExportacion(Cliente cliente, Container container, Puerto puertoDestino, LocalDateTime fechaYHoraSalida) {
+
+		OrdenExportacion ordenExportacion = new OrdenExportacion(fechaYHoraSalida,container, cliente, puertoDestino);
+        cliente.agregarOrden(ordenExportacion);
+    
+        
+    }
+	
+	
+	public void agregarNaviera(EmpresaPortuaria empresaPortuaria) {
+		
+		this.getEmpresasNavieras().add(empresaPortuaria);
+		
+	}
+
+	
+	public void almacenarContainer(Camion unCamion) {
+		
+		if (this.getChoferesHabilitados().contains(unCamion.getChofer())) {
+			
+			this.getContainers().add(unCamion.getContainer());
+			
+		}
+	
+		
+	}
+	
+	
+	public void agregarContainer(Container container) {
+		containers.add(container);
+	}
+	
+	/*
+	 * DEBE PODER ENVIAR UNA CARGA DE UN PUERTO A OTRO PUERTO, SIEMPRE Y CUANDO SE PUEDA ENCONTRAR
+	   SU CIRCUITO DE ALGUNA NAVIERA QUE TENGA PUERTOS DE ORIGEN Y DESTINO.
+    */
+	//Arreglar esta parte.
+	public void enviarCarga(EmpresaPortuaria emp, Circuito c,Container container) { // DUDA
+		if(emp.contieneCircuito(c)  /*&& (this.mismoDestino(emp, c) && this.mismaLlegada(emp, c))*/) {
+			this.agregarContainer(container);
+		}
+	}
+
+	
+	public void notificarATodosLosConsignees(Buque buque) {
+		
+		for (Consignee consignee : consignees) {
+			consignee.notificarBuqueA50Km(buque);
+		}
+	
+	}
+	
+	
+	// Mejor Ruta
+	public Circuito elMejorCircuito(Puerto puertoDestino) {
+		
+		return this.mejorRuta.elMejorCircuito(this, puertoDestino);
+		
+	}
+	public void darAvisoClientes() {
+		// TODO Auto-generated method stub
+		
+		
+		
+	}
+	
+	public void ubicacionDelPuerto(int x, int y){
+		
+		this.setUbicacion(new Point2D.Double(x, y));
+	}
+	
+	//GET Y SET
 	
 	public String getNombre() {
 		return nombre;
@@ -86,81 +156,6 @@ public class Puerto {
 	public void setUbicacion(Point2D ubicacion) {
 		this.ubicacion = ubicacion;
 	}
-	
-	public void crearOrdenExportacion(Cliente cliente, Container container, Puerto puertoDestino, LocalDateTime fechaYHoraSalida) {
 
-		OrdenDeExportacion ordenExportacion = new OrdenDeExportacion(container, cliente, puertoDestino, fechaYHoraSalida);
-        cliente.agregarOrden(ordenExportacion);
-    
-        
-    }
-	
-	
-	public void agregarNaviera(EmpresaPortuaria empresaPortuaria) {
-		
-		this.getEmpresasNavieras().add(empresaPortuaria);
-		
-	}
-
-	
-	public void almacenarContainer(Camion unCamion) {
-		
-		if (this.getChoferesHabilitados().contains(unCamion.getChofer())) {
-			
-			this.getContainers().add(unCamion.getContainer());
-			
-		}
-	
-		
-	}
-	
-	
-	public void agregarContainer(Container container) {
-		containers.add(container);
-	}
-	
-	/*
-	 * DEBE PODER ENVIAR UNA CARGA DE UN PUERTO A OTRO PUERTO, SIEMPRE Y CUANDO SE PUEDA ENCONTRAR
-	   SU CIRCUITO DE ALGUNA NAVIERA QUE TENGA PUERTOS DE ORIGEN Y DESTINO.
-    */
-	//Arreglar esta parte.
-	public void enviarCarga(EmpresaPortuaria emp, Circuito c,Container container) { // DUDA
-		if(emp.contieneCircuito(c)  /*&& (this.mismoDestino(emp, c) && this.mismaLlegada(emp, c))*/) {
-			this.agregarContainer(container);
-		}
-	}
-
-	
-	
-	
-	public void notificarATodosLosConsignees(Buque buque) {
-		
-		for (Consignee consignee : consignees) {
-			consignee.notificarBuqueA50Km(buque);
-		}
-	
-	}
-	
-	
-	// Mejor Ruta
-	public Circuito elMejorCircuito(Puerto puertoDestino) {
-		
-		return this.mejorRuta.elMejorCircuito(this, puertoDestino);
-		
-	}
-	public void darAvisoClientes() {
-		// TODO Auto-generated method stub
-		
-		
-		
-	}
-	
-	public void ubicacionDelPuerto(int x, int y){
-		
-		this.setUbicacion(new Point2D.Double(x, y));
-	}
-	
-	
-	
 	
 }

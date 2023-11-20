@@ -1,18 +1,25 @@
 package ar.edu.unq.po2.tpFinal;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 public class OrdenExportacion extends Orden{
-	private LocalDate fechaEnvio;
-	private LocalTime horaDeEnvio;
+	private LocalDateTime fechaYHoraSalida;
+	private Container container;
+	private Cliente cliente;
+	private Puerto puertoDestino;
 	
-	public OrdenExportacion(LocalDate fecha, LocalTime hora) {
-		this.setFechaEnvio(fecha);
-		this.setHoraDeEnvio(hora);
+	
+	
+	public OrdenExportacion(LocalDateTime fechaYHoraSalida,Container container,Cliente cliente,Puerto puertoDestino) {
+		this.fechaYHoraSalida = fechaYHoraSalida;
+		this.container = container;
+		this.cliente = cliente;
+		this.puertoDestino = puertoDestino;
 	}
 	
-	public void enviar(Container container /*, Cliente cliente*/) {
+	public void enviar(Container container, Cliente cliente) {
 		
 	}
 	
@@ -35,7 +42,37 @@ public class OrdenExportacion extends Orden{
 	public void setHoraDeEnvio(LocalTime horaDeEnvio) {
 		this.horaDeEnvio = horaDeEnvio;
 	}
-	
+	public LocalDateTime getFechaYHoraSalida() {
+		return fechaYHoraSalida;
+	}
+
+	public void setFechaYHoraSalida(LocalDateTime fechaYHoraSalida) {
+		this.fechaYHoraSalida = fechaYHoraSalida;
+	}
+
+	public Container getContainer() {
+		return container;
+	}
+
+	public void setContainer(Container container) {
+		this.container = container;
+	}
+
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
+
+	public Puerto getPuertoDestino() {
+		return puertoDestino;
+	}
+
+	public void setPuertoDestino(Puerto puertoDestino) {
+		this.puertoDestino = puertoDestino;
+	}
 	
 
 }

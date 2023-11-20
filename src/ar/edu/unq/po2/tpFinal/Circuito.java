@@ -1,19 +1,30 @@
 package ar.edu.unq.po2.tpFinal;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Circuito {
 	private String lugarOrigen;
 	private String lugarDestino;
+	private LocalDateTime fecha;
 	private Integer distancia;
 	private List<Tramo> tramos;
 	
-	public Circuito(String origen, String destino, Integer distancia) {
-		this.lugarOrigen = origen;
-		this.lugarDestino = destino;
+	public Circuito(Integer distancia,List<Tramo> tramos,LocalDateTime fecha) {
+//		this.lugarOrigen = origen;
+//		this.lugarDestino = destino;
+		this.fecha = fecha;
 		this.distancia = distancia;
 		this.tramos = new ArrayList<Tramo>();
+	}
+	
+	public Puerto puertoDeDestino() {
+		
+		int ultimoTramo = tramos.size();
+		
+		return tramos.get(ultimoTramo).getPuertoDestino();
+		
 	}
 		
 	//SET Y GET
@@ -50,12 +61,15 @@ public class Circuito {
 		this.tramos = tramos;
 	}
 
-	public Puerto puertoDeDestino() {
-		
-		int ultimoTramo = tramos.size();
-		
-		return tramos.get(ultimoTramo).getPuertoDestino();
-		
+	public LocalDateTime getFecha() {
+		return fecha;
 	}
+
+	public void setFecha(LocalDateTime fecha) {
+		this.fecha = fecha;
+	}
+
+	
+	
 	
 }
