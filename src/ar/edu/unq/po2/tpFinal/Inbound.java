@@ -16,11 +16,16 @@ public class Inbound implements FaseBuque{
 	}
 
 	private boolean estaEnElPuerto(Buque buque) {
-		
-		return buque.getPosicionActual() == buque.getPuertoDestino().getUbicacion();
+		return this.distanciaigualACero(buque);
+		//return buque.getPosicionActual() == buque.getPuertoDestino().getUbicacion();
 		
 	}
 	
+private boolean distanciaigualACero(Buque buque) {
+		
+		return GPS.calcularDistancia(buque.getPosicionActual(), buque.getPuertoDestino().getUbicacion()) == 0;
+		
+	}
 	
 	
 }

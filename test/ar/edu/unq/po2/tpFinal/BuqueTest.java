@@ -1,7 +1,5 @@
 package ar.edu.unq.po2.tpFinal;
 
-
-
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 import java.awt.geom.Point2D;
@@ -45,15 +43,15 @@ class BuqueTest {
 		
 		
 		barcelona = new Puerto("Barcelona");
-		barcelona.setUbicacion(new Point2D.Double(16,24));
+		barcelona.setUbicacion(new Point2D.Double(18D,24D));
 		
 		
 		chile = new Puerto("Chile");
-		chile.setUbicacion(new Point2D.Double(16,24));
+		chile.setUbicacion(new Point2D.Double(16.0,24.0));
 		
 		
 		mexico = new Puerto("mexico");
-		mexico.setUbicacion(new Point2D.Double(16,24));
+		mexico.setUbicacion(new Point2D.Double(18.0,24.0));
 		
 		
 		
@@ -77,7 +75,7 @@ class BuqueTest {
 																//	^ ^
 																//	| |
 		viaje = new Viaje(buque1, circuito, LocalDateTime.now(),LocalDateTime.MAX,chile,mexico);
-		buque1.setPosicionActual(new Point2D.Double(16,24));
+		buque1.setPosicionActual(new Point2D.Double(16.0,24.0));
 		buque2.posicionActualDelBuque(8, 43);
 		
 		buque1.setUnViaje(viaje);
@@ -89,8 +87,7 @@ class BuqueTest {
 	
 	@Test
 	void testDistanciaEntreBuques() {
-	
-		assertEquals(GPS.calcularDistancia(buque1.getPosicionActual(), buque2.getPosicionActual()), 20.615528128088304);
+		assertEquals(GPS.calcularDistancia(buque1.getPosicionActual(), buque2.getPosicionActual()),28.844410203711913);
 		
 		
 	}
@@ -105,11 +102,11 @@ class BuqueTest {
 	@Test 
 	void testCantidadDeContainersEnBuque() {
 		
-		//buque1.agregarContainer(container1);
-		//buque1.agregarContainer(container2);
-		//buque1.agregarContainer(container3);
-		//buque1.agregarContainer(container4);
-		//buque1.agregarContainer(container5);
+		buque1.agregarContainer(container1);
+		buque1.agregarContainer(container2);
+		buque1.agregarContainer(container3);
+		buque1.agregarContainer(container4);
+		buque1.agregarContainer(container5);
 		
 		
 		assertEquals(buque1.getContainers().size(), 5);
@@ -124,31 +121,33 @@ class BuqueTest {
 		assertTrue(buque1.getFase() instanceof Outbound);
 		
 	}
+	@Test
+	void buquePuertoDestino() {
+		assertEquals(buque1.getPuertoDestino().getNombre(),"mexico");
+	}
 	
-	/*@Test
+	@Test
 	void testFaseDeBuquePasaAArrived() {
-		
+		assertTrue(buque1.getFase() instanceof Outbound);
 		buque1.getFase().actualizarEstado(buque1);
-		assertTrue(buque1.getFase() instanceof Arrived);
-		
-		
-	}*/
+		assertTrue(buque1.getFase() instanceof Inbound);
+		buque1.setPosicionActual(new Point2D.Double(18.0,24.0));
+		buque1.getFase().actualizarEstado(buque1);
+		assertTrue(buque1.getFase() instanceof Arrived);	
+	}
 	
 	@Test
 	void testPuertoDestinoDelBuqueCoincideConAlgunoDeLosTramosDelCircuito() {
 		
 		buque1.setFase(new Inbound()); // lo seteo en Inbound
+		buque1.setPosicionActual(new Point2D.Double(18,24));
 		buque1.actualizarEstado(); // le pido a esa fase que se actualice
-		
 		assertTrue(buque1.getPuertoDestino() == viaje.getPuertoDestino()); // los puertos son los mismos
-		
-		assertEquals(buque1.getPuertoDestino().getUbicacion(), new Point2D.Double(16,24)); // la ubicacion es la misma
-		assertEquals(buque1.getPosicionActual(), new Point2D.Double(16,24)); // 
-		
+		assertEquals(buque1.getPuertoDestino().getUbicacion(), new Point2D.Double(18,24)); // la ubicacion es la misma
+
+		assertEquals(buque1.getPosicionActual(), new Point2D.Double(18,24));
 		assertTrue(buque1.getFase() instanceof Arrived); 
-		// no cambia el estado, cuando la posicion del buque es la misma que la del puerto
-		// y le digo que se actualice deberia cambiar a Arrived, estando antes en Inbound
-		
+
 	}
 	
 	

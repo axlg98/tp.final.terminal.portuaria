@@ -16,7 +16,7 @@ public class Tramo {
 		super();
 		this.puertoOrigen = puertoOrigen;
 		this.puertoDestino = puertoDestino;
-		this.duracionTramo = CalculadoraDeDistancia.calcularDistancia(puertoOrigen.getUbicacion(), puertoDestino.getUbicacion());
+		this.duracionTramo = GPS.calcularDistancia(puertoOrigen.getUbicacion(), puertoDestino.getUbicacion());
 		this.costoTramo = costoTramo;
 		this.fechaYHoraSalida = fechaYHoraSalida;
 	}

@@ -6,7 +6,7 @@ public class Outbound implements FaseBuque{
 	public void actualizarEstado(Buque buque) {
 		// TODO Auto-generated method stub
 		
-		if (this.distanciaMenorA50(buque)) {
+		if (this.distanciaMenorA50(buque) && this.estaEnElPuerto(buque)) {
 			
 			buque.setFase(new Inbound());
 			buque.avisarPuerto(buque.getUnViaje().getPuertoDestino());
@@ -24,6 +24,10 @@ public class Outbound implements FaseBuque{
 	}
 	
 	
-	
+private boolean estaEnElPuerto(Buque buque) {
+		
+		return buque.getPosicionActual() != buque.getPuertoDestino().getUbicacion();
+		
+	}
 	
 }

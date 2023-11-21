@@ -62,9 +62,8 @@ public class Buque {
 	}
 	
 	public void actualizarEstado() {
-		
+		this.getFase().actualizarEstado(this);
 	}
-	
 	//SET Y GET
 
 	public Point2D getPosicionActual() {
