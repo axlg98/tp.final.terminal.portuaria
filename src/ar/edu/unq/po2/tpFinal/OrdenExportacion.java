@@ -13,6 +13,7 @@ public class OrdenExportacion extends Orden{
 	
 	
 	public OrdenExportacion(LocalDateTime fechaYHoraSalida,Container container,Cliente cliente,Puerto puertoDestino) {
+		super(container,cliente);
 		this.fechaYHoraSalida = fechaYHoraSalida;
 		this.container = container;
 		this.cliente = cliente;
@@ -23,25 +24,13 @@ public class OrdenExportacion extends Orden{
 		
 	}
 	
-	@Override
+	//@Override
 	public void horaDeLlegadaCamion(LocalDate time,Camion camion,Chofer chofer) {
 		
 	}
 	
 	//SET Y GET
 	
-	public LocalDate getFechaEnvio() {
-		return fechaEnvio;
-	}
-	public void setFechaEnvio(LocalDate fechaEnvio) {
-		this.fechaEnvio = fechaEnvio;
-	}
-	public LocalTime getHoraDeEnvio() {
-		return horaDeEnvio;
-	}
-	public void setHoraDeEnvio(LocalTime horaDeEnvio) {
-		this.horaDeEnvio = horaDeEnvio;
-	}
 	public LocalDateTime getFechaYHoraSalida() {
 		return fechaYHoraSalida;
 	}
