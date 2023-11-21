@@ -8,7 +8,8 @@ public class OrdenImportacion extends Orden{
 	private LocalDate fechaLlegada;
 	private LocalTime horaLlegada;
 	
-	public OrdenImportacion(LocalDate fecha,LocalTime hora) {
+	public OrdenImportacion(LocalDate fecha,LocalTime hora,Container container,Cliente cliente) {
+		super(container,cliente);
 		this.setFechaLlegada(fecha);
 		this.setHoraLlegada(horaLlegada);
 	}
@@ -17,7 +18,7 @@ public class OrdenImportacion extends Orden{
 		
 	}
 	
-	@Override
+	//@Override
 	public void horaDeLlegadaCamion(LocalDate time,Camion camion,Chofer chofer) {
 		
 	}
