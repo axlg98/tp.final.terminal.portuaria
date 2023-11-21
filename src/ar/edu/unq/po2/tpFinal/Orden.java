@@ -1,6 +1,8 @@
 package ar.edu.unq.po2.tpFinal;
 
 import java.time.LocalDateTime;
+import java.util.List;
+import java.util.ArrayList;
 
 public class Orden {
 
@@ -8,12 +10,16 @@ public class Orden {
 	private Container unContainer;
 	private Cliente unCliente;
 	private Puerto puerto;
+	private List<Servicio> servicios;
+	
+	
 	
 	public Orden(Container unContainer, Cliente unCliente) {
 		super();
 		
 		this.unContainer = unContainer;
 		this.unCliente = unCliente;
+		this.servicios = new ArrayList<Servicio>();
 		
 	}
 
@@ -21,11 +27,29 @@ public class Orden {
 		
 		return unViaje.getFechaSalida();
 		
-	}
+	} 
 	
 	public LocalDateTime fechaLlegadaDeLaCarga() {
 		
 		return unViaje.getFechaLlegada();
+		
+	}
+	
+	public void agregarServicio(Servicio servicio) {
+		
+		this.servicios.add(servicio);
+		
+	}
+	
+	public Double costoTotalDeServicios() {
+		
+		Double costoTotal = 0d;
+
+		for (Servicio servicio : servicios) {
+			costoTotal += servicio.costoServicio(this);
+		}
+		
+		return costoTotal;	
 		
 	}
 	
@@ -57,6 +81,14 @@ public class Orden {
 
 	public void setPuerto(Puerto puerto) {
 		this.puerto = puerto;
+	}
+
+	public List<Servicio> getServicios() {
+		return servicios;
+	}
+
+	public void setServicios(List<Servicio> servicios) {
+		this.servicios = servicios;
 	}
 	
 	
