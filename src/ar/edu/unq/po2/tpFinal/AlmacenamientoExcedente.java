@@ -1,20 +1,20 @@
 package ar.edu.unq.po2.tpFinal;
 
 public class AlmacenamientoExcedente implements Servicio{
-	public int diaDemorado;
+	public Double diaDemorado;
 	public Consignee consignee;
 	
 	@Override
 	public Double costoServicio(Orden orden) {
-		return this.diaDemorado /** VER COMO HACER */ ;
+		return this.getDiaDemorado() /** VER COMO HACER */ ;
 	}
 	
 	//GET Y SET
 	
-	public int getDiaDemorado() {
+	public Double getDiaDemorado() {
 		return diaDemorado;
 	}
-	public void setDiaDemorado(int diaDemorado) {
+	public void setDiaDemorado(Double diaDemorado) {
 		this.diaDemorado = diaDemorado;
 	}
 }
