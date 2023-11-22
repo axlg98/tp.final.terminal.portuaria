@@ -1,58 +1,22 @@
 package ar.edu.unq.po2.tpFinal;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.LocalTime;
 
-public class OrdenExportacion extends Orden{
+public class OrdenExportacion extends Orden {
+
+	private Puerto puertoDestino;	
 	private LocalDateTime fechaYHoraSalida;
-	private Container container;
-	private Cliente cliente;
-	private Puerto puertoDestino;
+	private Circuito circuito;
+	private Camion camion;
+	private Chofer chofer;
+	 
 	
 	
-	
-	public OrdenExportacion(LocalDateTime fechaYHoraSalida,Container container,Cliente cliente,Puerto puertoDestino) {
-		super(container,cliente);
-		this.fechaYHoraSalida = fechaYHoraSalida;
-		this.container = container;
-		this.cliente = cliente;
+	public OrdenExportacion(Container unContainer, Cliente unCliente, Puerto puertoDestino, Circuito circuito) {
+		super(unContainer, unCliente);
 		this.puertoDestino = puertoDestino;
-	}
-	
-	public void enviar(Container container, Cliente cliente) {
-		
-	}
-	
-	//@Override
-	public void horaDeLlegadaCamion(LocalDate time,Camion camion,Chofer chofer) {
-		
-	}
-	
-	//SET Y GET
-	
-	public LocalDateTime getFechaYHoraSalida() {
-		return fechaYHoraSalida;
-	}
-
-	public void setFechaYHoraSalida(LocalDateTime fechaYHoraSalida) {
-		this.fechaYHoraSalida = fechaYHoraSalida;
-	}
-
-	public Container getContainer() {
-		return container;
-	}
-
-	public void setContainer(Container container) {
-		this.container = container;
-	}
-
-	public Cliente getCliente() {
-		return cliente;
-	}
-
-	public void setCliente(Cliente cliente) {
-		this.cliente = cliente;
+		this.circuito = circuito;
+		// TODO Auto-generated constructor stub
 	}
 
 	public Puerto getPuertoDestino() {
@@ -62,6 +26,39 @@ public class OrdenExportacion extends Orden{
 	public void setPuertoDestino(Puerto puertoDestino) {
 		this.puertoDestino = puertoDestino;
 	}
-	
 
+	public LocalDateTime getFechaYHoraSalida() {
+		return fechaYHoraSalida;
+	}
+
+	public void setFechaYHoraSalida(LocalDateTime fechaYHoraSalida) {
+		this.fechaYHoraSalida = fechaYHoraSalida;
+	}
+
+	public Circuito getCircuito() {
+		return circuito;
+	}
+
+	public void setCircuito(Circuito circuito) {
+		this.circuito = circuito;
+	}
+
+	public Camion getCamion() {
+		return camion;
+	}
+
+	public void setCamion(Camion camion) {
+		this.camion = camion;
+	}
+
+	public Chofer getChofer() {
+		return chofer;
+	}
+
+	public void setChofer(Chofer chofer) {
+		this.chofer = chofer;
+	}
+
+	
+	
 }
