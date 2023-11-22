@@ -7,7 +7,6 @@ import java.util.ArrayList;
 public class Puerto {
 	
 	private String nombre; // nombre del puerto en un determinado pais
-	private List<Empresa> empresas;
 	private List<Container> containers;
 	private List<Chofer> choferesHabilitados;
 	
@@ -128,12 +127,6 @@ public class Puerto {
 	}
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
-	}
-	public List<Empresa> getEmpresas() {
-		return empresas;
-	}
-	public void setEmpresas(List<Empresa> empresas) {
-		this.empresas = empresas;
 	}
 	
 	public List<Container> getContainers() {

@@ -8,6 +8,14 @@ public class EmpresaTransportista {
 	private LocalTime unaHora;
 	private Puerto puerto;
 	
+	public void dejarCargas() {
+		
+		for (Camion camion : camiones) {
+			camion.dejarCargaEnPuerto(this.getPuerto());
+		}
+		
+	}
+	
 	public List<Camion> getCamiones() {
 		return camiones;
 	}
@@ -28,11 +36,4 @@ public class EmpresaTransportista {
 		this.puerto = puerto;
 	}
 	
-	public void dejarCargas() {
-		
-		for (Camion camion : camiones) {
-			camion.dejarCargaEnPuerto(this.getPuerto());
-		}
-		
-	}
 }

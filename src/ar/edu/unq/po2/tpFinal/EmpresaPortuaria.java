@@ -3,7 +3,7 @@ package ar.edu.unq.po2.tpFinal;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EmpresaPortuaria extends Empresa{
+public class EmpresaPortuaria{
 	private List<Buque> buques;
 	private List<Circuito> circuitos;
     private List<Viaje> viajes;

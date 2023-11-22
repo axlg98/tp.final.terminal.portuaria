@@ -14,7 +14,7 @@ public class OrdenImportacion extends Orden{
 		this.setHoraLlegada(horaLlegada);
 	}
 	
-	public void recibir(Container container/*,Cliente cliente*/) {
+	public void recibir(Container container,Cliente cliente) {
 		
 	}
 	
