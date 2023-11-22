@@ -91,15 +91,21 @@ public class Puerto {
 		
 	}
 	public void darAvisoClientes() {
-		// TODO Auto-generated method stub
-		
-		
 		
 	}
 	
 	public void ubicacionDelPuerto(int x, int y){
 		
 		this.setUbicacion(new Point2D.Double(x, y));
+	}
+	
+	//VER COMO HACER CON EL TEMA DE SERVICIO PESADO
+	public Double pesoTotalDeContainers() {
+		Double pesoTotal = 0D;
+		for (Container container : containers) {
+			pesoTotal += container.getPeso();
+		}
+		return pesoTotal;
 	}
 	
 	//GET Y SET

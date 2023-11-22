@@ -26,6 +26,10 @@ public class Circuito {
 		return tramos.get(ultimoTramo).getPuertoDestino();
 		
 	}
+	
+	public int cantidadTramos() {
+		return tramos.size();
+	}
 		
 	//SET Y GET
 

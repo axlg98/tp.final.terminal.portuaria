@@ -6,7 +6,6 @@ public class EstrategiaMenorCantidadDeTerminales extends EstrategiaMejorRuta {
 
 	@Override
 	public Circuito elMejorCircuito(Puerto puertoOrigen, Puerto puertoDestino) {
-		// TODO Auto-generated method stub
 		
 		List<Circuito> circuitosConPuertoDestino = this.losCircuitos(puertoOrigen, puertoDestino);
 		
