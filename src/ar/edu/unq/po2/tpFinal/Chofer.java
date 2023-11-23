@@ -3,6 +3,10 @@ package ar.edu.unq.po2.tpFinal;
 public class Chofer {
 
 	private String nombre;
+	
+	public Chofer(String nombre) {
+		this.nombre = nombre;
+	}
 
 	public String getNombre() {
 		return nombre;

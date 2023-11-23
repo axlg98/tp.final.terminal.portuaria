@@ -1,12 +1,20 @@
 package ar.edu.unq.po2.tpFinal;
 
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.List;
 
 public class EmpresaTransportista {
+	
 	private List<Camion> camiones;
 	private LocalTime unaHora;
 	private Puerto puerto;
+	
+	public EmpresaTransportista(LocalTime unaHora, Puerto puerto) {
+		this.camiones = new ArrayList<Camion>();
+		this.unaHora = unaHora;
+		this.puerto = puerto;
+	}
 	
 	public void dejarCargas() {
 		

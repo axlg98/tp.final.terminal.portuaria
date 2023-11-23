@@ -23,27 +23,6 @@ public class Buque {
 		this.fase = new Outbound();
 		this.containers = new ArrayList<Container>();
 	}
-	 
-	
-	
-	public String getNombre() {
-		return nombre;
-	}
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-	public FaseBuque getFase() {
-		return fase;
-	}
-	public void setFase(FaseBuque fase) {
-		this.fase = fase;
-	}
-	public List<Container> getContainers() {
-		return containers;
-	}
-	public void setContainers(List<Container> containers) {
-		this.containers = containers;
-	}
 	
 	public void agregarContainer(Container container) {
 		
@@ -91,6 +70,25 @@ public class Buque {
 		
 		return this.unViaje.getPuertoDestino();
 		
+	}
+	
+	public String getNombre() {
+		return nombre;
+	}
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	public FaseBuque getFase() {
+		return fase;
+	}
+	public void setFase(FaseBuque fase) {
+		this.fase = fase;
+	}
+	public List<Container> getContainers() {
+		return containers;
+	}
+	public void setContainers(List<Container> containers) {
+		this.containers = containers;
 	}
 	
 }

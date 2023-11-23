@@ -15,17 +15,17 @@ public class Inbound implements FaseBuque{
 		
 	}
 
-	private boolean estaEnElPuerto(Buque buque) {
-		return this.distanciaigualACero(buque);
+	public boolean estaEnElPuerto(Buque buque) {
+		return  GPS.calcularDistancia(buque.getPosicionActual(), buque.getPuertoDestino().getUbicacion()) == 0;
 		//return buque.getPosicionActual() == buque.getPuertoDestino().getUbicacion();
 		
 	}
 	
-private boolean distanciaigualACero(Buque buque) {
-		
-		return GPS.calcularDistancia(buque.getPosicionActual(), buque.getPuertoDestino().getUbicacion()) == 0;
-		
-	}
+//	public boolean distanciaigualACero(Buque buque) {
+//		
+//		return GPS.calcularDistancia(buque.getPosicionActual(), buque.getPuertoDestino().getUbicacion()) == 0;
+//		
+//	}
 	
 	
 }
