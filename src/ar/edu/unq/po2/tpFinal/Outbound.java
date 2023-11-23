@@ -4,11 +4,15 @@ public class Outbound implements FaseBuque{
 
 	@Override
 	public void actualizarEstado(Buque buque) {
+		// TODO Auto-generated method stub
 		
-		if (this.distanciaMenorA50(buque) && this.estaEnElPuerto(buque)) {
+		if (this.distanciaMenorA50(buque)) {
 			
 			buque.setFase(new Inbound());
+			buque.getPuertoDestino().buqueAMenosDe50km(buque);
 			buque.avisarPuerto(buque.getUnViaje().getPuertoDestino());
+			
+			
 			
 		}
 		
@@ -16,17 +20,13 @@ public class Outbound implements FaseBuque{
 	}
 
 	
-	public boolean distanciaMenorA50(Buque buque) {
+	private boolean distanciaMenorA50(Buque buque) {
 		
 		return GPS.calcularDistancia(buque.getPosicionActual(), buque.getPuertoDestino().getUbicacion()) < 50;
 		
 	}
 	
 	
-	public boolean estaEnElPuerto(Buque buque) {
-		
-		return buque.getPosicionActual() != buque.getPuertoDestino().getUbicacion();
-		
-	}
+	
 	
 }

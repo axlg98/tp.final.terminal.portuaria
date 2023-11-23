@@ -1,5 +1,8 @@
 package ar.edu.unq.po2.tpFinal;
 
-public class Observador {
+public interface Observador {
 
+	public void notificarBuqueA50Km(Mail mail);
+	 
+	
 }
