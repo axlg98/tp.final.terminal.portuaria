@@ -28,7 +28,7 @@ public class Puerto {
 		this.empresasNavieras = new ArrayList<EmpresaPortuaria>();
 		this.choferesHabilitados = new ArrayList<Chofer>();
 		this.containers = new ArrayList<Container>();
-		
+		this.ordenes = new ArrayList<Orden>();
 	}
 	
 	public void crearOrdenExportacion(Cliente cliente, Container container, Puerto puertoDestino, Camion Camion) {

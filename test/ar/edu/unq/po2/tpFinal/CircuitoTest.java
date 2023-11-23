@@ -14,12 +14,17 @@ class CircuitoTest {
 
 	private Tramo tramo1;
 	private Tramo tramo2;
+	private Tramo tramo3;
 	
+	//Puertos de origen
 	private Puerto buenosAires;
 	private Puerto barcelona;
+	private Puerto sanLuis;
 	
+	//Puertos de destino
 	private Puerto chile;
 	private Puerto mexico;
+	private Puerto miami;
 	
 	private Viaje viaje;
 	private Circuito circuito;
@@ -36,6 +41,9 @@ class CircuitoTest {
 		barcelona = new Puerto("Barcelona");
 		barcelona.setUbicacion(new Point2D.Double(15,18));
 		
+		sanLuis = new Puerto("San Luis");
+		sanLuis.setUbicacion(new Point2D.Double(12,42));
+		
 		
 		chile = new Puerto("Chile");
 		chile.setUbicacion(new Point2D.Double(8,28));
@@ -44,8 +52,12 @@ class CircuitoTest {
 		mexico = new Puerto("mexico");
 		mexico.setUbicacion(new Point2D.Double(54,14));
 		
+		miami = new Puerto("San Luis");
+		miami.setUbicacion(new Point2D.Double(30,60));
+		
 		tramo1 = new Tramo(buenosAires, barcelona, 20d, 500d, LocalDateTime.now());
 		tramo2 = new Tramo(chile, mexico, 20d, 500d, LocalDateTime.now());
+		tramo3 = new Tramo(mexico,miami,40D,750D,LocalDateTime.now());
 		
 		
 		List<Tramo> tramos = new ArrayList<Tramo>();
@@ -71,5 +83,53 @@ class CircuitoTest {
 		
 	}
 	
-
+	@Test
+	void duracionDeTodoElCircuitoTest() {
+		assertEquals(circuito.duracionDeTodoElCircuito(), 54.16602365098345);
+	}
+	
+	@Test
+	void agregarTramoTest() {
+		circuito.agregarTramo(tramo3);
+		assertEquals(circuito.cantidadTramos(),3);
+	}
+	
+	@Test
+	void contieneATest() {
+		tramo1.setPuertoDestino(buenosAires);
+		assertTrue(circuito.contieneA(buenosAires));
+	}
+	
+	@Test
+	void puertoOrigenTest() {
+		assertEquals(circuito.puertoOrigen(),tramo1.getPuertoOrigen());
+	}
+	
+	@Test
+	void getCostoCircuitoTest() {
+		assertEquals(circuito.getCostoCircuito(),1000D);
+	}
+	
+	@Test
+	void getIdTest() {
+		assertEquals(circuito.getId(), 1);
+	}
+	
+	@Test
+	void aumentoDeCostoTest() {
+		tramo1.setCostoTramo(750D);	
+		assertEquals(circuito.getCostoCircuito(),1250D);
+	}
+	
+	@Test
+	void cambioDeIdTest() {
+		circuito.setId(2);
+		assertEquals(circuito.getId(), 2);
+	}
+	
+	@Test
+	void fechaYHoraDeSalidaTest() {
+		circuito.setFechaYHoraDeSalida(LocalDateTime.MAX);
+		assertEquals(circuito.getFechaYHoraDeSalida(),LocalDateTime.MAX);
+	}
 }

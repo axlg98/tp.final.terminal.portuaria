@@ -63,14 +63,21 @@ class BuqueTest {
 		tramos.add(tramo2);
 		circuito = new Circuito(1, tramos, LocalDateTime.now());
 		
+		List<Container> containers = new ArrayList<Container>();
 		container1 = mock(Container.class);
 		container2 = mock(Container.class);
 		container3 = mock(Container.class);
 		container4 = mock(Container.class);
 		container5 = mock(Container.class);
+		containers.add(container1);
+		containers.add(container2);
+		containers.add(container3);
+		containers.add(container4);
+		containers.add(container5);
 		
 		buque1 = new Buque("buque1");
 		buque2 = new Buque("buque2");
+		buque1.setContainers(containers);
 														/*ver como hacer max fecha*/
 																//	^ ^
 																//	| |
@@ -98,9 +105,14 @@ class BuqueTest {
 		assertEquals(buque1.getNombre(), "buque1");
 		
 	}
+	@Test
+	void cambioDeNombre() {
+		buque1.setNombre("buqueAleatorio");
+		assertEquals(buque1.getNombre(), "buqueAleatorio");
+	}
 	
 	@Test 
-	void testCantidadDeContainersEnBuque() {
+	void agregarContainerYCantidadDeContainersAgregadosTest() {
 		
 		buque1.agregarContainer(container1);
 		buque1.agregarContainer(container2);
@@ -109,7 +121,7 @@ class BuqueTest {
 		buque1.agregarContainer(container5);
 		
 		
-		assertEquals(buque1.getContainers().size(), 5);
+		assertEquals(buque1.getContainers().size(), 10);
 		
 	}
 	
@@ -150,6 +162,10 @@ class BuqueTest {
 
 	}
 	
+	@Test
+	void cantidadDeContainersDelBuque() {
+		assertEquals(buque1.getContainers().size(),5);
+	}
 	
 	
 

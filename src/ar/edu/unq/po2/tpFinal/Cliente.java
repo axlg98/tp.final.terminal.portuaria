@@ -1,5 +1,6 @@
 package ar.edu.unq.po2.tpFinal;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Cliente {
@@ -8,6 +9,10 @@ public class Cliente {
 	private List<Turno> turnos;
 	private Container carga;
 	 
+	public Cliente(Container carga) {
+		this.carga = carga;
+		turnos = new ArrayList<Turno>();
+	}
 	
 	public void agregarTurno(Turno turno) {
 		

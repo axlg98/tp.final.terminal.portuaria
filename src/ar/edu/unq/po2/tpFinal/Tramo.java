@@ -22,7 +22,6 @@ public class Tramo {
 	}
 
 	
-	
 	public Puerto getPuertoOrigen() {
 		return puertoOrigen;
 	}
