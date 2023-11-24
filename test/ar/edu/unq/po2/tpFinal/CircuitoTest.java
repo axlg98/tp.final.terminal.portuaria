@@ -12,22 +12,22 @@ import org.junit.jupiter.api.Test;
 
 class CircuitoTest {
 
-	private Tramo tramo1;
-	private Tramo tramo2;
-	private Tramo tramo3;
+	 Tramo tramo1;
+	 Tramo tramo2;
+	 Tramo tramo3;
 	
 	//Puertos de origen
-	private Puerto buenosAires;
-	private Puerto barcelona;
-	private Puerto sanLuis;
+	 Puerto buenosAires;
+	 Puerto barcelona;
+	 Puerto sanLuis;
 	
 	//Puertos de destino
-	private Puerto chile;
-	private Puerto mexico;
-	private Puerto miami;
+	 Puerto chile;
+	 Puerto mexico;
+	 Puerto miami;
 	
-	private Viaje viaje;
-	private Circuito circuito;
+	 Viaje viaje;
+	 Circuito circuito;
 	
 	
 	@BeforeEach
