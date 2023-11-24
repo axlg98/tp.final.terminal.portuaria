@@ -9,8 +9,8 @@ public class FiltroFechaLlegada implements Filtro {
 
 	@Override
 	public List<Viaje> buscarEn(List<Viaje> viajes) {
-		// TODO Auto-generated method stub
-		return viajes.stream().filter(v->v.getFechaLlegada() == this.getFechaLlegada()).toList();
+		return viajes.stream().filter(v ->v.getFechaLlegada().equals(this.getFechaLlegada())).toList();
+		//return viajes.stream().filter(v->v.getFechaLlegada() == this.getFechaLlegada()).toList();
 	}
 
 	public LocalDateTime getFechaLlegada() {

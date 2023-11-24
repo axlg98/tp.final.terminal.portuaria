@@ -32,7 +32,9 @@ public class Puerto {
 		this.empresasNavieras = new ArrayList<EmpresaPortuaria>();
 		this.choferesHabilitados = new ArrayList<Chofer>();
 		this.containers = new ArrayList<Container>();
-		
+		this.buquesInbound = new ArrayList<Buque>();
+		this.consignees = new ArrayList<Consignee>();
+		this.ordenes = new ArrayList<Orden>();
 	}
 	
 	 
@@ -221,6 +223,13 @@ public class Puerto {
 		// TODO Auto-generated method stub
 		
 		this.getBuquesInbound().add(buque);
+		
+	}
+
+
+
+	public void darAvisoClientes() {
+		// TODO Auto-generated method stub
 		
 	}
 	

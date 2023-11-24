@@ -6,7 +6,7 @@ public class AlmacenamientoExcedente implements Servicio{
 	
 	@Override
 	public Double costoServicio(Orden orden) {
-		return this.getDiaDemorado() /** VER COMO HACER */ ;
+		return this.getDiaDemorado()/** VER COMO HACER */ ;
 	}
 	
 	//GET Y SET

@@ -11,8 +11,8 @@ public class FiltroFechaSalida implements Filtro {
 	
 	@Override
 	public List<Viaje> buscarEn(List<Viaje> viajes) {
-		// TODO Auto-generated method stub
-		return viajes.stream().filter(v->v.getFechaSalida() == this.getFechaSalida()).toList();
+		return viajes.stream().filter(v->v.getFechaSalida().equals(this.getFechaSalida())).toList();
+		//return viajes.stream().filter(v->v.getFechaSalida() == this.getFechaSalida()).toList();
 	}
 
 

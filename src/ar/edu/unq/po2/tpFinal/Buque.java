@@ -31,8 +31,8 @@ public class Buque {
 	}
 	
 	public void avisarPuerto(Puerto puerto) {
-		
-		puerto.darAvisoClientes();
+		puerto.notificarATodosLosConsignees();
+		//puerto.darAvisoClientes(); cambiar nombre
 		
 	}
 	

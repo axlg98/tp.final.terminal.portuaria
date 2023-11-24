@@ -21,8 +21,9 @@ public class FiltroPuertoDestino implements Filtro{
 
 	@Override
 	public List<Viaje> buscarEn(List<Viaje> viajes) {
-		// TODO Auto-generated method stub
-		return viajes.stream().filter(v->v.getPuertoDestino() == this.getPuerto()).toList();
+		
+		return viajes.stream().filter(v -> v.getPuertoDestino().equals(this.getPuerto())).toList();
+		//return viajes.stream().filter(v->v.getPuertoDestino() == this.getPuerto()).toList();
 	}
 	
 	
