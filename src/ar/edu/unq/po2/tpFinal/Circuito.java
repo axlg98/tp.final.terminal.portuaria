@@ -91,13 +91,12 @@ public class Circuito {
 	
 	
 	public boolean contieneA(Puerto puertoDestino){
-		
-		return this.tramos.stream().anyMatch(t -> t.getPuertoDestino() == puertoDestino);
+		return this.tramos.stream().anyMatch(t -> t.getPuertoDestino().equals(puertoDestino));
+		//return this.tramos.stream().anyMatch(t -> t.getPuertoDestino() == puertoDestino);
 		
 	}
 
 	public Puerto puertoOrigen() {
-		// TODO Auto-generated method stub
 		return this.getTramos().get(0).getPuertoOrigen();
 	}
 	

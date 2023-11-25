@@ -11,6 +11,7 @@ public class EmpresaPortuaria{
 	public EmpresaPortuaria() {
 		buques = new ArrayList<Buque>();
 		circuitos = new ArrayList<Circuito>();
+		viajes = new ArrayList<Viaje>();
 	}
 	
 	//Verifica si el puerto contiene el Circuito dado.
@@ -28,6 +29,10 @@ public class EmpresaPortuaria{
 		
 		this.circuitos.add(circuito);
 		
+	}
+	
+	public void agregarViaje(Viaje viaje) {
+		this.viajes.add(viaje);
 	}
 
 	//GET Y SET

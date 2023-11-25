@@ -24,6 +24,10 @@ public class EmpresaTransportista {
 		
 	}
 	
+	public void agregarCamion(Camion camion) {
+		this.camiones.add(camion);
+	}
+	
 	public List<Camion> getCamiones() {
 		return camiones;
 	}

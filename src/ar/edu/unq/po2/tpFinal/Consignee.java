@@ -1,5 +1,6 @@
 package ar.edu.unq.po2.tpFinal;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Consignee implements Observador {
@@ -7,6 +8,12 @@ public class Consignee implements Observador {
 	private List<Buque> buquesDeInteres;
 	private Observador agenteExterno;
 	private List<Mail> mails;
+	
+	public Consignee(Observador agenteExterno) {
+		this.agenteExterno = agenteExterno;
+		buquesDeInteres = new ArrayList<Buque>();
+		mails = new ArrayList<Mail>();
+	}
 	
 	public List<Buque> getBuquesDeInteres() {
 		return buquesDeInteres;
@@ -38,8 +45,12 @@ public class Consignee implements Observador {
 	
 	public void agregarMail(Mail mail) {
 		this.getMails().add(mail);
+	
 	}
 	
+	public void agregarBuqueDeIntere(Buque buqueDeInteres) {
+		this.buquesDeInteres.add(buqueDeInteres);
+	}
 	
 	@Override
 	public void notificarBuqueA50Km(Mail mail) {

@@ -34,11 +34,15 @@ class PuertoTest {
 	
 	 EmpresaPortuaria empPortuaria1;
 	 EmpresaPortuaria empPortuaria2;
+	 EmpresaPortuaria empPortuaria3;
+	 EmpresaPortuaria empPortuaria4;
 	
 	 EstrategiaMejorRuta mejorRuta;
 	
 	 Orden orden1;
 	 Orden orden2;
+	 Orden orden3;
+	 Orden orden4;
 	
 	 Cliente cliente1; //por el newOrden
 	 Cliente cliente2;
@@ -54,6 +58,8 @@ class PuertoTest {
 	 Tramo tramo2;
 	 
 	 Buque buque1;
+	 Buque buque2;
+	 Buque buque3;
 	
 	@BeforeEach
 	void setUp() {
@@ -77,14 +83,28 @@ class PuertoTest {
 		containers.add(container2);
 		puerto1.setContainers(containers);
 		
+		List<Consignee> consignees = new ArrayList<Consignee>();
 		consignee1 = mock(Consignee.class);
 		consignee2 = mock(Consignee.class);
+		consignees.add(consignee1);
+		consignees.add(consignee2);
+		puerto1.setConsignees(consignees);
 		
+		List<Observador> observers = new ArrayList<Observador>();
 		obsGeneral1 = mock(Observador.class);
 		obsGeneral2 = mock(Observador.class);
+		observers.add(obsGeneral1);
+		observers.add(obsGeneral2);
+		puerto1.setObserversGenerales(observers);
 		
+		List<EmpresaPortuaria> empPortuarias = new ArrayList<EmpresaPortuaria>();
 		empPortuaria1 = new EmpresaPortuaria();
 		empPortuaria2 = new EmpresaPortuaria();
+		empPortuarias.add(empPortuaria1);
+		empPortuarias.add(empPortuaria2);
+		puerto1.setEmpresasNavieras(empPortuarias);
+		empPortuaria3 = new EmpresaPortuaria();
+		empPortuaria4 = new EmpresaPortuaria();
 		
 		mejorRuta = mock(EstrategiaMejorRuta.class); //Ver si es con mock.
 		
@@ -94,8 +114,14 @@ class PuertoTest {
 		cliente1 = new Cliente(cargaCliente);
 		cliente2 = new Cliente(cargaCliente2);
 		
+		List<Orden> ordenes = new ArrayList<Orden>();
 		orden1 = new Orden(container1,cliente1);
-		orden1 = new Orden(container2,cliente2);
+		orden2 = new Orden(container2,cliente2);
+		orden3 = new Orden(container1,cliente2);
+		orden4 = new Orden(container2,cliente1);
+		ordenes.add(orden1);
+		ordenes.add(orden2);
+		puerto1.setOrdenes(ordenes);
 		
 		List<Chofer> choferes = new ArrayList<Chofer>();
 		chofer1 = new Chofer("Chofer1");
@@ -106,9 +132,6 @@ class PuertoTest {
 		
 		camion1 = new Camion(chofer1,container2);
 		camion2 = new Camion(chofer2,container1);
-		
-		puerto1.agregarOrden(orden1);
-		puerto1.agregarOrden(orden2);
 		
 		buque1 = new Buque("Buque 1");
 		
@@ -130,9 +153,9 @@ class PuertoTest {
 	
 	@Test
 	void cantidadDeNavierasAgregadasTest() {
-		puerto1.agregarNaviera(empPortuaria1);
-		puerto1.agregarNaviera(empPortuaria2);
-		assertEquals(puerto1.getEmpresasNavieras().size(),2);
+		puerto1.agregarNaviera(empPortuaria3);
+		puerto1.agregarNaviera(empPortuaria4);
+		assertEquals(puerto1.getEmpresasNavieras().size(),4);
 	}
 	
 	@Test
@@ -175,5 +198,32 @@ class PuertoTest {
 	@Test
 	void cantidadDeContainersDelPuerto() {
 		assertEquals(puerto1.getContainers().size(),2);
+	}
+	
+	@Test
+	void cantidadDeConsigneesdelPuertoTest() {
+		assertEquals(puerto1.getConsignees().size(),2);
+	}
+	
+	@Test
+	void cantidadDeObserversDelPuertoTest() {
+		assertEquals(puerto1.getObserversGenerales().size(),2);
+	}
+	
+	@Test
+	void cantidadDeEmpresasPortuariasDelPuertoTest() {
+		assertEquals(puerto1.getEmpresasNavieras().size(),2);
+	}
+	
+	@Test
+	void cantidadDeOrdenesQueTieneElPuertTest() {
+		assertEquals(puerto1.getOrdenes().size(),2);
+	}
+	
+	@Test
+	void cantidadDeOrdenesAgregadosEnTotalQueTieneElPuertoTest() {
+		puerto1.agregarOrden(orden3);
+		puerto1.agregarOrden(orden4);
+		assertEquals(puerto1.getOrdenes().size(),4);
 	}
 }
