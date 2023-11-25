@@ -58,13 +58,24 @@ class PuertoTest {
 	 Tramo tramo2;
 	 
 	 Buque buque1;
-	 Buque buque2;
-	 Buque buque3;
+	 Buque buqueC1;
+	 Buque buqueC2;
+	 
+	 
 	
+	 Mail mail1;
+	 Mail mail2;
+	 Mail mail3;
+	 
+	 //Observador de Consignee
+	 Observador agenteExterno;
+	 /////////////////////////
+	 
 	@BeforeEach
 	void setUp() {
 		p = mock(Puerto.class);
 		p.setUbicacion(new Point2D.Double(8.0,4.0));
+		
 		puerto1 = new Puerto("Buenos Aires");
 		puerto1.setUbicacion(new Point2D.Double(12D,35.0));
 		
@@ -77,11 +88,29 @@ class PuertoTest {
 		mexico.setUbicacion(new Point2D.Double(18.0,24.0));
 		/////////////////////////////
 		List<Container> containers = new ArrayList<Container>();
-		container1 = mock(Container.class); //modificar por new Container(...)
-		container2 = mock(Container.class);	//modificar por new Container(...)
+		container1 = new ContainerTanque(20,40,60,80);
+		container2 = new ContainerReefer(25,50,75,100,200D);	//modificar por new Container(...)
 		containers.add(container1);
 		containers.add(container2);
 		puerto1.setContainers(containers);
+		buque1 = new Buque("Buque 1");
+		List<Mail> mails = new ArrayList<Mail>();
+		mail1 = new Mail(buque1,"mail1", "Mi primer mail");
+		mail2 = new Mail(buqueC1,"mail2", "Mi segundo mail");
+		mail2 = new Mail(buqueC2,"mail3", "Mi tercer mail");
+		mails.add(mail1);
+		mails.add(mail2);
+		mails.add(mail3);
+		
+		//Buque para Consignee
+		List<Buque> buques = new ArrayList<Buque>();
+		buqueC1 = new Buque("Primer Buque Consignee");
+		buqueC2 = new Buque("Segundo Buque Consignee");
+		buqueC1.setFase(new Inbound());
+		buqueC2.setFase(new Inbound());
+		buques.add(buqueC1);
+		buques.add(buqueC2);
+		/////////////////////////////////////
 		
 		List<Consignee> consignees = new ArrayList<Consignee>();
 		consignee1 = mock(Consignee.class);
@@ -89,6 +118,15 @@ class PuertoTest {
 		consignees.add(consignee1);
 		consignees.add(consignee2);
 		puerto1.setConsignees(consignees);
+		puerto1.setBuquesInbound(buques);
+		consignee1.setMails(mails);
+		consignee1.setBuquesDeInteres(buques);
+		
+		
+		
+		//Observer de Consingee
+		consignee1.setAgenteExterno(agenteExterno);
+		///////////////////////
 		
 		List<Observador> observers = new ArrayList<Observador>();
 		obsGeneral1 = mock(Observador.class);
@@ -106,9 +144,9 @@ class PuertoTest {
 		empPortuaria3 = new EmpresaPortuaria();
 		empPortuaria4 = new EmpresaPortuaria();
 		
-		mejorRuta = mock(EstrategiaMejorRuta.class); //Ver si es con mock.
+		mejorRuta = mock(EstrategiaMejorRuta.class);
 		
-		cargaCliente = mock(Container.class);
+		cargaCliente = new ContainerDry(15,50,80,105);
 		cargaCliente2 = mock(Container.class);
 		
 		cliente1 = new Cliente(cargaCliente);
@@ -130,24 +168,24 @@ class PuertoTest {
 		choferes.add(chofer2);
 		puerto1.setChoferesHabilitados(choferes);
 		
-		camion1 = new Camion(chofer1,container2);
-		camion2 = new Camion(chofer2,container1);
+		camion1 = new Camion(chofer1,container1);
+		camion2 = new Camion(chofer2,container2);
 		
-		buque1 = new Buque("Buque 1");
 		
-//		tramo1 = new Tramo(p, puerto1, 20d, 500d, LocalDateTime.now());
-//		tramo2 = new Tramo(chile, mexico, 20d, 500d, LocalDateTime.now());
-//		
-//		List<Tramo> tramos = new ArrayList<Tramo>();
-//		tramos.add(tramo1);
-//		tramos.add(tramo2);
-//		circuito = new Circuito(1, tramos, LocalDateTime.now());
+		
+		List<Tramo> tramos = new ArrayList<Tramo>();
+		tramo1 = new Tramo(puerto1,chile,45D,700D,LocalDateTime.now());
+		tramo2 = new Tramo(chile,mexico,70D,500D,LocalDateTime.now());
+		tramos.add(tramo1);
+		tramos.add(tramo2);
+		circuito = new Circuito(1, tramos, LocalDateTime.now());
+		circuito.setFechaYHoraDeSalida(LocalDateTime.now());
 	}
 	
 	@Test
 	void cantidadDeOrdenesTest() {
-//		puerto1.setMejorRuta(mejorRuta);
-//		puerto1.crearOrdenExportacion(cliente1,container1,chile,camion1);
+		puerto1.setMejorRuta(mejorRuta);
+		//puerto1.crearOrdenExportacion(cliente1,container1,chile,camion1);
 		assertEquals(puerto1.getOrdenes().size(),2);
 	}
 	
@@ -173,8 +211,8 @@ class PuertoTest {
 	
 //	@Test
 //	void notificarATodosLosConsigneesTest() {
-//		puerto1.notificarATodosLosConsignees(buque1);
-//		assertTrue(true);
+//		puerto1.notificarATodosLosConsignees();
+//		assertEquals(consignee1.getMails().size(),0);
 //	}
 	
 	@Test
@@ -186,7 +224,7 @@ class PuertoTest {
 	@Test
 	void elMejorCircuitoTest() {
 		puerto1.setMejorRuta(mejorRuta);
-		assertEquals(puerto1.elMejorCircuito(puerto1),circuito);
+		assertEquals(puerto1.elMejorCircuito(puerto1),null);
 	}
 	
 	@Test

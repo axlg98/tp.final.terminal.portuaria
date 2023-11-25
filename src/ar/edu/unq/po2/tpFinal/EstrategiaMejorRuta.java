@@ -39,7 +39,7 @@ public abstract class EstrategiaMejorRuta {
 		
 	}
 	
-	public abstract Circuito elMejorCircuito(Puerto puertoOrige, Puerto puertoDestino);
+	public abstract Circuito elMejorCircuito(Puerto puertoOrigen, Puerto puertoDestino);
 	
 	
 	

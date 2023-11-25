@@ -44,7 +44,7 @@ public class Consignee implements Observador {
 
 	
 	public void agregarMail(Mail mail) {
-		this.getMails().add(mail);
+		this.mails.add(mail);
 	
 	}
 	
@@ -54,7 +54,6 @@ public class Consignee implements Observador {
 	
 	@Override
 	public void notificarBuqueA50Km(Mail mail) {
-		// TODO Auto-generated method stub
 		
 		if (buquesDeInteres.contains(mail.getBuque())) {
 			this.agregarMail(mail);

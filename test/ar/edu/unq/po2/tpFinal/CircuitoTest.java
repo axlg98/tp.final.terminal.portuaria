@@ -132,4 +132,22 @@ class CircuitoTest {
 		circuito.setFechaYHoraDeSalida(LocalDateTime.MAX);
 		assertEquals(circuito.getFechaYHoraDeSalida(),LocalDateTime.MAX);
 	}
+	
+	@Test
+	void cambiandoElOrigenDelTramoDelCircuitoTest() {
+		tramo1.setPuertoOrigen(miami);
+		assertEquals(tramo1.getPuertoOrigen(),miami);
+	}
+	
+	@Test
+	void tramocambiaLaFechaYHoraDeSalidaDelCircuitoTest() {
+		tramo1.setFechaYHoraSalida(LocalDateTime.of(2024, 01, 05, 20, 55));
+		assertEquals(tramo1.getFechaYHoraSalida(),LocalDateTime.of(2024, 01, 05, 20, 55));
+	}
+	
+	@Test
+	void cambioDeDuracionDelTramoDelCircuitoTest() {
+		tramo1.setDuracionTramo(1000D);
+		assertEquals(tramo1.getDuracionTramo(),1000D);
+	}
 }

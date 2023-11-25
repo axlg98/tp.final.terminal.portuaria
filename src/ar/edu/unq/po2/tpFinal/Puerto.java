@@ -132,11 +132,11 @@ public class Puerto {
 	   SU CIRCUITO DE ALGUNA NAVIERA QUE TENGA PUERTOS DE ORIGEN Y DESTINO.
     */
 	//Arreglar esta parte.
-	public void enviarCarga(EmpresaPortuaria emp, Circuito c,Container container) { // DUDA
-		if(emp.contieneCircuito(c)  /*&& (this.mismoDestino(emp, c) && this.mismaLlegada(emp, c))*/) {
-			this.agregarContainer(container);
-		}
-	}
+//	public void enviarCarga(EmpresaPortuaria emp, Circuito c,Container container) { // DUDA
+//		if(emp.contieneCircuito(c)  /*&& (this.mismoDestino(emp, c) && this.mismaLlegada(emp, c))*/) {
+//			this.agregarContainer(container);
+//		}
+//	}
 
 	
 	
@@ -220,7 +220,6 @@ public class Puerto {
 
 
 	public void buqueAMenosDe50km(Buque buque) {
-		// TODO Auto-generated method stub
 		
 		this.getBuquesInbound().add(buque);
 		
@@ -229,7 +228,6 @@ public class Puerto {
 
 
 	public void darAvisoClientes() {
-		// TODO Auto-generated method stub
 		
 	}
 	

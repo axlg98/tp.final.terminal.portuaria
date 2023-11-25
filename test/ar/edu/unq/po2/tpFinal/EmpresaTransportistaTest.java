@@ -108,4 +108,10 @@ class EmpresaTransportistaTest {
 		camion1.setChofer(chofer2);
 		assertEquals(camion1.getChofer().getNombre(),"Chofer 2");
 	}
+	
+	@Test
+	void cambioDePuertoEnLaEmpresaTransportistaTest() {
+		empTransportista.setPuerto(cordoba);
+		assertEquals(empTransportista.getPuerto(),cordoba);
+	}
 }
