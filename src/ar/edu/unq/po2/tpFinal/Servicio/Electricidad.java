@@ -1,25 +1,27 @@
 package ar.edu.unq.po2.tpFinal.Servicio;
 
+import java.time.temporal.ChronoUnit;
+
 import ar.edu.unq.po2.tpFinal.Orden.Orden;
 
 public class Electricidad implements Servicio{
 	
-	private Double kilowatt;	
+	private Double kilowattCosto;	
 	
 	public Electricidad(Double kilowatt) {
-		this.kilowatt = kilowatt;
+		this.kilowattCosto = kilowatt;
 	}
 	
 	@Override
 	public Double costoServicio(Orden orden) {
-		return this.getKilowatt() * orden.getUnContainer().costoDelContainer();
+		return kilowattCosto *  ChronoUnit.HOURS.between( orden.fechaSalidaDeLaCarga(), orden.fechaLlegadaDeLaCarga());
 	}
 
-	public Double getKilowatt() {
-		return kilowatt;
+	public Double getKilowattCosto() {
+		return kilowattCosto;
 	}
 
-	public void setKilowatt(Double kilowatt) {
-		this.kilowatt = kilowatt;
+	public void setKilowattCosto(Double i) {
+		this.kilowattCosto = i;
 	}
 }

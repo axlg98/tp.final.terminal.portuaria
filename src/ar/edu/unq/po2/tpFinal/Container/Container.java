@@ -18,15 +18,13 @@ public abstract class Container {
 	}
 	///////////////////////////
 	
-	public int volumenDelContainer() {
+	public int tamañoDelContainer() {
 		
 		return this.ancho * this.largo * this.altura;
 		
 	}
 	
-	public Double costoDelContainer() {
-		return 0D;
-	}
+	
 	
 	//SET Y GET
 	

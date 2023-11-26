@@ -10,16 +10,8 @@ public class ContainerReefer extends Container {
 		this.consumoPorHora = consumoPorHora;
 	}
 	
-	@Override
-	public Double costoDelContainer() {
-		return this.getConsumoPorHora();
-	}
-	
-	
 	//SET Y GET
 
-		
-	
 	public Double getConsumoPorHora() {
 		return consumoPorHora;
 	}

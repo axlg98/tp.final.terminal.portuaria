@@ -4,12 +4,23 @@ import ar.edu.unq.po2.tpFinal.Orden.Orden;
 
 public class Pesado implements Servicio{
 	
-	public Pesado() {
-		
-	}
+	private Double costo = 200d;
 	
 	@Override
 	public Double costoServicio(Orden orden) {
-		return 500D;
+		return this.costo;
+		
 	}
+
+	public Double getCosto() {
+		return costo;
+	}
+
+	public void setCosto(Double costo) {
+		this.costo = costo;
+	}
+	
+	
+	
+	
 }

@@ -129,10 +129,7 @@ class EmpresaTransportistaTest {
 		assertEquals(container2.getPeso(),60D);
 	}
 	
-	@Test
-	void aumentoDelConsumoPorHoraDelContainerReeferDeLaEmpTransportistaTest() {
-		assertEquals(container2.costoDelContainer(),1000D);
-	}
+	
 	
 	@Test 
 	void cambioDeNombreDeUnChoferDeLaEmpresaTransportistaTest(){

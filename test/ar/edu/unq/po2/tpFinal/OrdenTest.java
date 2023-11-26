@@ -88,7 +88,7 @@ class OrdenTest {
 		List<Servicio> servicios = new ArrayList<Servicio>();
 		servicio1 =  new Electricidad(1500D);
 		servicio2 =  new Pesado();
-		servicio4 =  new AlmacenamientoExcedente(120D,cliente1);
+		
 		servicios.add(servicio1);
 		servicios.add(servicio2);
 		orden1.setServicios(servicios);
@@ -139,14 +139,14 @@ class OrdenTest {
 	
 	@Test
 	void agregandoServicioYCantidadTotal() {
-		Servicio servicio3 = new AlmacenamientoExcedente(100D,cliente1);
+		Servicio servicio3 = mock(AlmacenamientoExcedente.class);
 		orden1.agregarServicio(servicio3);
 		assertEquals(orden1.getServicios().size(), 3);
 	}
 	
 	@Test
 	void costoTotalDeServiciosTest() {
-		assertEquals(orden1.costoTotalDeServicios(),500D);
+		assertEquals(orden1.costoTotalDeServicios(),972200D);
 	}
 	
 	@Test
@@ -199,10 +199,7 @@ class OrdenTest {
 		assertEquals(orden1.fechaSalidaDeLaCarga(),LocalDateTime.of(2023, 12, 22,18,12));
 	}
 	
-	@Test
-	void CostoDelServicioAlmacenamientoExcedenteDeLaOrdenTest() {
-		assertEquals(servicio4.costoServicio(orden1),0.0D);
-	}
+	
 	
 
 }

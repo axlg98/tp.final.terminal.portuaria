@@ -4,14 +4,11 @@ import ar.edu.unq.po2.tpFinal.Orden.Orden;
 
 public class Lavado implements Servicio {
 	
-	public Lavado() {
-		
-	}
 
 	@Override
 	public Double costoServicio(Orden orden) {
 		
-		if (orden.getUnContainer().volumenDelContainer() > 70) {
+		if (orden.getUnContainer().tamañoDelContainer() > 70) {
 			
 			return 500d;
 			
