@@ -114,4 +114,20 @@ class EmpresaTransportistaTest {
 		empTransportista.setPuerto(cordoba);
 		assertEquals(empTransportista.getPuerto(),cordoba);
 	}
+	
+	@Test
+	void costoDelContainerReeferDeLaEmpTransportistaTest() {
+		assertEquals(container2.getPeso(),60D);
+	}
+	
+	@Test
+	void aumentoDelConsumoPorHoraDelContainerReeferDeLaEmpTransportistaTest() {
+		assertEquals(container2.costoDelContainer(),1000D);
+	}
+	
+	@Test 
+	void cambioDeNombreDeUnChoferDeLaEmpresaTransportistaTest(){
+		chofer1.setNombre("Fulano");
+		assertEquals(chofer1.getNombre(),"Fulano");
+	}
 }

@@ -31,6 +31,7 @@ class OrdenTest {
 	
 	Servicio servicio1;
 	Servicio servicio2;
+	Servicio servicio4;
 	
 	Puerto buenosAires;
 	
@@ -58,6 +59,7 @@ class OrdenTest {
 	Tramo tramo2;
 	Circuito circuito;
 	
+	
 	@BeforeEach
 	void setUp() {
 		cargaCliente = new ContainerDry(55,45,21,80);
@@ -68,8 +70,9 @@ class OrdenTest {
 		orden1 = new Orden(container1,cliente1);
 		
 		List<Servicio> servicios = new ArrayList<Servicio>();
-		servicio1 =  mock(Servicio.class);
-		servicio2 =  mock(Servicio.class);
+		servicio1 =  new Electricidad(1500D);
+		servicio2 =  new Pesado();
+		servicio4 =  new AlmacenamientoExcedente(120D,cliente1);
 		servicios.add(servicio1);
 		servicios.add(servicio2);
 		orden1.setServicios(servicios);
@@ -110,6 +113,7 @@ class OrdenTest {
 		
 		viaje1 = new Viaje(buque,circuito,LocalDateTime.now(),LocalDateTime.of(2023, 12, 23, 18,12),roma, canarias);
 		orden1.setUnViaje(viaje1);
+		
 	}
 
 	@Test
@@ -119,14 +123,14 @@ class OrdenTest {
 	
 	@Test
 	void agregandoServicioYCantidadTotal() {
-		Servicio servicio3 = mock(Servicio.class);
+		Servicio servicio3 = new AlmacenamientoExcedente(100D,cliente1);
 		orden1.agregarServicio(servicio3);
 		assertEquals(orden1.getServicios().size(), 3);
 	}
 	
 	@Test
 	void costoTotalDeServiciosTest() {
-		assertEquals(orden1.costoTotalDeServicios(),0D);
+		assertEquals(orden1.costoTotalDeServicios(),500D);
 	}
 	
 	@Test
@@ -178,5 +182,11 @@ class OrdenTest {
 		orden1.getUnViaje().setFechaSalida(LocalDateTime.of(2023, 12, 22,18,12));
 		assertEquals(orden1.fechaSalidaDeLaCarga(),LocalDateTime.of(2023, 12, 22,18,12));
 	}
+	
+	@Test
+	void CostoDelServicioAlmacenamientoExcedenteDeLaOrdenTest() {
+		assertEquals(servicio4.costoServicio(orden1),0.0D);
+	}
+	
 
 }

@@ -1,6 +1,10 @@
 package ar.edu.unq.po2.tpFinal;
 
 public class Lavado implements Servicio {
+	
+	public Lavado() {
+		
+	}
 
 	@Override
 	public Double costoServicio(Orden orden) {

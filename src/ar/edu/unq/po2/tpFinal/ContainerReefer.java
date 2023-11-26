@@ -15,15 +15,21 @@ public class ContainerReefer extends Container {
 		return this.getConsumoPorHora();
 	}
 	
+	
 	//SET Y GET
 
+		
+	
 	public Double getConsumoPorHora() {
 		return consumoPorHora;
 	}
-
-	public void setConsumoPorHora(Double consumoPorHora) {
-		this.consumoPorHora = consumoPorHora;
-	}
+	
+	//Ver si sirve en realidad.
+	
+//
+//	public void setConsumoPorHora(Double consumoPorHora) {
+//		this.consumoPorHora = consumoPorHora;
+//	}
 
 	
 	
