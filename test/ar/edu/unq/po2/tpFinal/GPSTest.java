@@ -7,6 +7,9 @@ import java.awt.geom.Point2D;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import ar.edu.unq.po2.tpFinal.Buque.GPS;
+import ar.edu.unq.po2.tpFinal.TerminalPortuaria.Puerto;
+
 class GPSTest {
 
 	private Puerto buenosAires;

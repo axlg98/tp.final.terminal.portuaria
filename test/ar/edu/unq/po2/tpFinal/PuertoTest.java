@@ -11,6 +11,24 @@ import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import ar.edu.unq.po2.tpFinal.Buque.Buque;
+import ar.edu.unq.po2.tpFinal.Buque.Inbound;
+import ar.edu.unq.po2.tpFinal.Circuito.Circuito;
+import ar.edu.unq.po2.tpFinal.Circuito.Tramo;
+import ar.edu.unq.po2.tpFinal.Cliente.Cliente;
+import ar.edu.unq.po2.tpFinal.Cliente.Consignee;
+import ar.edu.unq.po2.tpFinal.Cliente.Mail;
+import ar.edu.unq.po2.tpFinal.Container.Container;
+import ar.edu.unq.po2.tpFinal.Container.ContainerDry;
+import ar.edu.unq.po2.tpFinal.Container.ContainerReefer;
+import ar.edu.unq.po2.tpFinal.Container.ContainerTanque;
+import ar.edu.unq.po2.tpFinal.EmpresaTransportista.Camion;
+import ar.edu.unq.po2.tpFinal.EmpresaTransportista.Chofer;
+import ar.edu.unq.po2.tpFinal.EstrategiaMejorRuta.EstrategiaMejorRuta;
+import ar.edu.unq.po2.tpFinal.Naviera.EmpresaPortuaria;
+import ar.edu.unq.po2.tpFinal.Orden.Orden;
+import ar.edu.unq.po2.tpFinal.TerminalPortuaria.Puerto;
+
 class PuertoTest {
 	 Puerto p;
 	 Puerto puerto1;

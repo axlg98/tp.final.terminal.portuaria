@@ -12,6 +12,15 @@ import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import ar.edu.unq.po2.tpFinal.Container.Container;
+import ar.edu.unq.po2.tpFinal.Container.ContainerDry;
+import ar.edu.unq.po2.tpFinal.Container.ContainerReefer;
+import ar.edu.unq.po2.tpFinal.Container.ContainerTanque;
+import ar.edu.unq.po2.tpFinal.EmpresaTransportista.Camion;
+import ar.edu.unq.po2.tpFinal.EmpresaTransportista.Chofer;
+import ar.edu.unq.po2.tpFinal.EmpresaTransportista.EmpresaTransportista;
+import ar.edu.unq.po2.tpFinal.TerminalPortuaria.Puerto;
+
 class EmpresaTransportistaTest {
 	
 	EmpresaTransportista empTransportista;

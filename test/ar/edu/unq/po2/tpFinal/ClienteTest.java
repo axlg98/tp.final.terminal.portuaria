@@ -9,6 +9,14 @@ import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import ar.edu.unq.po2.tpFinal.Cliente.Cliente;
+import ar.edu.unq.po2.tpFinal.Cliente.Turno;
+import ar.edu.unq.po2.tpFinal.Container.Container;
+import ar.edu.unq.po2.tpFinal.Container.ContainerDry;
+import ar.edu.unq.po2.tpFinal.Container.ContainerReefer;
+import ar.edu.unq.po2.tpFinal.Container.ContainerTanque;
+import ar.edu.unq.po2.tpFinal.Orden.Orden;
+
 class ClienteTest {
 	
 	Cliente cliente1;

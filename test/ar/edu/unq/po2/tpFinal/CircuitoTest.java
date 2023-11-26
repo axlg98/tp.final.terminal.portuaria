@@ -10,6 +10,11 @@ import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import ar.edu.unq.po2.tpFinal.Circuito.Circuito;
+import ar.edu.unq.po2.tpFinal.Circuito.Viaje;
+import ar.edu.unq.po2.tpFinal.Circuito.Tramo;
+import ar.edu.unq.po2.tpFinal.TerminalPortuaria.Puerto;
+
 class CircuitoTest {
 
 	 Tramo tramo1;
