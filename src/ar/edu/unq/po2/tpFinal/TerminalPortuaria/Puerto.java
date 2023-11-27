@@ -15,7 +15,7 @@ import ar.edu.unq.po2.tpFinal.Container.Container;
 import ar.edu.unq.po2.tpFinal.EmpresaTransportista.Camion;
 import ar.edu.unq.po2.tpFinal.EmpresaTransportista.Chofer;
 import ar.edu.unq.po2.tpFinal.EstrategiaMejorRuta.EstrategiaMejorRuta;
-import ar.edu.unq.po2.tpFinal.Naviera.EmpresaPortuaria;
+import ar.edu.unq.po2.tpFinal.Naviera.Naviera;
 import ar.edu.unq.po2.tpFinal.Orden.Orden;
 import ar.edu.unq.po2.tpFinal.Orden.OrdenExportacion;
 
@@ -33,7 +33,7 @@ public class Puerto {
 	
 	private Point2D ubicacion = new Point2D.Double(0, 0);
 	
-	private List<EmpresaPortuaria> empresasNavieras;
+	private List<Naviera> empresasNavieras;
 	
 	private EstrategiaMejorRuta mejorRuta;
 	
@@ -45,7 +45,7 @@ public class Puerto {
 	public Puerto(String nombre) {
 		super();
 		this.nombre = nombre;
-		this.empresasNavieras = new ArrayList<EmpresaPortuaria>();
+		this.empresasNavieras = new ArrayList<Naviera>();
 		this.choferesHabilitados = new ArrayList<Chofer>();
 		this.containers = new ArrayList<Container>();
 		this.buquesInbound = new ArrayList<Buque>();
@@ -90,10 +90,10 @@ public class Puerto {
 		this.observersGenerales = observersGenerales;
 	}
 	
-	public List<EmpresaPortuaria> getEmpresasNavieras() {
+	public List<Naviera> getEmpresasNavieras() {
 		return empresasNavieras;
 	}
-	public void setEmpresasNavieras(List<EmpresaPortuaria> empresasNavieras) {
+	public void setEmpresasNavieras(List<Naviera> empresasNavieras) {
 		this.empresasNavieras = empresasNavieras;
 	}
 	public Point2D getUbicacion() {
@@ -120,7 +120,7 @@ public class Puerto {
     }
 	
 	
-	public void agregarNaviera(EmpresaPortuaria empresaPortuaria) {
+	public void agregarNaviera(Naviera empresaPortuaria) {
 		
 		this.getEmpresasNavieras().add(empresaPortuaria);
 		

@@ -40,10 +40,13 @@ public class Buque {
 		//puerto.darAvisoClientes(); cambiar nombre
 		
 	}
-	
-	public void posicionActualDelBuque(int x, int y) {
+
+
+	public void cambiarPosicionBuque(Point2D posicion) {
 		
-	}
+		this.setPosicionActual(posicion);
+		this.actualizarEstado();
+	} 
 	
 	public void actualizarEstado() {
 		this.getFase().actualizarEstado(this);

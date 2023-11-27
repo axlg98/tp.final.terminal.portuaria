@@ -29,9 +29,14 @@ public class EstrategiaMenorPrecio extends EstrategiaMejorRuta {
 		
 		return elDeMenorPrecio;
 		
-		
+		 
 		
 	}
+	
+	public boolean tieneMenorPrecio(Circuito primerCircuito, Circuito segundoCircuito) {
+		return primerCircuito.getCostoCircuito() < segundoCircuito.getCostoCircuito();
+	}
+	
 	
 	
 }

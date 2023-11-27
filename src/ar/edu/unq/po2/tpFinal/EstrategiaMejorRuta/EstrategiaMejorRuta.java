@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import ar.edu.unq.po2.tpFinal.Circuito.Circuito;
-import ar.edu.unq.po2.tpFinal.Naviera.EmpresaPortuaria;
+import ar.edu.unq.po2.tpFinal.Naviera.Naviera;
 import ar.edu.unq.po2.tpFinal.TerminalPortuaria.Puerto;
 
 import java.util.ArrayList;
@@ -13,7 +13,7 @@ public abstract class EstrategiaMejorRuta {
 
 	public List<Circuito> losCircuitos(Puerto puertoOrigen, Puerto puertoDestino){
 		
-		List<EmpresaPortuaria> empresasPortuarias = empresasPortuariasDe(puertoOrigen);
+		List<Naviera> empresasPortuarias = empresasPortuariasDe(puertoOrigen);
 		
 		List<Circuito> circuitos = todosLosCircuitosDe(empresasPortuarias);
 		
@@ -24,17 +24,17 @@ public abstract class EstrategiaMejorRuta {
 	}
 	
 	
-	public List<EmpresaPortuaria> empresasPortuariasDe(Puerto puerto){
+	public List<Naviera> empresasPortuariasDe(Puerto puerto){
 		
 		return puerto.getEmpresasNavieras();
 		
 	}
 	
-	public List<Circuito> todosLosCircuitosDe(List<EmpresaPortuaria> empresasPortuarias){
+	public List<Circuito> todosLosCircuitosDe(List<Naviera> empresasPortuarias){
 		
 		List<Circuito> circuitos = new ArrayList<Circuito>();
 		
-		for (EmpresaPortuaria empresa : empresasPortuarias) {
+		for (Naviera empresa : empresasPortuarias) {
 			
 			circuitos.addAll(empresa.getCircuitos());
 			

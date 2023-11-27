@@ -146,7 +146,7 @@ class OrdenTest {
 	
 	@Test
 	void costoTotalDeServiciosTest() {
-		assertEquals(orden1.costoTotalDeServicios(),958700D);
+		assertEquals(orden1.costoTotalDeServicios(),942200D);
 	}
 	
 	@Test

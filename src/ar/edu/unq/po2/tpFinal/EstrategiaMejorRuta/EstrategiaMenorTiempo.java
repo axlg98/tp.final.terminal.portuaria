@@ -32,7 +32,9 @@ public class EstrategiaMenorTiempo extends EstrategiaMejorRuta{
 		
 	}
 
-	
+	public boolean tieneMenorTiempo(Circuito primerCircuito, Circuito segundoCircuito) {
+		return primerCircuito.duracionDeTodoElCircuito() < segundoCircuito.duracionDeTodoElCircuito();
+	}
 	
 	
 }

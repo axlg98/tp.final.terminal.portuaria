@@ -25,7 +25,7 @@ public class EstrategiaMenorCantidadDeTerminales extends EstrategiaMejorRuta {
 			// caso contrario no hace nada
 			
 		}
-		
+		 
 		
 		return elMejor;
 	}

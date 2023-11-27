@@ -15,14 +15,14 @@ import ar.edu.unq.po2.tpFinal.Buque.Buque;
 import ar.edu.unq.po2.tpFinal.Circuito.Circuito;
 import ar.edu.unq.po2.tpFinal.Circuito.Viaje;
 import ar.edu.unq.po2.tpFinal.Circuito.Tramo;
-import ar.edu.unq.po2.tpFinal.Naviera.EmpresaPortuaria;
+import ar.edu.unq.po2.tpFinal.Naviera.Naviera;
 import ar.edu.unq.po2.tpFinal.TerminalPortuaria.Puerto;
 
 
 class EmpresaPortuariaTest {
 	
-	EmpresaPortuaria empPortuaria1;
-	EmpresaPortuaria empPortuaria2;
+	Naviera empPortuaria1;
+	Naviera empPortuaria2;
 	
 	Buque buque1;
 	Buque buque2;
@@ -75,8 +75,8 @@ class EmpresaPortuariaTest {
 	
 	@BeforeEach
 	void setUp() {
-		empPortuaria1 = new EmpresaPortuaria();
-		empPortuaria2 = new EmpresaPortuaria();
+		empPortuaria1 = new Naviera();
+		empPortuaria2 = new Naviera();
 		
 		List<Buque> buques = new ArrayList<Buque>();
 		buque1 = new Buque("Primer Buque");

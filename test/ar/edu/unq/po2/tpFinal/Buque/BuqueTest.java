@@ -107,7 +107,7 @@ class BuqueTest {
 										
 		buque1.setPosicionActual(new Point2D.Double(16.0,24.0));
 		buque2 = new Buque("buque2");
-		buque2.posicionActualDelBuque(8, 43);
+		
 		
 		buque1.setUnViaje(viaje);
 		

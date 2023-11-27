@@ -25,7 +25,7 @@ import ar.edu.unq.po2.tpFinal.Container.ContainerTanque;
 import ar.edu.unq.po2.tpFinal.EmpresaTransportista.Camion;
 import ar.edu.unq.po2.tpFinal.EmpresaTransportista.Chofer;
 import ar.edu.unq.po2.tpFinal.EstrategiaMejorRuta.EstrategiaMejorRuta;
-import ar.edu.unq.po2.tpFinal.Naviera.EmpresaPortuaria;
+import ar.edu.unq.po2.tpFinal.Naviera.Naviera;
 import ar.edu.unq.po2.tpFinal.Orden.Orden;
 import ar.edu.unq.po2.tpFinal.TerminalPortuaria.Puerto;
 
@@ -50,10 +50,10 @@ class PuertoTest {
 	 Observador obsGeneral1;
 	 Observador obsGeneral2;
 	
-	 EmpresaPortuaria empPortuaria1;
-	 EmpresaPortuaria empPortuaria2;
-	 EmpresaPortuaria empPortuaria3;
-	 EmpresaPortuaria empPortuaria4;
+	 Naviera empPortuaria1;
+	 Naviera empPortuaria2;
+	 Naviera empPortuaria3;
+	 Naviera empPortuaria4;
 	
 	 EstrategiaMejorRuta mejorRuta;
 	
@@ -153,14 +153,14 @@ class PuertoTest {
 		observers.add(obsGeneral2);
 		puerto1.setObserversGenerales(observers);
 		
-		List<EmpresaPortuaria> empPortuarias = new ArrayList<EmpresaPortuaria>();
-		empPortuaria1 = new EmpresaPortuaria();
-		empPortuaria2 = new EmpresaPortuaria();
+		List<Naviera> empPortuarias = new ArrayList<Naviera>();
+		empPortuaria1 = new Naviera();
+		empPortuaria2 = new Naviera();
 		empPortuarias.add(empPortuaria1);
 		empPortuarias.add(empPortuaria2);
 		puerto1.setEmpresasNavieras(empPortuarias);
-		empPortuaria3 = new EmpresaPortuaria();
-		empPortuaria4 = new EmpresaPortuaria();
+		empPortuaria3 = new Naviera();
+		empPortuaria4 = new Naviera();
 		
 		mejorRuta = mock(EstrategiaMejorRuta.class);
 		

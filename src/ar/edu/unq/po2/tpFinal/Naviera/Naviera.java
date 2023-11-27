@@ -7,12 +7,12 @@ import ar.edu.unq.po2.tpFinal.Buque.Buque;
 import ar.edu.unq.po2.tpFinal.Circuito.Circuito;
 import ar.edu.unq.po2.tpFinal.Circuito.Viaje;
 
-public class EmpresaPortuaria{
+public class Naviera{
 	private List<Buque> buques;
 	private List<Circuito> circuitos;
     private List<Viaje> viajes;
 	
-	public EmpresaPortuaria() {
+	public Naviera() {
 		buques = new ArrayList<Buque>();
 		circuitos = new ArrayList<Circuito>();
 		viajes = new ArrayList<Viaje>();
