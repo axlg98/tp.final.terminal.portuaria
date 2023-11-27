@@ -66,8 +66,8 @@ class ConsigneeTest {
 		
 		List<Mail> mails = new ArrayList<Mail>();
 		mail1 = new Mail(buque1,"Mail1", "Mi primer mail");
-		mail2 = new Mail(buque2,"Mail1", "Mi segundo mail");
-		mail3 = new Mail(buqueInt3,"Mail1", "Mi tercer mail");
+		mail2 = new Mail(buque2,"Mail2", "Mi segundo mail");
+		mail3 = new Mail(buqueInt3,"Mail3", "Mi tercer mail");
 		mails.add(mail1);
 		mails.add(mail2);
 		consignee.setMails(mails);
@@ -105,5 +105,22 @@ class ConsigneeTest {
 		consignee.agregarMail(mail3);
 		assertEquals(consignee.getMails().size(),3);
 	}
-
+	
+	@Test
+	void cambioDeNombreDelMailTest() {
+		mail1.setNombre("Nuevo Nombre");
+		assertEquals(mail1.getNombre(),"Nuevo Nombre");
+	}
+	
+	@Test
+	void modificandoNombreDescripcionYBuqueDeUnMailDelConsigneeDeNuevoTest() {
+		mail3.setBuque(buque2);
+		assertEquals(mail3.getBuque(),buque2);
+		mail3.setDescripcion("Nueva Descripcion del buque 3");
+		assertEquals(mail3.getDescripcion(),"Nueva Descripcion del buque 3");
+		mail3.setNombre(mail2.getNombre());
+		assertEquals(mail3.getNombre(),"Mail2");
+		consignee.agregarMail(mail3);
+		assertEquals(consignee.getMails().size(),3);
+	}
 }

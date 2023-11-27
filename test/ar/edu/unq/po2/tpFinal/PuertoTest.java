@@ -15,6 +15,7 @@ import ar.edu.unq.po2.tpFinal.Buque.Buque;
 import ar.edu.unq.po2.tpFinal.Buque.Inbound;
 import ar.edu.unq.po2.tpFinal.Circuito.Circuito;
 import ar.edu.unq.po2.tpFinal.Circuito.Tramo;
+import ar.edu.unq.po2.tpFinal.Circuito.Viaje;
 import ar.edu.unq.po2.tpFinal.Cliente.Cliente;
 import ar.edu.unq.po2.tpFinal.Cliente.Consignee;
 import ar.edu.unq.po2.tpFinal.Cliente.Mail;
@@ -85,6 +86,8 @@ class PuertoTest {
 	 Mail mail2;
 	 Mail mail3;
 	 
+	 Viaje unViaje;
+	 
 	 //Observador de Consignee
 	 Observador agenteExterno;
 	 /////////////////////////
@@ -104,6 +107,8 @@ class PuertoTest {
 		
 		mexico = new Puerto("mexico");
 		mexico.setUbicacion(new Point2D.Double(18.0,24.0));
+		
+		
 		/////////////////////////////
 		List<Container> containers = new ArrayList<Container>();
 		container1 = new ContainerTanque(20,40,60,80);
@@ -198,6 +203,8 @@ class PuertoTest {
 		tramos.add(tramo2);
 		circuito = new Circuito(1, tramos, LocalDateTime.now());
 		circuito.setFechaYHoraDeSalida(LocalDateTime.now());
+		
+		unViaje = new Viaje(buque1,circuito,LocalDateTime.now(),LocalDateTime.of(2023, 11,28, 20, 30),puerto1,chile);
 	}
 	
 	@Test
@@ -281,5 +288,12 @@ class PuertoTest {
 		puerto1.agregarOrden(orden3);
 		puerto1.agregarOrden(orden4);
 		assertEquals(puerto1.getOrdenes().size(),4);
+	}
+	
+	@Test
+	void actualizandoElEstadoDelBuqueDelPuertoDadoTest() {
+		buque1.setUnViaje(unViaje);
+		puerto1.trabajoCargaYDescarga(buque1);
+		assertTrue(buque1.getFase() instanceof Inbound);
 	}
 }

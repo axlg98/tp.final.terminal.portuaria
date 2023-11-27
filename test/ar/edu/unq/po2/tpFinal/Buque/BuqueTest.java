@@ -242,5 +242,12 @@ class BuqueTest {
 		assertTrue(buque1.getFase() instanceof Outbound);
 	}
 	
+	@Test
+	void cambioDePosicionDelBuqueYActualizandoSuEstadoTest() {
+		buque1.cambiarPosicionBuque(new Point2D.Double(1800D,500D)); //El Buque cambia de posición y de estado
+		assertTrue(buque1.getFase() instanceof Outbound);
+		
+	}
+	
 
 }

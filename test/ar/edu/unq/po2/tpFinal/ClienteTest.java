@@ -52,8 +52,8 @@ class ClienteTest {
 		turnos.add(turno1);
 		turnos.add(turno2);
 		cliente1.setTurnos(turnos);
-		
-		
+		cliente1.setTurno(turno1);	
+		turno1.setOrden(orden1);
 	}
 	
 	@Test
@@ -69,6 +69,23 @@ class ClienteTest {
 		assertEquals(cliente1.getCarga(),cargaCliente2);
 	}
 	
+	@Test
+	void cambioDeTurnoDelCliente1Test() {
+		cliente1.setTurno(turno2);
+		assertEquals(cliente1.getTurno(),turno2);
+	}
+	
+	@Test
+	void cambioDeOrdenDelTurnoDelClienteTest() {
+		cliente1.getTurno().setOrden(orden2);
+		assertEquals(cliente1.getTurno().getOrden(),orden2);
+	}
+	
+	@Test
+	void cambioDeFechaYHoraDelTurnoDelClienteTest() {
+		cliente1.getTurno().setFechaYHora(LocalDateTime.of(2024, 1, 15, 10, 30));
+		assertEquals(cliente1.getTurno().getFechaYHora(),LocalDateTime.of(2024, 1, 15, 10, 30));
+	}
 	
 
 }
