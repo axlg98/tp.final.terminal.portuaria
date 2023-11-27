@@ -104,9 +104,7 @@ class BuqueTest {
 		
 		posicionTerminal1 = mock(Point2D.class);
 		
-														/*ver como hacer max fecha*/
-																//	^ ^
-																//	| |
+										
 		buque1.setPosicionActual(new Point2D.Double(16.0,24.0));
 		buque2 = new Buque("buque2");
 		buque2.posicionActualDelBuque(8, 43);
@@ -208,7 +206,8 @@ class BuqueTest {
 		buque1.setFase(new Inbound()); // lo seteo en Inbound
 		buque1.setPosicionActual(new Point2D.Double(18,24));
 		buque1.actualizarEstado(); // le pido a esa fase que se actualice
-		assertTrue(buque1.getPuertoDestino() == viaje.getPuertoDestino()); // los puertos son los mismos
+		//assertTrue(buque1.getPuertoDestino() == viaje.getPuertoDestino()); // los puertos son los mismos
+		assertTrue(buque1.getPuertoDestino().equals(viaje.getPuertoDestino())); 
 		assertEquals(buque1.getPuertoDestino().getUbicacion(), new Point2D.Double(18,24)); // la ubicacion es la misma
 
 		assertEquals(buque1.getPosicionActual(), new Point2D.Double(18,24));
@@ -221,6 +220,27 @@ class BuqueTest {
 		assertEquals(buque1.getContainers().size(),5);
 	}
 	
+	@Test
+	void cambioDeFaseDeArrivedAWorkingDelBuqueTest() {
+		buque1.setFase(new Arrived()); //Seteado en Arrived.
+		buque1.actualizarEstado(); //Buque1 actualiza el estado.
+		assertTrue(buque1.getFase() instanceof Working);
+	}
+	
+	@Test
+	void cambioDeFaseDeWorkingADepartingDelBuqueTest(){
+		buque1.setFase(new Working()); //Seteado en Working.
+		buque1.actualizarEstado(); //Buque1 actualiza el estado.
+		assertTrue(buque1.getFase() instanceof Departing);
+	}
+	
+	@Test
+	void cambioDeFaseDeDepartingAOutboundDelBuqueTest(){
+		buque1.setFase(new Departing()); //Seteado en Working.
+		buque1.setPosicionActual(new Point2D.Double(180,24));
+		buque1.actualizarEstado(); //Buque1 actualiza el estado.
+		assertTrue(buque1.getFase() instanceof Outbound);
+	}
 	
 
 }

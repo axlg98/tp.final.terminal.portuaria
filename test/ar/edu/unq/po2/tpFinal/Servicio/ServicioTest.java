@@ -113,10 +113,18 @@ class ServicioTest {
 		assertEquals(300d, pesado.getCosto());
 		
 		assertEquals(300d, pesado.costoServicio(orden1));
-
 	}
 	
+	@Test
+	void cambioDeCostoDelAlmacenamientoExcedenteTest() {
+		almacenamientoExcedente.setCostoPorDia(1500D);
+		assertEquals(almacenamientoExcedente.getCostoPorDia(),1500D);
+	}
 	
-	
+	@Test
+	void cambioDeCostoDeKilowattEnServicioDeElectricidadTest() {
+		electricidad.setKilowattCosto(100D);
+		assertEquals(electricidad.getKilowattCosto(),100D);
+	}
 	
 }

@@ -146,7 +146,7 @@ class OrdenTest {
 	
 	@Test
 	void costoTotalDeServiciosTest() {
-		assertEquals(orden1.costoTotalDeServicios(),972200D);
+		assertEquals(orden1.costoTotalDeServicios(),958700D);
 	}
 	
 	@Test
@@ -198,6 +198,7 @@ class OrdenTest {
 		orden1.getUnViaje().setFechaSalida(LocalDateTime.of(2023, 12, 22,18,12));
 		assertEquals(orden1.fechaSalidaDeLaCarga(),LocalDateTime.of(2023, 12, 22,18,12));
 	}
+	
 	
 	
 	

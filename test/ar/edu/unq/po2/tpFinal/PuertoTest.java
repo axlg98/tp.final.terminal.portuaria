@@ -202,8 +202,8 @@ class PuertoTest {
 	
 	@Test
 	void cantidadDeOrdenesTest() {
-		puerto1.setMejorRuta(mejorRuta);
-		//puerto1.crearOrdenExportacion(cliente1,container1,chile,camion1);
+//		puerto1.setMejorRuta(mejorRuta);
+//		puerto1.crearOrdenExportacion(cliente1,container1,chile,camion1);
 		assertEquals(puerto1.getOrdenes().size(),2);
 	}
 	
@@ -227,11 +227,11 @@ class PuertoTest {
 		assertEquals(puerto1.getContainers().size(),4);
 	}
 	
-//	@Test
-//	void notificarATodosLosConsigneesTest() {
-//		puerto1.notificarATodosLosConsignees();
-//		assertEquals(consignee1.getMails().size(),0);
-//	}
+	@Test
+	void notificarATodosLosConsigneesTest() {
+		puerto1.notificarATodosLosConsignees();
+		assertEquals(consignee1.getMails().size(),0);
+	}
 	
 	@Test
 	void mejorRutaDelPuertoTest() {

@@ -1,6 +1,7 @@
 package ar.edu.unq.po2.tpFinal.TerminalPortuaria;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 import ar.edu.unq.po2.tpFinal.EmpresaTransportista.Camion;
@@ -10,6 +11,10 @@ import ar.edu.unq.po2.tpFinal.Orden.Orden;
 public class Terminal {
 
 	private List<Puerto> puertos;
+	
+	public Terminal() {
+		this.puertos = new ArrayList<Puerto>();
+	}
 
 	public List<Puerto> getPuertos() {
 		return puertos;
@@ -30,7 +35,6 @@ public class Terminal {
 	
 	
 	private void validarChofer(Chofer chofer, Orden orden) throws Exception {
-		// TODO Auto-generated method stub
 		
 		if (chofer.getNombre() != orden.getChoferaAsignado().getNombre()) {
 			

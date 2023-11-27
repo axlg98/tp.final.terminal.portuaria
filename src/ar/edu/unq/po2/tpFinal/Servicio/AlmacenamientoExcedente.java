@@ -9,6 +9,10 @@ public class AlmacenamientoExcedente implements Servicio{
 	
 	private Double costoPorDia = 30d;
 	
+//	public AlmacenamientoExcedente(Double costoPorDia) {
+//		this.costoPorDia = costoPorDia;
+//	}
+	
 	@Override
 	public Double costoServicio(Orden orden) {
 		return this.getCostoPorDia() * ChronoUnit.HOURS.between(orden.fechaSalidaDeLaCarga(), orden.fechaLlegadaDeLaCarga());
