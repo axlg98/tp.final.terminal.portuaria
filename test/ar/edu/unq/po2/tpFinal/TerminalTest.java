@@ -19,6 +19,7 @@ import ar.edu.unq.po2.tpFinal.Circuito.Tramo;
 import ar.edu.unq.po2.tpFinal.Cliente.Cliente;
 import ar.edu.unq.po2.tpFinal.Cliente.Consignee;
 import ar.edu.unq.po2.tpFinal.Cliente.Mail;
+import ar.edu.unq.po2.tpFinal.Cliente.Turno;
 import ar.edu.unq.po2.tpFinal.Container.Container;
 import ar.edu.unq.po2.tpFinal.Container.ContainerDry;
 import ar.edu.unq.po2.tpFinal.Container.ContainerReefer;
@@ -90,7 +91,7 @@ class TerminalTest {
 	 Buque buqueC1;
 	 Buque buqueC2;
 	 
-	 
+	 Turno turno;
 	
 	 Mail mail1;
 	 Mail mail2;
@@ -102,6 +103,9 @@ class TerminalTest {
 	 
 	@BeforeEach
 	void setUp() {
+		
+		
+		
 		p = mock(Puerto.class);
 		p.setUbicacion(new Point2D.Double(8.0,4.0));
 		
@@ -217,12 +221,16 @@ class TerminalTest {
 		puertos.add(p);
 		puertos.add(puerto1);
 		terminal1.setPuertos(puertos);	
+		
+		turno = new Turno(orden2,LocalDateTime.of(2023, 11, 30, 10, 20));
 	}
 
 	@Test
 	void validarEntregaTerrestreExpTest() throws Exception {
-//		orden1.setCamionAsignado(camion1);
-//		terminal1.validarEntregaTerrestreExp(orden1,camion1,chofer1);
+		orden1.setCamionAsignado(camion1);
+		orden1.setChoferaAsignado(chofer1);
+		orden1.setTurno(turno);
+		terminal1.validarEntregaTerrestreExp(orden1,camion1,chofer1);
 	}
 	
 	@Test

@@ -34,7 +34,7 @@ public class Terminal {
 	
 	
 	
-	private void validarChofer(Chofer chofer, Orden orden) throws Exception {
+	public void validarChofer(Chofer chofer, Orden orden) throws Exception {
 		
 		if (chofer.getNombre() != orden.getChoferaAsignado().getNombre()) {
 			
@@ -44,7 +44,7 @@ public class Terminal {
 		
 	}
 
-	private void validarHoraDeEntrega(Orden orden) throws Exception {
+	public void validarHoraDeEntrega(Orden orden) throws Exception {
 		
 		if ( orden.getTurno().getFechaYHora().getHour() - LocalDateTime.now().getHour() > 3 ) {
 			
@@ -56,7 +56,7 @@ public class Terminal {
 	}
 	
 	
-	private void validarCamion(Camion camion, Orden orden) throws Exception {
+	public void validarCamion(Camion camion, Orden orden) throws Exception {
 		if ( camion != orden.getCamionAsignado() ) {
 			
 			throw new Exception ("Camion no valido");

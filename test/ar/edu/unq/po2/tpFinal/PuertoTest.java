@@ -224,8 +224,8 @@ class PuertoTest {
 	
 	@Test
 	void cantidadDeOrdenesTest() {
-//		puerto1.setMejorRuta(mejorRuta);
-//		puerto1.crearOrdenExportacion(cliente1,container1,chile,camion1,circuitos);
+		puerto1.setMejorRuta(mejorRuta);
+		puerto1.crearOrdenExportacion(cliente1,container1,chile,camion1,circuitos);
 		assertEquals(puerto1.getOrdenes().size(),2);
 	}
 	
