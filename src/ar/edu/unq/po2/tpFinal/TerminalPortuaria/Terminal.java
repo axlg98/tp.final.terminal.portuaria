@@ -25,7 +25,7 @@ public class Terminal {
 	}
 	
 	
-	private void validarEntregaTerrestreExp(Orden orden, Camion camion, Chofer chofer) throws Exception {
+	public void validarEntregaTerrestreExp(Orden orden, Camion camion, Chofer chofer) throws Exception {
 		this.validarCamion(camion, orden);
 		this.validarChofer(chofer, orden);
 		this.validarHoraDeEntrega(orden);

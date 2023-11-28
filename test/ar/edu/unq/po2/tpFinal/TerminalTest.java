@@ -181,14 +181,6 @@ class TerminalTest {
 		cliente1 = new Cliente(cargaCliente);
 		cliente2 = new Cliente(cargaCliente2);
 		
-		List<Orden> ordenes = new ArrayList<Orden>();
-		orden1 = new Orden(container1,cliente1);
-		orden2 = new Orden(container2,cliente2);
-		orden3 = new Orden(container1,cliente2);
-		orden4 = new Orden(container2,cliente1);
-		ordenes.add(orden1);
-		ordenes.add(orden2);
-		puerto1.setOrdenes(ordenes);
 		
 		List<Chofer> choferes = new ArrayList<Chofer>();
 		chofer1 = new Chofer("Chofer1");
@@ -199,6 +191,15 @@ class TerminalTest {
 		
 		camion1 = new Camion(chofer1,container1);
 		camion2 = new Camion(chofer2,container2);
+		
+		List<Orden> ordenes = new ArrayList<Orden>();
+		orden1 = new Orden(container1,cliente1);
+		orden2 = new Orden(container2,cliente2);
+		orden3 = new Orden(container1,cliente2);
+		orden4 = new Orden(container2,cliente1);
+		ordenes.add(orden1);
+		ordenes.add(orden2);
+		puerto1.setOrdenes(ordenes);
 		
 		
 		
@@ -218,10 +219,11 @@ class TerminalTest {
 		terminal1.setPuertos(puertos);	
 	}
 
-//	@Test
-//	void validarEntregaTerrestreExpTest() {
+	@Test
+	void validarEntregaTerrestreExpTest() throws Exception {
+//		orden1.setCamionAsignado(camion1);
 //		terminal1.validarEntregaTerrestreExp(orden1,camion1,chofer1);
-//	}
+	}
 	
 	@Test
 	void cantidadDePuertoDeLaTerminalTest() {

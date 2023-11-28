@@ -16,7 +16,7 @@ public class OrdenImportacion extends Orden{
 	public OrdenImportacion(LocalDate fecha,LocalTime hora,Container container,Cliente cliente) {
 		super(container,cliente);
 		this.setFechaLlegada(fecha);
-		this.setHoraLlegada(horaLlegada);
+		this.setHoraLlegada(hora);
 	}
 	
 	public void recibir(Container container,Cliente cliente) {
@@ -25,7 +25,9 @@ public class OrdenImportacion extends Orden{
 	
 	//@Override
 	public void horaDeLlegadaCamion(LocalDate time,Camion camion,Chofer chofer) {
-		
+		this.setFechaLlegada(time);
+		this.setCamionAsignado(camion);
+		this.setChoferaAsignado(chofer);
 	}
 	
 	//SET Y GET

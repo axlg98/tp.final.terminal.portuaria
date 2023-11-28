@@ -325,8 +325,10 @@ class PuertoTest {
 		assertEquals(container2.getAncho(),200);
 		container2.setLargo(5);
 		assertEquals(container2.getLargo(),5);
+		container2.setPeso(500);
+		assertEquals(container2.getPeso(),500);
 		assertEquals(container2.tamañoDelContainer(),80000);
 		
 	}
-	
+
 }
