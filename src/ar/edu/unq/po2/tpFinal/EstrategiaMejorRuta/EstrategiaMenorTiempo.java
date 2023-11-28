@@ -8,14 +8,14 @@ import ar.edu.unq.po2.tpFinal.TerminalPortuaria.Puerto;
 public class EstrategiaMenorTiempo extends EstrategiaMejorRuta{
 
 	@Override
-	public Circuito elMejorCircuito(Puerto puertoOrigen, Puerto puertoDestino) {
+	public Circuito elMejorCircuito(Puerto puertoOrigen, Puerto puertoDestino,List<Circuito> cs) {
 		// TODO Auto-generated method stub
 		
 		
-		List<Circuito> circuitos = this.losCircuitos(puertoOrigen, puertoDestino);
+		List<Circuito> circuitos = this.losCircuitos(puertoOrigen, puertoDestino,cs);
 		Circuito elDeMenorTiempo = circuitos.get(0);
 		
-		for (Circuito circuito : circuitos) {
+		for (Circuito circuito : cs) {
 			
 			if (circuito.duracionDeTodoElCircuito() < elDeMenorTiempo.duracionDeTodoElCircuito()) {
 				

@@ -17,7 +17,6 @@ public class OrdenDeExportacion extends Orden {
 		this.puertoDestino = puertoDestino;
 		this.fechaYHoraSalida = fechaYHoraSalida;
 		
-		// TODO Auto-generated constructor stub
 	}
 
 	public Puerto getPuertoDestino() {

@@ -8,13 +8,13 @@ import ar.edu.unq.po2.tpFinal.TerminalPortuaria.Puerto;
 public class EstrategiaMenorCantidadDeTerminales extends EstrategiaMejorRuta {
 
 	@Override
-	public Circuito elMejorCircuito(Puerto puertoOrigen, Puerto puertoDestino) {
+	public Circuito elMejorCircuito(Puerto puertoOrigen, Puerto puertoDestino,List<Circuito> circuitos) {
 		
-		List<Circuito> circuitosConPuertoDestino = this.losCircuitos(puertoOrigen, puertoDestino);
+		List<Circuito> circuitosConPuertoDestino = this.losCircuitos(puertoOrigen, puertoDestino,circuitos);
 		
 		Circuito elMejor = circuitosConPuertoDestino.get(0);
 		
-		for (Circuito circuito : circuitosConPuertoDestino) {
+		for (Circuito circuito : circuitos) {
 			
 			if (circuito.cantidadTramos() < elMejor.cantidadTramos()) {
 				

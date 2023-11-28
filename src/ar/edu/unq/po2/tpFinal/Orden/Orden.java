@@ -30,7 +30,6 @@ public class Orden {
 	
 	public Orden(Container unContainer, Cliente unCliente) {
 		super();
-		
 		this.unContainer = unContainer;
 		this.unCliente = unCliente;
 		this.servicios = new ArrayList<Servicio>();

@@ -9,14 +9,14 @@ public class EstrategiaMenorPrecio extends EstrategiaMejorRuta {
 
 
 	@Override
-	public Circuito elMejorCircuito(Puerto puertoOrigen, Puerto puertoDestino) {
+	public Circuito elMejorCircuito(Puerto puertoOrigen, Puerto puertoDestino,List<Circuito> cs) {
 		// TODO Auto-generated method stub
 		
 		
-		List<Circuito> circuitos = this.losCircuitos(puertoOrigen, puertoDestino);
+		List<Circuito> circuitos = this.losCircuitos(puertoOrigen, puertoDestino,cs);
 		Circuito elDeMenorPrecio = circuitos.get(0);
 		
-		for (Circuito circuito : circuitos) {
+		for (Circuito circuito : cs) {
 			
 			if (circuito.getCostoCircuito() < elDeMenorPrecio.getCostoCircuito()) {
 				
