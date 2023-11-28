@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -85,9 +86,14 @@ class EstrategiaMejorRutaTest {
 		naviera2 = mock(Naviera.class);
 		
 		//Circuito
+		List<Circuito> circuitos = new ArrayList<Circuito>();
 		circuito1 = mock(Circuito.class);
 		circuito2 = mock(Circuito.class);
 		circuito3 = mock(Circuito.class);
+		circuitos.add(circuito1);
+		circuitos.add(circuito2);
+		circuitos.add(circuito3);
+		
 		
 		//Tramo
 		tramo1 = mock(Tramo.class);
@@ -135,8 +141,8 @@ class EstrategiaMejorRutaTest {
 		
 		
 		
-		when(circuito1.getCostoCircuito()).thenReturn(250.0);
-		when(circuito2.getCostoCircuito()).thenReturn(150.0);
+		when(circuito1.getCostoCircuito()).thenReturn(1250.0);
+		when(circuito2.getCostoCircuito()).thenReturn(250.0);
 		when(circuito3.getCostoCircuito()).thenReturn(350.0);
 		
 		when(circuito1.duracionDeTodoElCircuito()).thenReturn(8d);
@@ -151,7 +157,7 @@ class EstrategiaMejorRutaTest {
 	@Test 
 	void testMejorCircuitoMenorPrecio() {
 		
-		assertEquals(circuito1, menorPrecio.elMejorCircuito(bsas, saoPablo));
+		assertEquals(circuito2, menorPrecio.elMejorCircuito(bsas, saoPablo,circuitosN1));
 		
 	}
 	
@@ -169,17 +175,17 @@ class EstrategiaMejorRutaTest {
 	@Test
 	void testListaDeCircuitos() {
 		List<Circuito> circuitosASaoPablo= Arrays.asList(circuito1,circuito3);
-		assertEquals(circuitosASaoPablo, menorPrecio.losCircuitos(bsas, saoPablo));
+		assertEquals(circuitosASaoPablo, menorPrecio.losCircuitos(bsas, saoPablo,circuitosASaoPablo));
 		
 		List<Circuito> circuitosAShanghai= Arrays.asList(circuito2);
-		assertEquals(circuitosAShanghai, menorPrecio.losCircuitos(bsas, shanghai));
+		assertEquals(circuitosAShanghai, menorPrecio.losCircuitos(bsas, shanghai,circuitosAShanghai));
 	}
 	
 	
 	@Test
 	void testElDeMenorPrecio() {
 		
-		assertTrue(menorPrecio.tieneMenorPrecio(circuito1, circuito3));
+		assertTrue(menorPrecio.tieneMenorPrecio(circuito2, circuito3));
 	}
 	
 	@Test
@@ -190,13 +196,13 @@ class EstrategiaMejorRutaTest {
 	
 	@Test
 	void testMejorCircuitoMenorTiempo() {
-		assertEquals(circuito2,menorTiempo.elMejorCircuito(bsas, singapur)); 
+		assertEquals(circuito1,menorTiempo.elMejorCircuito(bsas, singapur,circuitosN1)); 
 	}
 	
 	@Test
 	void testMejorCircuitoMenorCantidadTerminales() {
 		
-		assertEquals(circuito1, menorCantTerminales.elMejorCircuito(bsas, saoPablo));
+		assertEquals(circuito1, menorCantTerminales.elMejorCircuito(bsas, saoPablo,circuitosN1));
 		
 	}
 	

@@ -11,11 +11,11 @@ import java.util.ArrayList;
 
 public abstract class EstrategiaMejorRuta {
 
-	public List<Circuito> losCircuitos(Puerto puertoOrigen, Puerto puertoDestino){
+	public List<Circuito> losCircuitos(Puerto puertoOrigen, Puerto puertoDestino,List<Circuito> circuitos){
 		
-		List<Naviera> empresasPortuarias = empresasPortuariasDe(puertoOrigen);
+		//List<Naviera> empresasPortuarias = empresasPortuariasDe(puertoOrigen);
 		
-		List<Circuito> circuitos = todosLosCircuitosDe(empresasPortuarias);
+		//List<Circuito> circuitos = todosLosCircuitosDe(empresasPortuarias);
 		
 		List<Circuito> circuitosFiltradosPorDestino = circuitos.stream().filter(c->c.contieneA(puertoDestino)).collect(Collectors.toList());
 		
@@ -44,7 +44,7 @@ public abstract class EstrategiaMejorRuta {
 		
 	}
 	
-	public abstract Circuito elMejorCircuito(Puerto puertoOrigen, Puerto puertoDestino);
+	public abstract Circuito elMejorCircuito(Puerto puertoOrigen, Puerto puertoDestino,List<Circuito> circuitos);
 	
 	
 	

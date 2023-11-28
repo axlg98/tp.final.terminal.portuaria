@@ -103,11 +103,11 @@ public class Puerto {
 		this.ubicacion = ubicacion;
 	}
 	
-	public void crearOrdenExportacion(Cliente cliente, Container container, Puerto puertoDestino, Camion Camion) {
+	public void crearOrdenExportacion(Cliente cliente, Container container, Puerto puertoDestino, Camion Camion,List<Circuito> circuitos) {
 
-		Circuito circuito = this.mejorRuta.elMejorCircuito(this, puertoDestino);
-		OrdenExportacion ordenExportacion = new OrdenExportacion(container, cliente, puertoDestino, circuito);
-		ordenExportacion.setFechaYHoraSalida(circuito.getFechaYHoraDeSalida());
+		Circuito circuito = this.getMejorRuta().elMejorCircuito(this,puertoDestino,circuitos);
+		OrdenExportacion ordenExportacion = new OrdenExportacion(container, cliente, puertoDestino, circuito,circuito.getFechaYHoraDeSalida());
+		//ordenExportacion.setFechaYHoraSalida(circuito.getFechaYHoraDeSalida());
 		ordenExportacion.setCamion(Camion);
 		ordenExportacion.setChofer(Camion.getChofer());
         
@@ -175,9 +175,9 @@ public class Puerto {
 	
 	
 	// Mejor Ruta
-	public Circuito elMejorCircuito(Puerto puertoDestino) {
+	public Circuito elMejorCircuito(Puerto puertoDestino,List<Circuito> circuitos) {
 		
-		return this.mejorRuta.elMejorCircuito(this, puertoDestino);
+		return this.mejorRuta.elMejorCircuito(this, puertoDestino,circuitos);
 		
 	}
 	
@@ -243,9 +243,9 @@ public class Puerto {
 
 
 
-	public void darAvisoClientes() {
-		
-	}
+//	public void darAvisoClientes() {
+//		
+//	}
 
 
 

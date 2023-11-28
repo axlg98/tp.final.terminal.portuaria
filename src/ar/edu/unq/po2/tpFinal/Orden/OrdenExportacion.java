@@ -19,11 +19,11 @@ public class OrdenExportacion extends Orden {
 	 
 	
 	
-	public OrdenExportacion(Container unContainer, Cliente unCliente, Puerto puertoDestino, Circuito circuito) {
+	public OrdenExportacion(Container unContainer, Cliente unCliente, Puerto puertoDestino, Circuito circuito,LocalDateTime fechaYYoraSalida) {
 		super(unContainer, unCliente);
 		this.puertoDestino = puertoDestino;
 		this.circuito = circuito;
-		// TODO Auto-generated constructor stub
+		this.fechaYHoraSalida = fechaYYoraSalida;
 	}
 
 	public Puerto getPuertoDestino() {

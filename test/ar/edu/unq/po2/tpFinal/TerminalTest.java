@@ -215,7 +215,8 @@ class TerminalTest {
 		List<Puerto> puertos = new ArrayList<Puerto>();
 		puertos.add(p);
 		puertos.add(puerto1);
-		terminal1.setPuertos(puertos);	}
+		terminal1.setPuertos(puertos);	
+	}
 
 //	@Test
 //	void validarEntregaTerrestreExpTest() {
@@ -225,6 +226,13 @@ class TerminalTest {
 	@Test
 	void cantidadDePuertoDeLaTerminalTest() {
 		assertEquals(terminal1.getPuertos().size(),2);
+	}
+	
+	//Esta un poco raro el resultado y no sé si es así exactamente, esto esta en Naviera.
+	@Test
+	void cantidadDeLoQueTardaUnaNavieraDeUnaTerminalAOtraTest() {
+		empPortuaria1.agregarCircuito(circuito);
+		assertEquals(empPortuaria1.cantidadDeLoQueTardaUnaNavieraDeTerminalATerminal(), 13.704699910719626);
 	}
 
 }

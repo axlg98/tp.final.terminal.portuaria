@@ -6,6 +6,7 @@ import static org.mockito.Mockito.mock;
 import java.awt.geom.Point2D;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -72,9 +73,13 @@ class PuertoTest {
 	 Camion camion2;
 	 
 	 Circuito circuito;
+	 Circuito circuito1;
+	 List<Circuito> circuitos;
 	 
 	 Tramo tramo1;
 	 Tramo tramo2;
+	 Tramo tramo3;
+	 Tramo tramo4;
 	 
 	 Buque buque1;
 	 Buque buqueC1;
@@ -204,13 +209,23 @@ class PuertoTest {
 		circuito = new Circuito(1, tramos, LocalDateTime.now());
 		circuito.setFechaYHoraDeSalida(LocalDateTime.now());
 		
+		List<Tramo> tramos1 = new ArrayList<Tramo>();
+		tramo3 = new Tramo(puerto1,mexico,80D,100D,LocalDateTime.now());
+		tramo4 = new Tramo(mexico,chile,80D,100D,LocalDateTime.of(2023, 12, 5, 10, 10));
+		tramos1.add(tramo3);
+		tramos1.add(tramo4);
+		circuito1 = new Circuito(2,tramos1,LocalDateTime.of(2024, 3, 30, 10, 03));
+		circuito1.setFechaYHoraDeSalida(LocalDateTime.now());
+		
+		circuitos = Arrays.asList(circuito,circuito1);
+		
 		unViaje = new Viaje(buque1,circuito,LocalDateTime.now(),LocalDateTime.of(2023, 11,28, 20, 30),puerto1,chile);
 	}
 	
 	@Test
 	void cantidadDeOrdenesTest() {
 //		puerto1.setMejorRuta(mejorRuta);
-//		puerto1.crearOrdenExportacion(cliente1,container1,chile,camion1);
+//		puerto1.crearOrdenExportacion(cliente1,container1,chile,camion1,circuitos);
 		assertEquals(puerto1.getOrdenes().size(),2);
 	}
 	
@@ -249,7 +264,7 @@ class PuertoTest {
 	@Test
 	void elMejorCircuitoTest() {
 		puerto1.setMejorRuta(mejorRuta);
-		assertEquals(puerto1.elMejorCircuito(puerto1),null);
+		assertEquals(puerto1.elMejorCircuito(mexico,circuitos),null);
 	}
 	
 	@Test
@@ -296,4 +311,22 @@ class PuertoTest {
 		puerto1.trabajoCargaYDescarga(buque1);
 		assertTrue(buque1.getFase() instanceof Inbound);
 	}
+	
+	@Test
+	void tamañoDeVolumenDeUnContainerDelPuertoTest() {
+		assertEquals(container1.tamañoDelContainer(),48000);
+	}
+	
+	@Test
+	void cambioDeAlturaAnchoYLargoYSaberElTamañoDelVolumenDeOtroContainerDelPuertoTest() {
+		container2.setAltura(80);
+		assertEquals(container2.getAltura(),80);
+		container2.setAncho(200);
+		assertEquals(container2.getAncho(),200);
+		container2.setLargo(5);
+		assertEquals(container2.getLargo(),5);
+		assertEquals(container2.tamañoDelContainer(),80000);
+		
+	}
+	
 }

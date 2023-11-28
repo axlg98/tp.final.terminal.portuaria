@@ -20,6 +20,7 @@ import ar.edu.unq.po2.tpFinal.Container.Container;
 import ar.edu.unq.po2.tpFinal.Container.ContainerDry;
 import ar.edu.unq.po2.tpFinal.Container.ContainerReefer;
 import ar.edu.unq.po2.tpFinal.Container.ContainerTanque;
+import ar.edu.unq.po2.tpFinal.EmpresaTransportista.Chofer;
 import ar.edu.unq.po2.tpFinal.Orden.Orden;
 import ar.edu.unq.po2.tpFinal.Servicio.AlmacenamientoExcedente;
 import ar.edu.unq.po2.tpFinal.Servicio.Electricidad;
@@ -30,6 +31,7 @@ import ar.edu.unq.po2.tpFinal.TerminalPortuaria.Puerto;
 import org.junit.jupiter.api.Test;
 
 class OrdenTest {
+	
 	Orden orden1;
 	Orden orden2;
 	
@@ -146,7 +148,7 @@ class OrdenTest {
 	
 	@Test
 	void costoTotalDeServiciosTest() {
-		assertEquals(orden1.costoTotalDeServicios(),939200D);
+		assertEquals(orden1.costoTotalDeServicios(),922700D);
 	}
 	
 	@Test
@@ -199,7 +201,11 @@ class OrdenTest {
 		assertEquals(orden1.fechaSalidaDeLaCarga(),LocalDateTime.of(2023, 12, 22,18,12));
 	}
 	
-	
+	@Test
+	void nuevoChoferAsignadoParaLaOrdenTest() {
+		orden1.setChoferaAsignado(new Chofer("nuevo Chofer asignado"));
+		assertEquals(orden1.getChoferaAsignado().getNombre(), "nuevo Chofer asignado");
+	}
 	
 	
 

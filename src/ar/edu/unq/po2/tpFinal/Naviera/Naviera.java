@@ -38,6 +38,11 @@ public class Naviera{
 	public void agregarViaje(Viaje viaje) {
 		this.viajes.add(viaje);
 	}
+	
+	//Duda
+	public Double cantidadDeLoQueTardaUnaNavieraDeTerminalATerminal() {
+		return circuitos.stream().mapToDouble(c -> c.duracionDeTodoElCircuito()).sum();
+	}
 
 	//GET Y SET
 	
