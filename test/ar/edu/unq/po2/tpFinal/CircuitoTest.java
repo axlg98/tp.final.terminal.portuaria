@@ -17,7 +17,7 @@ import ar.edu.unq.po2.tpFinal.TerminalPortuaria.Puerto;
 
 class CircuitoTest {
 
-	 Tramo tramo1;
+	 Tramo tramo1; 
 	 Tramo tramo2;
 	 Tramo tramo3;
 	
@@ -155,4 +155,16 @@ class CircuitoTest {
 		tramo1.setDuracionTramo(1000D);
 		assertEquals(tramo1.getDuracionTramo(),1000D);
 	}
+	
+	@Test
+	void tiempoDesdeTerminalHastaTerminal() {
+		
+		assertEquals(circuito.tiempoDesdeTerminalHastaTerminal(buenosAires, miami), 6);
+		
+		
+	}
+	
+	
+	
+	
 }

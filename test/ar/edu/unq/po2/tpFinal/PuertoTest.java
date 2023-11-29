@@ -251,7 +251,7 @@ class PuertoTest {
 	
 	@Test
 	void notificarATodosLosConsigneesTest() {
-		puerto1.notificarATodosLosConsignees();
+		puerto1.darAvisoAClientes();
 		assertEquals(consignee1.getMails().size(),0);
 	}
 	

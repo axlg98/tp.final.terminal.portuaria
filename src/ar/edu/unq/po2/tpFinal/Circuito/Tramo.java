@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 import ar.edu.unq.po2.tpFinal.Buque.GPS;
 import ar.edu.unq.po2.tpFinal.TerminalPortuaria.Puerto;
 
-public class Tramo {
+public class Tramo { 
 
 	private Puerto puertoOrigen;
 	private Puerto puertoDestino;

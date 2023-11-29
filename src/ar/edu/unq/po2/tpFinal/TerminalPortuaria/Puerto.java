@@ -6,7 +6,9 @@ import java.util.List;
 
 import ar.edu.unq.po2.tpFinal.Observador;
 import ar.edu.unq.po2.tpFinal.Buque.Buque;
+
 import ar.edu.unq.po2.tpFinal.Circuito.Circuito;
+import ar.edu.unq.po2.tpFinal.Circuito.Viaje;
 import ar.edu.unq.po2.tpFinal.Cliente.Cliente;
 import ar.edu.unq.po2.tpFinal.Cliente.Consignee;
 import ar.edu.unq.po2.tpFinal.Cliente.Mail;
@@ -29,7 +31,7 @@ public class Puerto {
 	private List<Chofer> choferesHabilitados;
 	
 	private List<Consignee> consignees;
-	private List<Observador> observersGenerales;
+	private List<Observador> observersGenerales; 
 	
 	private Point2D ubicacion = new Point2D.Double(0, 0);
 	
@@ -157,7 +159,7 @@ public class Puerto {
 	
 	
 	
-	public void notificarATodosLosConsignees() {
+	public void darAvisoAClientes() {
 		
 		for (Consignee consignee : consignees) {
 			
@@ -217,11 +219,6 @@ public class Puerto {
 		
 	}
 
-	
-
-	
-
-
 
 	public List<Buque> getBuquesInbound() {
 		return buquesInbound;
@@ -255,6 +252,9 @@ public class Puerto {
 		buque1.actualizarEstado();
 		
 	}
+
+	
+
 	
 	
 	

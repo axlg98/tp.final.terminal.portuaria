@@ -2,17 +2,18 @@ package ar.edu.unq.po2.tpFinal.Circuito;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import ar.edu.unq.po2.tpFinal.Circuito.Tramo;
 import ar.edu.unq.po2.tpFinal.TerminalPortuaria.Puerto;
 
-
-public class Circuito {
+ 
+public class Circuito {  
 
 	private int id;
 	private List<Tramo> tramos = new ArrayList<Tramo>();
-	
+	private Puerto puertoOrigen;
 	private LocalDateTime fechaYHoraDeSalida;
 
 	public Circuito(int id, List<Tramo> tramos, LocalDateTime fechaYHoraDeSalida) {
@@ -46,7 +47,14 @@ public class Circuito {
 		this.fechaYHoraDeSalida = fechaYHoraDeSalida;
 	}
 	
-	
+	public Puerto getPuertoOrigen() {
+		return puertoOrigen;
+	}
+
+	public void setPuertoOrigen(Puerto puertoOrigen) {
+		this.puertoOrigen = puertoOrigen;
+	}
+
 	public Puerto puertoDeDestino() {
 		
 		int ultimoTramo = tramos.size()-1;
@@ -117,6 +125,36 @@ public class Circuito {
 		return costo;
 		
 	}
+
+	
+	public long tiempoDesdeTerminalHastaTerminal(Puerto puertoOrigen, Puerto puertoDestino) {
+		
+		long tiempoTotal = 0;
+		
+		Iterator<Tramo> iterator = tramos.iterator();
+		
+		while (iterator.hasNext()) {
+			
+			Tramo tramo = iterator.next();
+			
+			
+			if (tramo.getPuertoOrigen().equals(puertoOrigen)) {
+				
+				tiempoTotal += tramo.getDuracionTramo(); 
+				
+			}else if (tramo.getPuertoDestino().equals(puertoDestino)) {
+				break; // se sale del bucle en caso de que 
+			}
+			
+			
+		}
+		
+		return tiempoTotal;
+		
+		
+	}
+	
+	
 	
 	
 	

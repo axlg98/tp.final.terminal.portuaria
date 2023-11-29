@@ -6,11 +6,11 @@ public class Working implements FaseBuque{
 	public void actualizarEstado(Buque buque) {
 		// TODO Auto-generated method stub
 		
-		// preguntar si ya termino con los trabajos de descarga
+		
 		
 		buque.setFase(new Departing());
 		
-		
+		 
 	}
 
 	

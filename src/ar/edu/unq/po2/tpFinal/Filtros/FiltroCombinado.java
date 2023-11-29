@@ -10,7 +10,7 @@ public class FiltroCombinado implements Filtro{
 	private Filtro filtro1;
 	private Filtro filtro2;
 	 
-	
+	 
 	
 	@Override
 	public List<Viaje> buscarEn(List<Viaje> viajes) {

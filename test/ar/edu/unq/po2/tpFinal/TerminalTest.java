@@ -233,7 +233,7 @@ class TerminalTest {
 		terminal1.validarEntregaTerrestreExp(orden1,camion1,chofer1);
 	}
 	
-	@Test
+	@Test 
 	void cantidadDePuertoDeLaTerminalTest() {
 		assertEquals(terminal1.getPuertos().size(),2);
 	}

@@ -9,7 +9,7 @@ public class FiltroFechaSalida implements Filtro {
 
 	private LocalDateTime fechaSalida;
 	
-	
+	 
 	
 	@Override
 	public List<Viaje> buscarEn(List<Viaje> viajes) {

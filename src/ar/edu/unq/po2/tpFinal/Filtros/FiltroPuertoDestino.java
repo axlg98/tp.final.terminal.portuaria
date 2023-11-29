@@ -6,13 +6,8 @@ import ar.edu.unq.po2.tpFinal.Circuito.Viaje;
 import ar.edu.unq.po2.tpFinal.TerminalPortuaria.Puerto;
 
 public class FiltroPuertoDestino implements Filtro{
-
+ 
 	private Puerto puerto;
-
-	public FiltroPuertoDestino(Puerto puerto) {
-		super();
-		this.puerto = puerto;
-	}
 
 	public Puerto getPuerto() {
 		return puerto;
@@ -30,7 +25,7 @@ public class FiltroPuertoDestino implements Filtro{
 	}
 	
 	
-	
+	 
 	
 	 
 	

@@ -1,25 +1,27 @@
 package ar.edu.unq.po2.tpFinal.Circuito;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import ar.edu.unq.po2.tpFinal.Buque.Buque;
+
 import ar.edu.unq.po2.tpFinal.TerminalPortuaria.Puerto;
 
 public class Viaje {
 
 	private Buque unBuque;
 	private Circuito circuito;
-	private LocalDateTime fechaSalida;
-	private LocalDateTime fechaLlegada;
+	private LocalDateTime fechaSalida; 
+	private LocalDateTime fechaLlegada; 
 	private Puerto puertoOrigen;
-	private Puerto puertoDestino;
+	private Puerto puertoDestino; 
 	
 	
 	public Viaje(Buque unBuque, Circuito circuito, LocalDateTime fechaSalida, LocalDateTime fechaLlegada,
 			Puerto puertoOrigen, Puerto puertoDestino) {
 		super();
 		this.unBuque = unBuque;
-		this.circuito = circuito;
+		this.circuito = circuito; 
 		this.fechaSalida = fechaSalida;
 		this.fechaLlegada = fechaLlegada;
 		this.puertoOrigen = puertoOrigen;
@@ -46,7 +48,7 @@ public class Viaje {
 		this.fechaSalida = fechaSalida;
 	}
 	public LocalDateTime getFechaLlegada() {
-		return fechaLlegada;
+		return this.fechaLlegada;
 	}
 	public void setFechaLlegada(LocalDateTime fechaLlegada) {
 		this.fechaLlegada = fechaLlegada;
@@ -63,8 +65,8 @@ public class Viaje {
 	public void setPuertoDestino(Puerto puertoDestino) {
 		this.puertoDestino = puertoDestino;
 	}
-	
-	
+
+
 	
 	
 	

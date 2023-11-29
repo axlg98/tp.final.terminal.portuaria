@@ -19,7 +19,7 @@ public class Buque {
 	private List<Container> containers;
 	
 	private Viaje unViaje;
-	
+	private boolean puedeDescargar;
 	
 	
 	public Buque(String nombre) {
@@ -36,7 +36,7 @@ public class Buque {
 	}
 	
 	public void avisarPuerto(Puerto puerto) {
-		puerto.notificarATodosLosConsignees();
+		puerto.darAvisoAClientes(); 
 		//puerto.darAvisoClientes(); cambiar nombre
 		
 	}
@@ -98,5 +98,15 @@ public class Buque {
 	public void setContainers(List<Container> containers) {
 		this.containers = containers;
 	}
+
+	public boolean isPuedeDescargar() {
+		return puedeDescargar;
+	}
+
+	public void setPuedeDescargar(boolean puedeDescargar) {
+		this.puedeDescargar = puedeDescargar;
+	}
+	
+	
 	
 }

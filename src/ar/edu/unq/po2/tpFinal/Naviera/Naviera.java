@@ -6,6 +6,7 @@ import java.util.List;
 import ar.edu.unq.po2.tpFinal.Buque.Buque;
 import ar.edu.unq.po2.tpFinal.Circuito.Circuito;
 import ar.edu.unq.po2.tpFinal.Circuito.Viaje;
+import ar.edu.unq.po2.tpFinal.TerminalPortuaria.Puerto;
 
 public class Naviera{
 	private List<Buque> buques;
@@ -68,5 +69,8 @@ public class Naviera{
 	public void setViajes(List<Viaje> viajes) {
 		this.viajes = viajes;
 	}
+	
+	
+	
 	
 }
