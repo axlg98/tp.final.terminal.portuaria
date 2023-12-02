@@ -9,7 +9,7 @@ import ar.edu.unq.po2.tpFinal.EmpresaTransportista.Camion;
 import ar.edu.unq.po2.tpFinal.EmpresaTransportista.Chofer;
 
 public class OrdenImportacion extends Orden{
-	//CAPAZ PONERLOS EN LA PARTE DE ORDEN.
+	
 	private LocalDate fechaLlegada;
 	private LocalTime horaLlegada;
 	

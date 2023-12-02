@@ -222,7 +222,7 @@ class TerminalTest {
 		puertos.add(puerto1);
 		terminal1.setPuertos(puertos);	
 		
-		turno = new Turno(orden2,LocalDateTime.of(2023, 11, 30, 10, 20));
+		turno = new Turno(orden2,LocalDateTime.of(2023, 11, 30, 5, 20));
 	}
 
 	@Test
