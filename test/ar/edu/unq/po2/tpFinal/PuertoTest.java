@@ -4,7 +4,9 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
 
 import java.awt.geom.Point2D;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -207,7 +209,7 @@ class PuertoTest {
 		tramos.add(tramo1);
 		tramos.add(tramo2);
 		circuito = new Circuito(1, tramos, LocalDateTime.now());
-		circuito.setFechaYHoraDeSalida(LocalDateTime.now());
+		circuito.setFechaYHoraDeSalida(LocalDateTime.of(2024, 3, 30, 10, 03));
 		
 		List<Tramo> tramos1 = new ArrayList<Tramo>();
 		tramo3 = new Tramo(puerto1,mexico,80D,100D,LocalDateTime.now());
@@ -215,7 +217,7 @@ class PuertoTest {
 		tramos1.add(tramo3);
 		tramos1.add(tramo4);
 		circuito1 = new Circuito(2,tramos1,LocalDateTime.of(2024, 3, 30, 10, 03));
-		circuito1.setFechaYHoraDeSalida(LocalDateTime.now());
+		circuito1.setFechaYHoraDeSalida(LocalDateTime.of(2024, 3, 30, 10, 03));
 		
 		circuitos = Arrays.asList(circuito,circuito1);
 		
@@ -227,6 +229,12 @@ class PuertoTest {
 		puerto1.setMejorRuta(mejorRuta);
 		puerto1.crearOrdenExportacion(cliente1,container1,chile,camion1,circuitos);
 		assertEquals(puerto1.getOrdenes().size(),2);
+	}
+	
+	@Test
+	void cantidadDeOrdenesConLaOrdenImportacionCreadaTest() {
+		puerto1.crearOrdenImportacion(cliente1, container1, LocalDate.of(2023, 12, 3), LocalTime.now());
+		assertEquals(puerto1.getOrdenes().size(),3);
 	}
 	
 	@Test

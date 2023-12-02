@@ -1,14 +1,16 @@
 package ar.edu.unq.po2.tpFinal.TerminalPortuaria;
 
 import java.awt.geom.Point2D;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.List;
 
 import ar.edu.unq.po2.tpFinal.Observador;
 import ar.edu.unq.po2.tpFinal.Buque.Buque;
 
 import ar.edu.unq.po2.tpFinal.Circuito.Circuito;
-import ar.edu.unq.po2.tpFinal.Circuito.Viaje;
+//import ar.edu.unq.po2.tpFinal.Circuito.Viaje;
 import ar.edu.unq.po2.tpFinal.Cliente.Cliente;
 import ar.edu.unq.po2.tpFinal.Cliente.Consignee;
 import ar.edu.unq.po2.tpFinal.Cliente.Mail;
@@ -20,6 +22,7 @@ import ar.edu.unq.po2.tpFinal.EstrategiaMejorRuta.EstrategiaMejorRuta;
 import ar.edu.unq.po2.tpFinal.Naviera.Naviera;
 import ar.edu.unq.po2.tpFinal.Orden.Orden;
 import ar.edu.unq.po2.tpFinal.Orden.OrdenExportacion;
+import ar.edu.unq.po2.tpFinal.Orden.OrdenImportacion;
 
 import java.util.ArrayList;
 
@@ -108,12 +111,12 @@ public class Puerto {
 	public void crearOrdenExportacion(Cliente cliente, Container container, Puerto puertoDestino, Camion Camion,List<Circuito> circuitos) {
 
 		Circuito circuito = this.getMejorRuta().elMejorCircuito(this,puertoDestino,circuitos);
+		circuito.setFechaYHoraDeSalida(LocalDateTime.of(2023, 12, 3, 10, 30));
 		OrdenExportacion ordenExportacion = new OrdenExportacion(container, cliente, puertoDestino, circuito,circuito.getFechaYHoraDeSalida());
-		//ordenExportacion.setFechaYHoraSalida(circuito.getFechaYHoraDeSalida());
+		ordenExportacion.setFechaYHoraSalida(circuito.getFechaYHoraDeSalida());
 		ordenExportacion.setCamion(Camion);
 		ordenExportacion.setChofer(Camion.getChofer());
         
-		
         cliente.setTurno(new Turno(ordenExportacion, ordenExportacion.getFechaYHoraSalida()));
         
         this.agregarOrden(ordenExportacion);
@@ -121,6 +124,10 @@ public class Puerto {
         
     }
 	
+	public void crearOrdenImportacion(Cliente cliente, Container container,LocalDate fecha,LocalTime time) {
+		OrdenImportacion ordenImportacion = new OrdenImportacion(fecha, time,container,cliente);
+		this.agregarOrden(ordenImportacion);;
+	}
 	
 	public void agregarNaviera(Naviera empresaPortuaria) {
 		
