@@ -35,9 +35,15 @@ public class Buque {
 		
 	}
 	
-	public void avisarPuerto(Puerto puerto) {
-		puerto.darAvisoAClientes(); 
+	public void avisarPuertoBuqueA50km(Puerto puerto) {
+		puerto.darAvisoAClientesConsignee(); 
 		//puerto.darAvisoClientes(); cambiar nombre
+		
+	}
+	
+	public void avisarPuertoBuquqA1km(Puerto puerto) {
+		
+		
 		
 	}
 
@@ -106,7 +112,7 @@ public class Buque {
 	public void setPuedeDescargar(boolean puedeDescargar) {
 		this.puedeDescargar = puedeDescargar;
 	}
-	
+	 
 	
 	
 }

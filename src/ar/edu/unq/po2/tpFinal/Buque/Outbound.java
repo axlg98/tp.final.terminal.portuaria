@@ -10,7 +10,7 @@ public class Outbound implements FaseBuque{
 			
 			buque.setFase(new Inbound());
 			buque.getPuertoDestino().buqueAMenosDe50km(buque);
-			buque.avisarPuerto(buque.getUnViaje().getPuertoDestino());
+			buque.avisarPuertoBuqueA50km(buque.getUnViaje().getPuertoDestino());
 			
 			
 			

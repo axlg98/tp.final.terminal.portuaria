@@ -7,11 +7,11 @@ public class Working implements FaseBuque{
 		// TODO Auto-generated method stub
 		
 		
-		
 		buque.setFase(new Departing());
-		
+		buque.getPuertoDestino().buquePartiendoA1Km(buque);
+		buque.avisarPuertoBuqueA50km(buque.getUnViaje().getPuertoDestino());
 		 
-	}
+	} 
 
 	
 	

@@ -92,6 +92,7 @@ class TerminalTest {
 	 Buque buqueC2;
 	 
 	 Turno turno;
+	 Turno turno2;
 	
 	 Mail mail1;
 	 Mail mail2;
@@ -161,12 +162,7 @@ class TerminalTest {
 		consignee1.setAgenteExterno(agenteExterno);
 		///////////////////////
 		
-		List<Observador> observers = new ArrayList<Observador>();
-		obsGeneral1 = mock(Observador.class);
-		obsGeneral2 = mock(Observador.class);
-		observers.add(obsGeneral1);
-		observers.add(obsGeneral2);
-		puerto1.setObserversGenerales(observers);
+		
 		
 		List<Naviera> empPortuarias = new ArrayList<Naviera>();
 		empPortuaria1 = new Naviera();
@@ -204,6 +200,13 @@ class TerminalTest {
 		ordenes.add(orden1);
 		ordenes.add(orden2);
 		puerto1.setOrdenes(ordenes);
+		orden1.setChoferaAsignado(chofer1);
+		orden1.setCamionAsignado(camion1);
+		
+		turno2 = new Turno(orden1, LocalDateTime.of(2023, 11, 30, 5, 20));
+		
+		orden1.setTurno(turno2);
+
 		
 		
 		
@@ -223,7 +226,8 @@ class TerminalTest {
 		terminal1.setPuertos(puertos);	
 		
 		turno = new Turno(orden2,LocalDateTime.of(2023, 11, 30, 5, 20));
-	}
+		
+			}
 
 	@Test
 	void validarEntregaTerrestreExpTest() throws Exception {
@@ -245,4 +249,28 @@ class TerminalTest {
 		assertEquals(empPortuaria1.cantidadDeLoQueTardaUnaNavieraDeTerminalATerminal(), 13.704699910719626);
 	}
 
+	@Test
+	void validarChoferTest() throws Exception {
+		
+		terminal1.validarChofer(chofer1, orden1);
+		
+		
+	}
+	
+	@Test
+	void validarCamionTest() throws Exception {
+		
+		terminal1.validarCamion(camion1, orden1);
+		
+	}
+	
+	@Test
+	void validarHoraDeEntregaTest() throws Exception {
+		
+		terminal1.validarHoraDeEntrega(orden1);
+		
+	}
+	
+	
+	
 }

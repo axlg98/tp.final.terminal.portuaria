@@ -14,6 +14,7 @@ import ar.edu.unq.po2.tpFinal.Circuito.Circuito;
 import ar.edu.unq.po2.tpFinal.Cliente.Cliente;
 import ar.edu.unq.po2.tpFinal.Cliente.Consignee;
 import ar.edu.unq.po2.tpFinal.Cliente.Mail;
+import ar.edu.unq.po2.tpFinal.Cliente.Shipper;
 import ar.edu.unq.po2.tpFinal.Cliente.Turno;
 import ar.edu.unq.po2.tpFinal.Container.Container;
 import ar.edu.unq.po2.tpFinal.EmpresaTransportista.Camion;
@@ -34,7 +35,8 @@ public class Puerto {
 	private List<Chofer> choferesHabilitados;
 	
 	private List<Consignee> consignees;
-	private List<Observador> observersGenerales; 
+	private List<Shipper> shippers;
+	
 	
 	private Point2D ubicacion = new Point2D.Double(0, 0);
 	
@@ -46,6 +48,9 @@ public class Puerto {
 	
 	private List<Buque> buquesInbound;
 	
+	private List<Buque> buquesDeparting;
+	
+	
 	
 	public Puerto(String nombre) {
 		super();
@@ -54,7 +59,10 @@ public class Puerto {
 		this.choferesHabilitados = new ArrayList<Chofer>();
 		this.containers = new ArrayList<Container>();
 		this.buquesInbound = new ArrayList<Buque>();
+		this.buquesDeparting = new ArrayList<Buque>();
 		this.consignees = new ArrayList<Consignee>();
+		this.shippers = new ArrayList<Shipper>();
+		
 		this.ordenes = new ArrayList<Orden>();
 	}
 	
@@ -88,13 +96,22 @@ public class Puerto {
 	public void setConsignees(List<Consignee> consignees) {
 		this.consignees = consignees;
 	}
-	public List<Observador> getObserversGenerales() {
-		return observersGenerales;
+	
+	public List<Shipper> getShippers() {
+		return shippers;
 	}
-	public void setObserversGenerales(List<Observador> observersGenerales) {
-		this.observersGenerales = observersGenerales;
+
+	public void setShippers(List<Shipper> shippers) {
+		this.shippers = shippers;
+	}
+
+	public void agregarShipper(Shipper shipper) {
+		
+		this.getShippers().add(shipper);
+		
 	}
 	
+
 	public List<Naviera> getEmpresasNavieras() {
 		return empresasNavieras;
 	}
@@ -127,6 +144,7 @@ public class Puerto {
 	public void crearOrdenImportacion(Cliente cliente, Container container,LocalDate fecha,LocalTime time) {
 		OrdenImportacion ordenImportacion = new OrdenImportacion(fecha, time,container,cliente);
 		this.agregarOrden(ordenImportacion);;
+		
 	}
 	
 	public void agregarNaviera(Naviera empresaPortuaria) {
@@ -166,7 +184,7 @@ public class Puerto {
 	
 	
 	
-	public void darAvisoAClientes() {
+	public void darAvisoAClientesConsignee() {
 		
 		for (Consignee consignee : consignees) {
 			
@@ -181,6 +199,25 @@ public class Puerto {
 		}
 	
 	}
+	
+	public void darAvisoClientesShipper() {
+		
+		for (Shipper shipper : shippers) {
+			
+			for (Buque buque : buquesDeparting) {
+				
+				shipper.notificarBuqueA1km(new Mail(buque, buque.getNombre(), "El buque se encuentra partiendo ya a 1km de distancia"));
+				
+			}
+			
+		}
+		
+		
+		
+	}
+	
+	
+	
 	
 	
 	// Mejor Ruta
@@ -237,6 +274,20 @@ public class Puerto {
 		this.buquesInbound = buquesInbound;
 	}
 
+	
+	
+
+
+	public List<Buque> getBuquesDeparting() {
+		return buquesDeparting;
+	}
+
+
+
+	public void setBuquesDeparting(List<Buque> buquesDeparting) {
+		this.buquesDeparting = buquesDeparting;
+	}
+
 
 
 	public void buqueAMenosDe50km(Buque buque) {
@@ -245,18 +296,17 @@ public class Puerto {
 		
 	}
 
-
-
-//	public void darAvisoClientes() {
-//		
-//	}
-
+	public void buquePartiendoA1Km(Buque buque) {
+		
+		this.getBuquesDeparting().add(buque);
+		
+	}
 
 
 	public void trabajoCargaYDescarga(Buque buque1) {
 		// TODO Auto-generated method stub
 		
-		buque1.actualizarEstado();
+		buque1.setPuedeDescargar(true);
 		
 	}
 

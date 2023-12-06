@@ -192,12 +192,7 @@ class BuqueTest {
 	}
 	
 	
-	@Test
-	void testFaseDeBuquePasaAWorking() {
-		
-		
-		
-	}
+
 	
 	
 	@Test
@@ -223,6 +218,7 @@ class BuqueTest {
 	@Test
 	void cambioDeFaseDeArrivedAWorkingDelBuqueTest() {
 		buque1.setFase(new Arrived()); //Seteado en Arrived.
+		buque1.setPuedeDescargar(true);
 		buque1.actualizarEstado(); //Buque1 actualiza el estado.
 		assertTrue(buque1.getFase() instanceof Working);
 	}
@@ -230,7 +226,7 @@ class BuqueTest {
 	@Test
 	void cambioDeFaseDeWorkingADepartingDelBuqueTest(){
 		buque1.setFase(new Working()); //Seteado en Working.
-		buque1.actualizarEstado(); //Buque1 actualiza el estado.
+		buque1.actualizarEstado(); //Buque1 actualiza el estado. 
 		assertTrue(buque1.getFase() instanceof Departing);
 	}
 	
@@ -248,6 +244,18 @@ class BuqueTest {
 		assertTrue(buque1.getFase() instanceof Outbound);
 		
 	}
+	
+	@Test
+	void puedeDescargarElBuqueTest() {
+		
+		buque1.setPuedeDescargar(false);
+		assertFalse(buque1.isPuedeDescargar());
+		buque1.setPuedeDescargar(true);
+		assertTrue(buque1.isPuedeDescargar());
+		
+		
+	}
+	
 	
 
 }

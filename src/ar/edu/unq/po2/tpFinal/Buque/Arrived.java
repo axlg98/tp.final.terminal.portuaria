@@ -8,7 +8,11 @@ public class Arrived implements FaseBuque {
 		
 		// preguntar si puede descargar
 		
-		buque.setFase(new Working());
+		if (buque.isPuedeDescargar()) {
+			buque.setFase(new Working());
+			 
+		}
+		
 		
 	}
 	

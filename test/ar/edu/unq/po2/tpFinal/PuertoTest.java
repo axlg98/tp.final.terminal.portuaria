@@ -22,6 +22,7 @@ import ar.edu.unq.po2.tpFinal.Circuito.Viaje;
 import ar.edu.unq.po2.tpFinal.Cliente.Cliente;
 import ar.edu.unq.po2.tpFinal.Cliente.Consignee;
 import ar.edu.unq.po2.tpFinal.Cliente.Mail;
+import ar.edu.unq.po2.tpFinal.Cliente.Shipper;
 import ar.edu.unq.po2.tpFinal.Container.Container;
 import ar.edu.unq.po2.tpFinal.Container.ContainerDry;
 import ar.edu.unq.po2.tpFinal.Container.ContainerReefer;
@@ -51,6 +52,10 @@ class PuertoTest {
 	 Consignee consignee1;
 	 Consignee consignee2;
 	
+	 Shipper shipper1;
+	 Shipper shipper2;
+	 
+	 
 	 Observador obsGeneral1;
 	 Observador obsGeneral2;
 	
@@ -158,12 +163,8 @@ class PuertoTest {
 		consignee1.setAgenteExterno(agenteExterno);
 		///////////////////////
 		
-		List<Observador> observers = new ArrayList<Observador>();
-		obsGeneral1 = mock(Observador.class);
-		obsGeneral2 = mock(Observador.class);
-		observers.add(obsGeneral1);
-		observers.add(obsGeneral2);
-		puerto1.setObserversGenerales(observers);
+		
+		
 		
 		List<Naviera> empPortuarias = new ArrayList<Naviera>();
 		empPortuaria1 = new Naviera();
@@ -222,6 +223,11 @@ class PuertoTest {
 		circuitos = Arrays.asList(circuito,circuito1);
 		
 		unViaje = new Viaje(buque1,circuito,LocalDateTime.now(),LocalDateTime.of(2023, 11,28, 20, 30),puerto1,chile);
+		
+		shipper1 = mock(Shipper.class);
+		shipper2 = mock(Shipper.class);
+		
+		
 	}
 	
 	@Test
@@ -259,7 +265,7 @@ class PuertoTest {
 	
 	@Test
 	void notificarATodosLosConsigneesTest() {
-		puerto1.darAvisoAClientes();
+		puerto1.darAvisoAClientesConsignee();
 		assertEquals(consignee1.getMails().size(),0);
 	}
 	
@@ -291,10 +297,7 @@ class PuertoTest {
 		assertEquals(puerto1.getConsignees().size(),2);
 	}
 	
-	@Test
-	void cantidadDeObserversDelPuertoTest() {
-		assertEquals(puerto1.getObserversGenerales().size(),2);
-	}
+	
 	
 	@Test
 	void cantidadDeEmpresasPortuariasDelPuertoTest() {
@@ -339,4 +342,17 @@ class PuertoTest {
 		
 	}
 
+	
+	@Test
+	void testCantidadDeShippers() {
+		
+		puerto1.agregarShipper(shipper1);
+		puerto1.agregarShipper(shipper2);
+		
+		assertEquals(puerto1.getShippers().size(), 2);
+		
+		
+	}
+	
+	
 }
