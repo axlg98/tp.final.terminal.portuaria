@@ -19,9 +19,9 @@ public class OrdenImportacion extends Orden{
 		this.setHoraLlegada(hora);
 	}
 	
-	public void recibir(Container container,Cliente cliente) {
-		
-	}
+//	public void recibir(Container container,Cliente cliente) {
+//		
+//	}
 	
 	//@Override
 	public void horaDeLlegadaCamion(LocalDate time,Camion camion,Chofer chofer) {

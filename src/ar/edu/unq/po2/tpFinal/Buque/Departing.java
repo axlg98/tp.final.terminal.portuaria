@@ -8,7 +8,7 @@ public class Departing implements FaseBuque {
 		
 		if (this.distanciaMayorA1KM(buque)) {
 			
-			buque.avisarPuertoBuqueA50km(buque.getUnViaje().getPuertoOrigen());
+			buque.avisarPuertoBuquqA1km(buque.getUnViaje().getPuertoOrigen());
 			buque.setFase(new Outbound());
 			
 		}

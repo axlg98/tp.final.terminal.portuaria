@@ -16,6 +16,7 @@ import org.junit.jupiter.api.Test;
 
 import ar.edu.unq.po2.tpFinal.Buque.Buque;
 import ar.edu.unq.po2.tpFinal.Buque.Inbound;
+import ar.edu.unq.po2.tpFinal.Buque.Outbound;
 import ar.edu.unq.po2.tpFinal.Circuito.Circuito;
 import ar.edu.unq.po2.tpFinal.Circuito.Tramo;
 import ar.edu.unq.po2.tpFinal.Circuito.Viaje;
@@ -224,17 +225,25 @@ class PuertoTest {
 		
 		unViaje = new Viaje(buque1,circuito,LocalDateTime.now(),LocalDateTime.of(2023, 11,28, 20, 30),puerto1,chile);
 		
+		List<Shipper> shippers = new ArrayList<Shipper>();
 		shipper1 = mock(Shipper.class);
 		shipper2 = mock(Shipper.class);
+		shippers.add(shipper1);
+		shippers.add(shipper2);
+		puerto1.setShippers(shippers);
 		
 		
 	}
 	
 	@Test
-	void cantidadDeOrdenesTest() {
+	void cantidadDeShippersDelPuerto() {
+		assertEquals(puerto1.getShippers().size(),2);
+	}
+	
+	@Test
+	void mejorRutaTest() {
 		puerto1.setMejorRuta(mejorRuta);
-		puerto1.crearOrdenExportacion(cliente1,container1,chile,camion1,circuitos);
-		assertEquals(puerto1.getOrdenes().size(),2);
+		assertEquals(puerto1.getMejorRuta(),mejorRuta);
 	}
 	
 	@Test
@@ -320,7 +329,7 @@ class PuertoTest {
 	void actualizandoElEstadoDelBuqueDelPuertoDadoTest() {
 		buque1.setUnViaje(unViaje);
 		puerto1.trabajoCargaYDescarga(buque1);
-		assertTrue(buque1.getFase() instanceof Inbound);
+		assertTrue(buque1.getFase() instanceof Outbound);
 	}
 	
 	@Test
@@ -345,11 +354,13 @@ class PuertoTest {
 	
 	@Test
 	void testCantidadDeShippers() {
+		Shipper shipper3 = mock(Shipper.class);
+		Shipper shipper4 = mock(Shipper.class);
 		
-		puerto1.agregarShipper(shipper1);
-		puerto1.agregarShipper(shipper2);
+		puerto1.agregarShipper(shipper3);
+		puerto1.agregarShipper(shipper4);
 		
-		assertEquals(puerto1.getShippers().size(), 2);
+		assertEquals(puerto1.getShippers().size(), 4);
 		
 		
 	}

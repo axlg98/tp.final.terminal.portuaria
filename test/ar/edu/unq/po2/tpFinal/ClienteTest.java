@@ -1,6 +1,7 @@
 package ar.edu.unq.po2.tpFinal;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.mock;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -10,6 +11,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import ar.edu.unq.po2.tpFinal.Cliente.Cliente;
+import ar.edu.unq.po2.tpFinal.Cliente.Mail;
+import ar.edu.unq.po2.tpFinal.Cliente.Shipper;
 import ar.edu.unq.po2.tpFinal.Cliente.Turno;
 import ar.edu.unq.po2.tpFinal.Container.Container;
 import ar.edu.unq.po2.tpFinal.Container.ContainerDry;
@@ -32,6 +35,12 @@ class ClienteTest {
 	
 	Orden orden1;
 	Orden orden2;
+	
+	Mail mail1;
+	Mail mail2;
+	Mail mail3;
+	
+	Shipper shipper;
 	@BeforeEach
 	void setUo() {
 		
@@ -54,6 +63,28 @@ class ClienteTest {
 		cliente1.setTurnos(turnos);
 		cliente1.setTurno(turno1);	
 		turno1.setOrden(orden1);
+		
+		shipper = new Shipper(cargaCliente1);
+		
+		List<Mail> mails = new ArrayList<Mail>();
+		mail1 = mock(Mail.class);
+		mail2 = mock(Mail.class);
+		mail3 = mock(Mail.class);
+		mails.add(mail1);
+		mails.add(mail2);
+		shipper.setMails(mails);
+		
+	}
+	
+	@Test
+	void cantidadDeMailsEnElShipper() {
+		assertEquals(shipper.getMails().size(),2);
+	}
+	
+	@Test
+	void mailNotificadoEnElShipper() {
+		shipper.notificarBuqueA1km(mail3);
+		assertEquals(shipper.getMails().size(),3);
 	}
 	
 	@Test

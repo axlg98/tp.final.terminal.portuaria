@@ -17,6 +17,9 @@ import ar.edu.unq.po2.tpFinal.Buque.Inbound;
 import ar.edu.unq.po2.tpFinal.Buque.Outbound;
 import ar.edu.unq.po2.tpFinal.Circuito.Circuito;
 import ar.edu.unq.po2.tpFinal.Circuito.Viaje;
+import ar.edu.unq.po2.tpFinal.Cliente.Cliente;
+import ar.edu.unq.po2.tpFinal.Cliente.Mail;
+import ar.edu.unq.po2.tpFinal.Cliente.Shipper;
 import ar.edu.unq.po2.tpFinal.Container.Container;
 import ar.edu.unq.po2.tpFinal.TerminalPortuaria.Puerto;
 import ar.edu.unq.po2.tpFinal.Circuito.Circuito;
@@ -26,6 +29,19 @@ class BuqueTest {
 
 	 Buque buque1;
 	 Buque buque2;
+	 
+	 //Buques de departing
+	 Buque buqueDep1;
+	 Buque buqueDep2;
+	 //////////////////////
+	 
+	 //Mails
+	 Mail mail1;
+	 Mail mail2;
+	 ////////
+	 
+	 Shipper shipper1;
+	 Shipper shipper2;
 	
 	 Container container1;
 	 Container container2;
@@ -54,10 +70,30 @@ class BuqueTest {
 	@BeforeEach
 	void setUp() {
 		
-		gps = mock(GPS.class);
+		List<Buque> buqueDeps  = new ArrayList<Buque>();
+		buqueDep1 = new Buque("Buque Departing");
+		buqueDep1.setFase(new Departing());
+		buqueDep2 = new Buque("Buque Departing");
+		buqueDep1.setFase(new Departing());
+		buqueDeps.add(buqueDep1);
+		buqueDeps.add(buqueDep2);
 		
 		buenosAires = new Puerto("BuenosAires");
-		buenosAires.setUbicacion(new Point2D.Double(16,24));
+		buenosAires.setUbicacion(new Point2D.Double(6,4));
+		buenosAires.setBuquesDeparting(buqueDeps);
+		
+		List<Shipper> shippers = new ArrayList<Shipper>();
+		shipper1 = mock(Shipper.class);
+		shipper2 = mock(Shipper.class);
+		shippers.add(shipper1);
+		shippers.add(shipper2);
+		buenosAires.setShippers(shippers);
+		
+	
+		
+		
+		gps = mock(GPS.class);
+		
 		
 		
 		barcelona = new Puerto("Barcelona");
@@ -70,6 +106,13 @@ class BuqueTest {
 		
 		mexico = new Puerto("mexico");
 		mexico.setUbicacion(new Point2D.Double(18.0,24.0));
+		
+		List<Mail> mails = new ArrayList<Mail>();
+		mail1 = mock(Mail.class);
+		mail2 = mock(Mail.class);
+		mails.add(mail1);
+		mails.add(mail2);
+		shipper1.setMails(mails);
 		
 		
 		
@@ -94,9 +137,11 @@ class BuqueTest {
 		containers.add(container5);
 		
 		posicionBuque1 = mock(Point2D.class);
+		buqueDep1.setPosicionActual(new Point2D.Double(18D,20D));
 		
 		buque1 = new Buque("buque1");
 		viaje = new Viaje(buque1, circuito, LocalDateTime.now(),LocalDateTime.MAX,chile,mexico);
+		buqueDep1.setUnViaje(viaje);
 		
 		buque1.setPosicionActual(posicionBuque1);
 		buque1.setUnViaje(viaje);
@@ -116,7 +161,6 @@ class BuqueTest {
 		
 		barcelona = mock(Puerto.class);
 		
-	
 		
 		
 	}
@@ -254,6 +298,13 @@ class BuqueTest {
 		assertTrue(buque1.isPuedeDescargar());
 		
 		
+	}
+	
+	@Test
+	void buquesDeparting() {
+		buqueDep1.actualizarEstado();
+		buenosAires.darAvisoClientesShipper();
+		assertEquals(shipper1.getMails().size(),0);
 	}
 	
 	

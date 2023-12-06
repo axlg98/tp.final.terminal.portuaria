@@ -21,11 +21,6 @@ public class Inbound implements FaseBuque{
 		
 	}
 	
-//	public boolean distanciaigualACero(Buque buque) {
-//		
-//		return GPS.calcularDistancia(buque.getPosicionActual(), buque.getPuertoDestino().getUbicacion()) == 0;
-//		
-//	}
 	
 	
 }

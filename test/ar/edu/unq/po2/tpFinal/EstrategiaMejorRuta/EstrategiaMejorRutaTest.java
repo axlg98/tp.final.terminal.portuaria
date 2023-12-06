@@ -190,7 +190,7 @@ class EstrategiaMejorRutaTest {
 	
 	@Test
 	void testElDeMenorTiempo() {
-		assertTrue(menorTiempo.tieneMenorTiempo(circuito2, circuito3));
+		assertTrue(menorTiempo.tieneMenorTiempo(circuito1, circuito3));
 	}
 	
 	

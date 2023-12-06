@@ -35,9 +35,9 @@ public class Circuito {
 		return tramos;
 	}
 
-	public void setTramos(List<Tramo> tramos) {
-		this.tramos = tramos;
-	}
+//	public void setTramos(List<Tramo> tramos) {
+//		this.tramos = tramos;
+//	}
 
 	public LocalDateTime getFechaYHoraDeSalida() {
 		return fechaYHoraDeSalida;
@@ -84,7 +84,7 @@ public class Circuito {
 		
 		Tramo ultimoTramo = tramos.get(ultimo);
 		
-		if (ultimoTramo.getPuertoDestino() == tramo.getPuertoOrigen()) {
+		if (ultimoTramo.getPuertoDestino().equals(tramo.getPuertoOrigen())) {
 			
 			tramos.add(tramo);
 			

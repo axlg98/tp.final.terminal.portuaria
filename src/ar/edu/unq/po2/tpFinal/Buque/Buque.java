@@ -43,7 +43,7 @@ public class Buque {
 	
 	public void avisarPuertoBuquqA1km(Puerto puerto) {
 		
-		
+		puerto.darAvisoClientesShipper();
 		
 	}
 

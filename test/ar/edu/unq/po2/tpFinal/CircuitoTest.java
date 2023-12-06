@@ -69,6 +69,7 @@ class CircuitoTest {
 		tramos.add(tramo1);
 		tramos.add(tramo2);
 		circuito = new Circuito(1, tramos, LocalDateTime.now());
+		//circuito.setTramos(tramos);
 		
 	}
 	
@@ -164,7 +165,15 @@ class CircuitoTest {
 		
 	}
 	
+	@Test
+	void cantidadDeTramos() {
+		assertEquals(circuito.getTramos().size(),2);
+	}
 	
-	
+	@Test
+	void cambiandoPueroDeOrigenDelCircuito() {
+		circuito.setPuertoOrigen(mexico);
+		assertEquals(circuito.getPuertoOrigen(),mexico);
+	}
 	
 }
