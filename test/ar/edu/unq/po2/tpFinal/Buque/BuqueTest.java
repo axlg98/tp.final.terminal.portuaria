@@ -10,19 +10,13 @@ import java.util.ArrayList;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import ar.edu.unq.po2.tpFinal.Buque.Arrived;
-import ar.edu.unq.po2.tpFinal.Buque.Buque;
-import ar.edu.unq.po2.tpFinal.Buque.GPS;
-import ar.edu.unq.po2.tpFinal.Buque.Inbound;
-import ar.edu.unq.po2.tpFinal.Buque.Outbound;
+
 import ar.edu.unq.po2.tpFinal.Circuito.Circuito;
 import ar.edu.unq.po2.tpFinal.Circuito.Viaje;
-import ar.edu.unq.po2.tpFinal.Cliente.Cliente;
 import ar.edu.unq.po2.tpFinal.Cliente.Mail;
 import ar.edu.unq.po2.tpFinal.Cliente.Shipper;
 import ar.edu.unq.po2.tpFinal.Container.Container;
 import ar.edu.unq.po2.tpFinal.TerminalPortuaria.Puerto;
-import ar.edu.unq.po2.tpFinal.Circuito.Circuito;
 import ar.edu.unq.po2.tpFinal.Circuito.Tramo;
 
 class BuqueTest {

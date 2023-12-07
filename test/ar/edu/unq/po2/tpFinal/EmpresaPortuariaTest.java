@@ -1,7 +1,6 @@
 package ar.edu.unq.po2.tpFinal;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.mock;
 
 import java.awt.geom.Point2D;
 import java.time.LocalDateTime;

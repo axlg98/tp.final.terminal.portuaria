@@ -2,16 +2,12 @@ package ar.edu.unq.po2.tpFinal.Servicio;
 
 import java.time.temporal.ChronoUnit;
 
-import ar.edu.unq.po2.tpFinal.Cliente.Cliente;
 import ar.edu.unq.po2.tpFinal.Orden.Orden;
 
 public class AlmacenamientoExcedente implements Servicio{
 	
 	private Double costoPorDia = 30d;
-	
-//	public AlmacenamientoExcedente(Double costoPorDia) {
-//		this.costoPorDia = costoPorDia;
-//	}
+
 	
 	@Override
 	public Double costoServicio(Orden orden) {

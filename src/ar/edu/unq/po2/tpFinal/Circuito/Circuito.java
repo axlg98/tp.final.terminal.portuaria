@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import ar.edu.unq.po2.tpFinal.Circuito.Tramo;
 import ar.edu.unq.po2.tpFinal.TerminalPortuaria.Puerto;
 
  
@@ -103,7 +102,6 @@ public class Circuito {
 	
 	public boolean contieneA(Puerto puertoDestino){
 		return this.tramos.stream().anyMatch(t -> t.getPuertoDestino().equals(puertoDestino));
-		//return this.tramos.stream().anyMatch(t -> t.getPuertoDestino() == puertoDestino);
 		
 	}
 

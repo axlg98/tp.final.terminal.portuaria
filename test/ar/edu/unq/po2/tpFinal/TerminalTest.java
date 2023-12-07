@@ -14,7 +14,6 @@ import org.junit.jupiter.api.Test;
 import ar.edu.unq.po2.tpFinal.Buque.Buque;
 import ar.edu.unq.po2.tpFinal.Buque.Inbound;
 import ar.edu.unq.po2.tpFinal.Circuito.Circuito;
-import ar.edu.unq.po2.tpFinal.Circuito.Viaje;
 import ar.edu.unq.po2.tpFinal.Circuito.Tramo;
 import ar.edu.unq.po2.tpFinal.Cliente.Cliente;
 import ar.edu.unq.po2.tpFinal.Cliente.Consignee;
@@ -29,14 +28,9 @@ import ar.edu.unq.po2.tpFinal.EmpresaTransportista.Chofer;
 import ar.edu.unq.po2.tpFinal.EstrategiaMejorRuta.EstrategiaMejorRuta;
 import ar.edu.unq.po2.tpFinal.Naviera.Naviera;
 import ar.edu.unq.po2.tpFinal.Orden.Orden;
-import ar.edu.unq.po2.tpFinal.Servicio.AlmacenamientoExcedente;
-import ar.edu.unq.po2.tpFinal.Servicio.Electricidad;
-import ar.edu.unq.po2.tpFinal.Servicio.Pesado;
-import ar.edu.unq.po2.tpFinal.Servicio.Servicio;
 import ar.edu.unq.po2.tpFinal.TerminalPortuaria.Puerto;
 import ar.edu.unq.po2.tpFinal.TerminalPortuaria.Terminal;
 
-import org.junit.jupiter.api.Test;
 
 class TerminalTest {
 	

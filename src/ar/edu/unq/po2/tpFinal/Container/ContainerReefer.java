@@ -12,9 +12,8 @@ public class ContainerReefer extends Container {
 	
 	//SET Y GET
 
-	//Ver si sirve en realidad.
 
-	//	public Double getConsumoPorHora() {
+//	public Double getConsumoPorHora() {
 //		return consumoPorHora;
 //	}
 	

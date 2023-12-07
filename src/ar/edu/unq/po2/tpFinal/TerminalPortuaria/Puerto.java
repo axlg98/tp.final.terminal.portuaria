@@ -6,11 +6,10 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.List;
 
-import ar.edu.unq.po2.tpFinal.Observador;
+
 import ar.edu.unq.po2.tpFinal.Buque.Buque;
 
 import ar.edu.unq.po2.tpFinal.Circuito.Circuito;
-//import ar.edu.unq.po2.tpFinal.Circuito.Viaje;
 import ar.edu.unq.po2.tpFinal.Cliente.Cliente;
 import ar.edu.unq.po2.tpFinal.Cliente.Consignee;
 import ar.edu.unq.po2.tpFinal.Cliente.Mail;
@@ -169,20 +168,7 @@ public class Puerto {
 	public void agregarContainer(Container container) {
 		containers.add(container);
 	}
-	
-	/*
-	 * DEBE PODER ENVIAR UNA CARGA DE UN PUERTO A OTRO PUERTO, SIEMPRE Y CUANDO SE PUEDA ENCONTRAR
-	   SU CIRCUITO DE ALGUNA NAVIERA QUE TENGA PUERTOS DE ORIGEN Y DESTINO.
-    */
-	//Arreglar esta parte.
-//	public void enviarCarga(EmpresaPortuaria emp, Circuito c,Container container) { // DUDA
-//		if(emp.contieneCircuito(c)  /*&& (this.mismoDestino(emp, c) && this.mismaLlegada(emp, c))*/) {
-//			this.agregarContainer(container);
-//		}
-//	}
-
-	
-	
+		
 	
 	public void darAvisoAClientesConsignee() {
 		
@@ -304,7 +290,6 @@ public class Puerto {
 
 
 	public void trabajoCargaYDescarga(Buque buque1) {
-		// TODO Auto-generated method stub
 		
 		buque1.setPuedeDescargar(true);
 		

@@ -14,7 +14,7 @@ public class Cliente {
 	 
 	public Cliente(Container carga) {
 		this.carga = carga;
-		
+		turnos = new ArrayList<Turno>();
 	}
 	
 	public void agregarTurno(Turno turno) {

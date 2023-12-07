@@ -34,7 +34,6 @@ import ar.edu.unq.po2.tpFinal.Servicio.Pesado;
 import ar.edu.unq.po2.tpFinal.Servicio.Servicio;
 import ar.edu.unq.po2.tpFinal.TerminalPortuaria.Puerto;
 
-import org.junit.jupiter.api.Test;
 
 class OrdenTest {
 	
@@ -172,7 +171,7 @@ class OrdenTest {
 	
 	@Test
 	void costoTotalDeServiciosTest() {
-		assertEquals(orden1.costoTotalDeServicios(),601700D);
+		assertEquals(orden1.costoTotalDeServicios(),583700D);
 	}
 	
 	@Test

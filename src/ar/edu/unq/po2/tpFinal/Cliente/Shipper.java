@@ -10,7 +10,6 @@ public class Shipper extends Cliente{
 	
 	public Shipper(Container carga) {
 		super(carga);
-		// TODO Auto-generated constructor stub
 	}
 	
 	

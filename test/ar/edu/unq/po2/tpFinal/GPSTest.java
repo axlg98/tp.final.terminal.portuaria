@@ -2,7 +2,6 @@ package ar.edu.unq.po2.tpFinal;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import java.awt.geom.Point2D;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

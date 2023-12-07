@@ -4,7 +4,6 @@ public class Outbound implements FaseBuque{
 
 	@Override
 	public void actualizarEstado(Buque buque) {
-		// TODO Auto-generated method stub
 		
 		if (this.distanciaMenorA50(buque)) {
 			
