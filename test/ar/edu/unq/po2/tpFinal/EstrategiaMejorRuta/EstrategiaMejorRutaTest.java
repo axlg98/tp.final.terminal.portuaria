@@ -120,7 +120,7 @@ class EstrategiaMejorRutaTest {
 		
 		
 		// Set un valor Mockito
-		when(bsas.getEmpresasNavieras()).thenReturn(navieras);
+		when(bsas.getNavieras()).thenReturn(navieras);
 		when(naviera1.getCircuitos()).thenReturn(circuitosN1);
 		when(naviera2.getCircuitos()).thenReturn(circuitosN2);
 		

@@ -26,17 +26,17 @@ public abstract class EstrategiaMejorRuta {
 	
 	public List<Naviera> empresasPortuariasDe(Puerto puerto){
 		
-		return puerto.getEmpresasNavieras();
+		return puerto.getNavieras();
 		
 	}
 	
-	public List<Circuito> todosLosCircuitosDe(List<Naviera> empresasPortuarias){
+	public List<Circuito> todosLosCircuitosDe(List<Naviera> navieras){
 		
 		List<Circuito> circuitos = new ArrayList<Circuito>();
 		
-		for (Naviera empresa : empresasPortuarias) {
+		for (Naviera naviera : navieras) {
 			
-			circuitos.addAll(empresa.getCircuitos());
+			circuitos.addAll(naviera.getCircuitos());
 			
 		}
 		

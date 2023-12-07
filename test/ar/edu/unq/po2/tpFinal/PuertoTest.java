@@ -15,6 +15,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import ar.edu.unq.po2.tpFinal.Buque.Buque;
+import ar.edu.unq.po2.tpFinal.Buque.Departing;
 import ar.edu.unq.po2.tpFinal.Buque.Inbound;
 import ar.edu.unq.po2.tpFinal.Buque.Outbound;
 import ar.edu.unq.po2.tpFinal.Circuito.Circuito;
@@ -56,6 +57,11 @@ class PuertoTest {
 	 Shipper shipper1;
 	 Shipper shipper2;
 	 
+	 //Buque Departing
+	 Buque buqueDep1;
+	 Buque buqueDep2;
+	 /////////////////
+	 
 	 
 	 Observador obsGeneral1;
 	 Observador obsGeneral2;
@@ -92,6 +98,7 @@ class PuertoTest {
 	 Buque buque1;
 	 Buque buqueC1;
 	 Buque buqueC2;
+	 
 	 
 	 
 	
@@ -164,6 +171,18 @@ class PuertoTest {
 		consignee1.setAgenteExterno(agenteExterno);
 		///////////////////////
 		
+		//Buque para Shipper con Departing
+		List<Buque> buqueDeps = new ArrayList<Buque>();
+		buqueDep1 = new Buque("Buque departing");
+		buqueDep1.setFase(new Departing());	
+		buqueDep1.setPosicionActual(new Point2D.Double(10,5));
+		
+		
+		buqueDep2 = new Buque("Buque departing 2");
+		buqueDep2.setFase(new Departing());	
+		buqueDep2.setPosicionActual(new Point2D.Double(11,5));
+		puerto1.setBuquesDeparting(buqueDeps);
+		/////////////////////////////////
 		
 		
 		
@@ -172,7 +191,7 @@ class PuertoTest {
 		empPortuaria2 = new Naviera();
 		empPortuarias.add(empPortuaria1);
 		empPortuarias.add(empPortuaria2);
-		puerto1.setEmpresasNavieras(empPortuarias);
+		puerto1.setNavieras(empPortuarias);
 		empPortuaria3 = new Naviera();
 		empPortuaria4 = new Naviera();
 		
@@ -231,8 +250,15 @@ class PuertoTest {
 		shippers.add(shipper1);
 		shippers.add(shipper2);
 		puerto1.setShippers(shippers);
+		shipper1.setMails(mails);
 		
 		
+	}
+	
+	@Test
+	void puertoConShipperTest() {
+		puerto1.darAvisoClientesShipper();
+		assertEquals(shipper1.getMails().size(),0);
 	}
 	
 	@Test
@@ -256,7 +282,7 @@ class PuertoTest {
 	void cantidadDeNavierasAgregadasTest() {
 		puerto1.agregarNaviera(empPortuaria3);
 		puerto1.agregarNaviera(empPortuaria4);
-		assertEquals(puerto1.getEmpresasNavieras().size(),4);
+		assertEquals(puerto1.getNavieras().size(),4);
 	}
 	
 	@Test
@@ -310,7 +336,7 @@ class PuertoTest {
 	
 	@Test
 	void cantidadDeEmpresasPortuariasDelPuertoTest() {
-		assertEquals(puerto1.getEmpresasNavieras().size(),2);
+		assertEquals(puerto1.getNavieras().size(),2);
 	}
 	
 	@Test

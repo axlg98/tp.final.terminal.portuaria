@@ -169,7 +169,7 @@ class TerminalTest {
 		empPortuaria2 = new Naviera();
 		empPortuarias.add(empPortuaria1);
 		empPortuarias.add(empPortuaria2);
-		puerto1.setEmpresasNavieras(empPortuarias);
+		puerto1.setNavieras(empPortuarias);
 		empPortuaria3 = new Naviera();
 		empPortuaria4 = new Naviera();
 		
@@ -203,7 +203,7 @@ class TerminalTest {
 		orden1.setChoferaAsignado(chofer1);
 		orden1.setCamionAsignado(camion1);
 		
-		turno2 = new Turno(orden1, LocalDateTime.of(2023, 11, 30, 5, 20));
+		turno2 = new Turno(orden1, LocalDateTime.of(2023, 12, 7, 00, 20));
 		
 		orden1.setTurno(turno2);
 
@@ -225,7 +225,7 @@ class TerminalTest {
 		puertos.add(puerto1);
 		terminal1.setPuertos(puertos);	
 		
-		turno = new Turno(orden2,LocalDateTime.of(2023, 11, 30, 5, 20));
+		turno = new Turno(orden2,LocalDateTime.of(2023, 11, 30, 1, 20));
 		
 			}
 
@@ -242,7 +242,6 @@ class TerminalTest {
 		assertEquals(terminal1.getPuertos().size(),2);
 	}
 	
-	//Esta un poco raro el resultado y no sé si es así exactamente, esto esta en Naviera.
 	@Test
 	void cantidadDeLoQueTardaUnaNavieraDeUnaTerminalAOtraTest() {
 		empPortuaria1.agregarCircuito(circuito);

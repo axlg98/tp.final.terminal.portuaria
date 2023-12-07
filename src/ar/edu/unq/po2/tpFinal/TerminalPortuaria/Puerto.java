@@ -40,7 +40,7 @@ public class Puerto {
 	
 	private Point2D ubicacion = new Point2D.Double(0, 0);
 	
-	private List<Naviera> empresasNavieras;
+	private List<Naviera> navieras;
 	
 	private EstrategiaMejorRuta mejorRuta;
 	
@@ -55,7 +55,7 @@ public class Puerto {
 	public Puerto(String nombre) {
 		super();
 		this.nombre = nombre;
-		this.empresasNavieras = new ArrayList<Naviera>();
+		this.navieras = new ArrayList<Naviera>();
 		this.choferesHabilitados = new ArrayList<Chofer>();
 		this.containers = new ArrayList<Container>();
 		this.buquesInbound = new ArrayList<Buque>();
@@ -112,11 +112,11 @@ public class Puerto {
 	}
 	
 
-	public List<Naviera> getEmpresasNavieras() {
-		return empresasNavieras;
+	public List<Naviera> getNavieras() {
+		return navieras;
 	}
-	public void setEmpresasNavieras(List<Naviera> empresasNavieras) {
-		this.empresasNavieras = empresasNavieras;
+	public void setNavieras(List<Naviera> navieras) {
+		this.navieras = navieras;
 	}
 	public Point2D getUbicacion() {
 		return ubicacion;
@@ -147,9 +147,9 @@ public class Puerto {
 		
 	}
 	
-	public void agregarNaviera(Naviera empresaPortuaria) {
+	public void agregarNaviera(Naviera naviera) {
 		
-		this.getEmpresasNavieras().add(empresaPortuaria);
+		this.getNavieras().add(naviera);
 		
 	}
 
